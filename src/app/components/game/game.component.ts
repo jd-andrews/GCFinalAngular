@@ -8,7 +8,7 @@ import { Routes, RouterModule, Router } from "@angular/router";
   styleUrls: ["./game.component.css"]
 })
 export class GameComponent implements OnInit {
-  randQuestions: any[];
+  randQuestions: any[] = [];
   questionCounter: number = 0;
   availableQuestions: any[] = [];
   doneQuestions: any[] = [];
@@ -25,7 +25,7 @@ export class GameComponent implements OnInit {
   }
   getAllIDs(): void {
     this.questionService.getAllQuestions().subscribe(questions => {
-      for (let i = 0; i <= questions.length; i++) {
+      for (let i = 0; i < questions.length; i++) {
         this.availableQuestions.push(questions[i].id);
       }
     });
@@ -35,7 +35,7 @@ export class GameComponent implements OnInit {
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
     /// Uses scenario number to upvote either scenario based on choice
-    // this.questionService.ratingPlusOne(this.qIndex, scenarioNumber).subscribe();
+    this.questionService.ratingPlusOne(this.qIndex, scenarioNumber).subscribe();
     /// if/else statement that decides whether to navigate away when
     /// the number of questions meets the max allowed, or change questions and
     /// log that to an array, or to populate the questions in an array if none

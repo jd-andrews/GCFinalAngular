@@ -6,19 +6,19 @@
 
 <main>
   <app-questions></app-questions>
-  <section>
-    <div class="q" (click)="nextQuestion()">
+  <section *ngIf="randQuestions.length">
+    <div class="q" (click)="nextQuestion(1)">
       {{ randQuestions[questionCounter].scenario }}
     </div>
 
     <p>OR</p>
 
-    <div class="q" (click)="nextQuestion()">
+    <div class="q" (click)="nextQuestion(2)">
       {{ randQuestions[questionCounter].scenario2 }}
     </div>
   </section>
   <div class="progress">
-    <p>Round {{ questionCounter }} of 6</p>
+    <p>Round {{ questionCounter + 1 }} of 6</p>
   </div>
 
   <a class="home" routerLink="/home">I want to quit this game...</a>

@@ -11,14 +11,17 @@ export class QuestionService {
   getAllQuestions(): Observable<any> {
     return this.http.get(`http://localhost:3003/questions/`);
   }
-  // ratingPlusOne(id, scenario): Observable<any> {
-  //   return this.http.put(`http://localhost:3003/rating${scenario}/${id}`);
-  //   // if (scenario === 1) {
-  //   //   return this.http.put(`http://localhost:3002/rating1/${id}`);
-  //   // } else {
-  //   //   return this.http.put(`http://localhost:3002/rating2/${id}`);
-  //   // }
-  // }
+  ratingPlusOne(id, scenario): Observable<void> {
+    return this.http.put<void>(
+      `http://localhost:3003/rating${scenario}/${id}`,
+      ""
+    );
+    // if (scenario === 1) {
+    //   return this.http.put(`http://localhost:3002/rating1/${id}`);
+    // } else {
+    //   return this.http.put(`http://localhost:3002/rating2/${id}`);
+    // }
+  }
   // getRandomQuestions(): Observable<any>[] {
   //   let twoQuestions: any[];
   //   for (let i = 0; i < 2; i++) {
