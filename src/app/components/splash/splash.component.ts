@@ -9,8 +9,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./splash.component.css"]
 })
 export class SplashComponent implements OnInit {
-  divNums: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  divNums: number[] = [1, 2, 3];
   show: boolean = false;
+  confirmChoice: boolean = false;
 
   constructor() {}
 
@@ -20,6 +21,11 @@ export class SplashComponent implements OnInit {
 
   selectPlayer(indexNum) {
     console.log(indexNum);
+    this.confirmChoice = true;
+  }
+
+  deselectPlayer() {
+    this.confirmChoice = false;
   }
 
   ngOnInit() {}

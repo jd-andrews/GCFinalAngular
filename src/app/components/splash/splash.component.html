@@ -22,6 +22,11 @@
     >
       <app-questions></app-questions>
     </div>
+    <div class="confirmation" *ngIf="confirmChoice">
+      <p (click)="deselectPlayer()">x Cancel</p>
+      <p>You want to play the game as</p>
+      <button routerLink="/game">Start Game</button>
+    </div>
   </div>
   <a routerLink="/game">Start Game</a>
 </section>
