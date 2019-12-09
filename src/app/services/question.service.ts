@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 })
 export class QuestionService {
   constructor(private http: HttpClient) {}
-
+  currentScore: any;
   getAllQuestions(): Observable<any> {
     return this.http.get(`http://localhost:3003/questions/`);
   }
@@ -21,6 +21,19 @@ export class QuestionService {
     // } else {
     //   return this.http.put(`http://localhost:3002/rating2/${id}`);
     // }
+  }
+  getRating(num, id): Observable<any> {
+    return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
+  }
+
+  setCurrentScore(num, id): void {
+    let addNum = this.getRating(num, id);
+    console.log(addNum);
+    this.currentScore += addNum;
+    console.log(this.currentScore);
+  }
+  getCurrentScore(): number {
+    return this.currentScore;
   }
   // getRandomQuestions(): Observable<any>[] {
   //   let twoQuestions: any[];

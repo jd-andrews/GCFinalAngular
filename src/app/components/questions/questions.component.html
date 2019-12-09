@@ -3,8 +3,7 @@
 </div> -->
 
 <section class="player">
-  <div *ngFor="let person of faces">
-    <!-- <p>{{ person.name.last }}</p> -->
+  <div class="headshot" *ngFor="let person of faces">
     <img src="{{ person.picture.large }}" />
     <span>
       <p *ngFor="let advice of advices">"{{ advice?.slip?.advice }}"</p>
