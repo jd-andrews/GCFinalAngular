@@ -28,5 +28,7 @@ export class SplashComponent implements OnInit {
     this.confirmChoice = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.showPlayers();
+  }
 }
