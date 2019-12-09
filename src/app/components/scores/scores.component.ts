@@ -12,7 +12,16 @@ export class ScoresComponent implements OnInit {
   constructor(private questionService: QuestionService) {}
 
   getScore() {
-    this.yourScore = this.questionService.getCurrentScore();
+    this.yourScore = this.toSum(this.questionService.getCurrentScore());
+    console.log(this.yourScore);
+  }
+
+  toSum(numArr: any[]): number {
+    let sum = 0;
+    for (let i = 0; i < numArr.length; i++) {
+      sum += numArr[i];
+    }
+    return sum;
   }
   ngOnInit() {
     this.getScore();

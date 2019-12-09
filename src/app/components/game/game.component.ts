@@ -13,6 +13,7 @@ export class GameComponent implements OnInit {
   availableQuestions: any[] = [];
   doneQuestions: any[] = [];
   qIndex: number = 0;
+
   constructor(
     private questionService: QuestionService,
     private router: Router
@@ -32,12 +33,13 @@ export class GameComponent implements OnInit {
   }
 
   nextQuestion(scenarioNumber: number): void {
+    let questionID: number = this.randQuestions[this.qIndex].id;
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
     /// Uses scenario number to upvote either scenario based on choice
-    this.questionService.ratingPlusOne(this.qIndex, scenarioNumber).subscribe();
+    this.questionService.ratingPlusOne(questionID, scenarioNumber).subscribe();
     //// setting current score
-    this.questionService.setCurrentScore(scenarioNumber, this.qIndex);
+    this.questionService.setCurrentScore(questionID, scenarioNumber);
     /// if/else statement that decides whether to navigate away when
     /// the number of questions meets the max allowed, or change questions and
     /// log that to an array, or to populate the questions in an array if none
@@ -53,6 +55,7 @@ export class GameComponent implements OnInit {
       this.questionCounter++;
       this.qIndex = newNum[0] - 1;
       this.doneQuestions.push(newNum[0]);
+      console.log("qindex", this.qIndex);
     } else if (this.availableQuestions.length === 0) {
       this.getAllIDs();
     }

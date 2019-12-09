@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 })
 export class QuestionService {
   constructor(private http: HttpClient) {}
-  currentScore: any;
+  currentScoreArr: any[] = [];
   getAllQuestions(): Observable<any> {
     return this.http.get(`http://localhost:3003/questions/`);
   }
@@ -22,18 +22,25 @@ export class QuestionService {
     //   return this.http.put(`http://localhost:3002/rating2/${id}`);
     // }
   }
-  getRating(num, id): Observable<any> {
+  getRating(id, num): Observable<any> {
+    console.log("sevice ID", id);
+    console.log("service num", num);
     return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
   }
 
-  setCurrentScore(num, id): void {
-    let addNum = this.getRating(num, id);
-    console.log(addNum);
-    this.currentScore += addNum;
-    console.log(this.currentScore);
+  setCurrentScore(id, num): void {
+    this.getRating(id, num).subscribe(data => {
+      let addNum = Number(data);
+      this.currentScoreArr.push(addNum);
+
+      // return (addNum = data);
+      console.log("data", data);
+      console.log("addNum", addNum);
+      console.log("current score", this.currentScoreArr);
+    });
   }
-  getCurrentScore(): number {
-    return this.currentScore;
+  getCurrentScore(): any[] {
+    return this.currentScoreArr;
   }
   // getRandomQuestions(): Observable<any>[] {
   //   let twoQuestions: any[];
