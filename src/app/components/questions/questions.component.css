@@ -1,0 +1,19 @@
+.player {
+  display: flex;
+  justify-content: center;
+}
+div {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+img {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+p {
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}

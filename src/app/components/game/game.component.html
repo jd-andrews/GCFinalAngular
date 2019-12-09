@@ -1,0 +1,25 @@
+<div class="warning">
+  <p>TURN</p>
+  <p>YOUR</p>
+  <p>PHONE!</p>
+</div>
+
+<main>
+  <app-questions></app-questions>
+  <section>
+    <div class="q" (click)="nextQuestion()">
+      {{ randQuestions[questionCounter].scenario }}
+    </div>
+
+    <p>OR</p>
+
+    <div class="q" (click)="nextQuestion()">
+      {{ randQuestions[questionCounter].scenario2 }}
+    </div>
+  </section>
+  <div class="progress">
+    <p>Round {{ questionCounter }} of 6</p>
+  </div>
+
+  <a class="home" routerLink="/home">I want to quit this game...</a>
+</main>

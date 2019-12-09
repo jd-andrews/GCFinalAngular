@@ -1,0 +1,14 @@
+<!-- <div *ngFor="let question of questions">
+  <p>{{ question.scenario }}</p>
+</div> -->
+
+<section class="player">
+  <div *ngFor="let person of faces">
+    <!-- <p>{{ person.name.last }}</p> -->
+    <img src="{{ person.picture.large }}" />
+    <span>
+      <p *ngFor="let advice of advices">"{{ advice?.slip?.advice }}"</p>
+      <p>- {{ person.name.first }}</p>
+    </span>
+  </div>
+</section>
