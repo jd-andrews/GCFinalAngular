@@ -36,6 +36,8 @@ export class GameComponent implements OnInit {
     ///////// one from one and adds to the other
     /// Uses scenario number to upvote either scenario based on choice
     this.questionService.ratingPlusOne(this.qIndex, scenarioNumber).subscribe();
+    //// setting current score
+    this.questionService.setCurrentScore(scenarioNumber, this.qIndex);
     /// if/else statement that decides whether to navigate away when
     /// the number of questions meets the max allowed, or change questions and
     /// log that to an array, or to populate the questions in an array if none
@@ -44,7 +46,6 @@ export class GameComponent implements OnInit {
       this.router.navigate(["/scores"]);
       this.doneQuestions = [];
     } else if (this.availableQuestions.length) {
-      console.log(this.availableQuestions);
       let newNum = this.availableQuestions.splice(
         Math.floor(Math.random() * this.availableQuestions.length),
         1
@@ -52,14 +53,10 @@ export class GameComponent implements OnInit {
       this.questionCounter++;
       this.qIndex = newNum[0] - 1;
       this.doneQuestions.push(newNum[0]);
-
-      console.log(this.availableQuestions);
     } else if (this.availableQuestions.length === 0) {
-      console.log(this.questionCounter);
       this.getAllIDs();
     }
-    console.log(this.questionCounter);
-    console.log(this.doneQuestions);
+
     /////First iteration of randomization with countCheck Array
     // let newNum = Math.floor(Math.random() * 5);
     // if (this.countCheck.find(number => number === newNum) === undefined) {
