@@ -10,10 +10,13 @@
 </div>
 -->
 
-<button (click)="showPlayers()">Choose Player</button>
-<a routerLink="/scores">Scores</a>
+<span *ngIf="!show">
+  <button (click)="showPlayers()">Choose Player</button>
+  <a routerLink="/scores">Scores</a>
+</span>
 
 <section class="choosePlayer" *ngIf="show">
+  <p>Whose life do you want to live...?</p>
   <div class="playersContainer">
     <div
       *ngFor="let num of divNums; index as i"
@@ -22,11 +25,12 @@
     >
       <app-questions></app-questions>
     </div>
-    <div class="confirmation" *ngIf="confirmChoice">
-      <p (click)="deselectPlayer()">x Cancel</p>
-      <p>You want to play the game as</p>
-      <button routerLink="/game">Start Game</button>
-    </div>
   </div>
-  <a routerLink="/game">Start Game</a>
+  <div class="confirmation" *ngIf="confirmChoice">
+    <p>You want to play the game as:</p>
+    <p>[PLAYER NAME HERE]</p>
+    <button class="start" routerLink="/game">Start Game</button>
+    <p class="cancel" (click)="deselectPlayer()">x Cancel</p>
+  </div>
 </section>
+<button routerLink="/game">Start Game</button>

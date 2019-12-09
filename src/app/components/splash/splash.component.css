@@ -1,19 +1,50 @@
 .choosePlayer {
   display: flex;
   flex-direction: column;
-  width: 75%;
-  border: 1px solid red;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
   margin: 0 auto;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
 .playersContainer {
   display: flex;
-  flex-flow: wrap;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 .player {
-  border: 1px solid black;
   margin: 6px;
 }
+
+.confirmation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: lightgoldenrodyellow;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.start {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.cancel {
+  right: 0px;
+  color: red;
+}
+
 /* 
 .text {
   opacity: 0;
