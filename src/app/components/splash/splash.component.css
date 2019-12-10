@@ -20,10 +20,9 @@ h1 {
 .confirmation {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 110%;
-  width: 110%;
-  /* opacity: 0.9; */
+  justify-content: space-around;
+  height: 216px;
+  width: 316px;
   z-index: 2;
   border-radius: 5px;
   position: absolute;
@@ -35,15 +34,26 @@ h1 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+span {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
 .confirmation p {
   text-align: center;
 }
 .fa-arrow-up {
-  text-align: center;
   font-weight: bold;
 }
 
-.start {
+.startConfirm {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   padding: 6px;
   border: 1px solid black;
@@ -51,8 +61,4 @@ h1 {
   background-color: white;
   width: 50%;
   align-self: center;
-}
-.cancel {
-  right: 0px;
-  color: red;
 }

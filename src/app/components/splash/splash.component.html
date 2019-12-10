@@ -1,17 +1,19 @@
-<a routerLink="/scores">Scores</a>
-
 <main class="choosePlayer" *ngIf="show">
-  <h1>Whose life do you want to live...?</h1>
+  <h1>Choose a Player</h1>
 
   <section *ngFor="let num of divNums; index as i" class="player">
     <app-questions (click)="confirmPlayer(i)"></app-questions>
     <div class="confirmation" *ngIf="index === i">
-      <i class="fas fa-arrow-up"></i>
-
-      <p>You want to play the game as that person.</p>
-      <button class="start" routerLink="/game">Start Game</button>
-      <p class="cancel" (click)="deselectPlayer(i)">x Cancel</p>
+      <span
+        ><i class="fas fa-arrow-up"></i>
+        <p>Do you want to be in that person's head?</p></span
+      >
+      <button class="startConfirm" routerLink="/game">Yes</button>
+      <button class="startConfirm" (click)="deselectPlayer(i)">
+        Hmm, maybe not...
+      </button>
     </div>
   </section>
 </main>
 <button routerLink="/game">Start Game</button>
+<a routerLink="/scores">Rankings</a>

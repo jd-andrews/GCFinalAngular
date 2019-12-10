@@ -1,3 +1,35 @@
-<p>scores works!</p>
-<p>Your score {{ yourScore }}</p>
-<a routerLink="/home" (click)="resetScoreArr()">Home</a>
+<main>
+  <h1>Your score: {{ yourScore }}</h1>
+
+  <div class="rankings">
+    <h2>Player Rankings</h2>
+    <table>
+      <tr>
+        <th>Player</th>
+        <th></th>
+        <th>Score</th>
+      </tr>
+      <!-- <tr *ngFor="let player of players">
+      <td>(interpolate: img src url)</td>
+      <td>(interpolate: player name)</td>
+      <td>(interpolate: player score)</td>
+    </tr> -->
+      <tr>
+        <td class="pic"></td>
+        <td class="name">Bill</td>
+        <td class="score">100</td>
+      </tr>
+      <tr>
+        <td class="pic"></td>
+        <td>Phil</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td class="pic"></td>
+        <td>Jill</td>
+        <td>300</td>
+      </tr>
+    </table>
+  </div>
+  <a routerLink="/home" (click)="resetScoreArr()">Home</a>
+</main>
