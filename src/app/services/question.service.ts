@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Player } from "../interfaces/player";
 
 @Injectable({
   providedIn: "root"
@@ -46,6 +47,12 @@ export class QuestionService {
   getCurrentScore(): any[] {
     return this.currentScoreArr;
   }
+
+  //// Gets high scores
+  getHighScores(): Observable<any> {
+    return this.http.get("http://localhost:3003/players");
+  }
+
   // getRandomQuestions(): Observable<any>[] {
   //   let twoQuestions: any[];
   //   for (let i = 0; i < 2; i++) {

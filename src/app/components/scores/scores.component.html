@@ -14,25 +14,10 @@
         <th></th>
         <th>Score</th>
       </tr>
-      <!-- <tr *ngFor="let player of players">
-      <td>(interpolate: img src url)</td>
-      <td>(interpolate: player name)</td>
-      <td>(interpolate: player score)</td>
-    </tr> -->
-      <tr>
-        <td class="pic"></td>
-        <td class="name">Bill</td>
-        <td class="score">100</td>
-      </tr>
-      <tr>
-        <td class="pic"></td>
-        <td>Phil</td>
-        <td>200</td>
-      </tr>
-      <tr>
-        <td class="pic"></td>
-        <td>Jill</td>
-        <td>300</td>
+      <tr *ngFor="let player of highScores; index as i">
+        <td *ngIf="i < 5"><img src="{{ player?.playerimage }}" /></td>
+        <td *ngIf="i < 5">{{ player?.playername }}</td>
+        <td *ngIf="i < 5">{{ player?.playerscore }}</td>
       </tr>
     </table>
   </div>

@@ -11,6 +11,7 @@ import { Player } from "src/app/interfaces/player";
 export class ScoresComponent implements OnInit {
   yourScore: number;
   yourPlayer: Player;
+  highScores: any[] = [];
 
   constructor(
     private questionService: QuestionService,
@@ -39,8 +40,18 @@ export class ScoresComponent implements OnInit {
     }
     return sum;
   }
+
+  getHighScores() {
+    this.faceService.addPlayer().subscribe();
+    this.questionService.getHighScores().subscribe(scores => {
+      this.highScores = scores;
+      console.log(this.highScores);
+    });
+  }
   ngOnInit() {
     this.getScore();
     this.setPlayer();
+    this.faceService.addPlayer().subscribe();
+    this.getHighScores();
   }
 }

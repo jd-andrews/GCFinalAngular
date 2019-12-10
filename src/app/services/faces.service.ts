@@ -29,6 +29,11 @@ export class FacesService {
   getUser(): Observable<any> {
     return this.http.get("https://randomuser.me/api/");
   }
+
+  //// adds current Player to the database
+  addPlayer(): Observable<any> {
+    return this.http.post("http://localhost:3003/add-player", this.newPlayer);
+  }
   // getAllFaces(): Observable<any> {
   //   return this.http.get();
   // }
