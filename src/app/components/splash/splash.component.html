@@ -1,22 +1,17 @@
 <a routerLink="/scores">Scores</a>
 
-<section class="choosePlayer" *ngIf="show">
-  <p>Whose life do you want to live...?</p>
-  <!-- Want to stay away from the "choose your own adventure" theme -->
-  <div class="playersContainer">
-    <div
-      *ngFor="let num of divNums; index as i"
-      class="player"
-      (click)="selectPlayer(i)"
-    >
-      <app-questions></app-questions>
+<main class="choosePlayer" *ngIf="show">
+  <h1>Whose life do you want to live...?</h1>
+
+  <section *ngFor="let num of divNums; index as i" class="player">
+    <app-questions (click)="confirmPlayer(i)"></app-questions>
+    <div class="confirmation" *ngIf="index === i">
+      <i class="fas fa-arrow-up"></i>
+
+      <p>You want to play the game as that person.</p>
+      <button class="start" routerLink="/game">Start Game</button>
+      <p class="cancel" (click)="deselectPlayer(i)">x Cancel</p>
     </div>
-  </div>
-  <div class="confirmation" *ngIf="confirmChoice">
-    <p>You want to play the game as:</p>
-    <p>[PLAYER NAME HERE]</p>
-    <button class="start" routerLink="/game">Start Game</button>
-    <p class="cancel" (click)="deselectPlayer()">x Cancel</p>
-  </div>
-</section>
+  </section>
+</main>
 <button routerLink="/game">Start Game</button>
