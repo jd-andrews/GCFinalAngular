@@ -1,17 +1,40 @@
-<a routerLink="/scores">Scores</a>
-
 <main class="choosePlayer" *ngIf="show">
-  <h1>Whose life do you want to live...?</h1>
+  <h1>Choose a Player</h1>
 
-  <section *ngFor="let num of divNums; index as i" class="player">
-    <app-questions (click)="confirmPlayer(i)"></app-questions>
-    <div class="confirmation" *ngIf="index === i">
-      <i class="fas fa-arrow-up"></i>
-
-      <p>You want to play the game as that person.</p>
-      <button class="start" routerLink="/game">Start Game</button>
-      <p class="cancel" (click)="deselectPlayer(i)">x Cancel</p>
+  <!-- <section *ngFor="let num of divNums; index as i" class="player"> -->
+  <!-- <app-questions (click)="confirmPlayer(i)"></app-questions> -->
+  <section class="player" *ngFor="let person of faces; index as i">
+    <div class="headshot">
+      <img src="{{ person[0].picture.large }}" (click)="confirmPlayer(i)" />
+      <span>
+        <p>"{{ advices[i]?.slip?.advice }}"</p>
+        <p>- {{ person[0].name.first }}</p>
+      </span>
+      <button (click)="confirmPlayer(i)">Choose Player</button>
+      <div class="confirmation" *ngIf="index === i && i < 2">
+        <span
+          ><i class="fas fa-arrow-up"></i>
+          <p>Do you want to be in that person's head?{{ index }}</p></span
+        >
+        <button class="startConfirm" routerLink="/game">Yes</button>
+        <button class="startConfirm" (click)="deselectPlayer()">
+          Hmm, maybe not...
+        </button>
+      </div>
+      <div class="confirmation last" *ngIf="index === i && 1 < index">
+        <span
+          ><i class="fas fa-arrow-down"></i>
+          <p>Do you want to be in that person's head?{{ index }}</p></span
+        >
+        <button class="startConfirm" routerLink="/game">Yes</button>
+        <button class="startConfirm" (click)="deselectPlayer(i)">
+          Hmm, maybe not...
+        </button>
+      </div>
     </div>
   </section>
+
+  <!-- </section> -->
 </main>
 <button routerLink="/game">Start Game</button>
+<a routerLink="/scores">Rankings</a>

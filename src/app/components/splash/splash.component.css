@@ -5,6 +5,7 @@
   justify-content: center;
   width: 80%;
   margin: 0 auto;
+  padding-top: 16px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 h1 {
@@ -16,14 +17,18 @@ h1 {
 .player {
   margin: 6px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .confirmation {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 110%;
-  width: 110%;
-  /* opacity: 0.9; */
+  justify-content: space-around;
+  height: 216px;
+  width: 316px;
   z-index: 2;
   border-radius: 5px;
   position: absolute;
@@ -35,15 +40,47 @@ h1 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+.last {
+  top: -120%;
+}
+
+.headshot {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img {
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+}
+
+span {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* .buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
 .confirmation p {
   text-align: center;
 }
 .fa-arrow-up {
-  text-align: center;
   font-weight: bold;
 }
 
-.start {
+.startConfirm {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   padding: 6px;
   border: 1px solid black;
@@ -51,8 +88,4 @@ h1 {
   background-color: white;
   width: 50%;
   align-self: center;
-}
-.cancel {
-  right: 0px;
-  color: red;
 }

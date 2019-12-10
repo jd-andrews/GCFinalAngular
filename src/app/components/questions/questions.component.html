@@ -1,8 +1,10 @@
 <section class="player">
-  <div class="headshot" *ngFor="let person of faces">
+  <div class="headshot" *ngFor="let person of faces; index as i">
     <img src="{{ person.picture.large }}" />
     <span>
-      <p *ngFor="let advice of advices">"{{ advice?.slip?.advice }}"</p>
+      <p *ngFor="let advice of advices; index as i">
+        "{{ advice?.slip?.advice }}"
+      </p>
       <p>- {{ person.name.first }}</p>
     </span>
   </div>
