@@ -7,7 +7,7 @@
     <app-questions (click)="confirmPlayer(i)"></app-questions>
     <div class="confirmation" *ngIf="index === i">
       <p>You want to play the game as:</p>
-      <!-- <p>{{ person.name.first }}}</p> -->
+      <p>{{ person.name.first }}}</p>
       <button class="start" routerLink="/game">Start Game</button>
       <p class="cancel" (click)="deselectPlayer(i)">x Cancel</p>
     </div>
