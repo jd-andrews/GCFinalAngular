@@ -53,6 +53,11 @@ export class QuestionService {
     return this.http.get("http://localhost:3003/players");
   }
 
+  //// Gets average of scores
+  getScoreAvg(): Observable<any> {
+    return this.http.get("http://localhost:3003/avg-score");
+  }
+
   // getRandomQuestions(): Observable<any>[] {
   //   let twoQuestions: any[];
   //   for (let i = 0; i < 2; i++) {

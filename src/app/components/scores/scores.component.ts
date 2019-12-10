@@ -12,6 +12,7 @@ export class ScoresComponent implements OnInit {
   yourScore: number;
   yourPlayer: Player;
   highScores: any[] = [];
+  averageScore: number;
 
   constructor(
     private questionService: QuestionService,
@@ -42,7 +43,10 @@ export class ScoresComponent implements OnInit {
   }
 
   getHighScores() {
-    this.faceService.addPlayer().subscribe();
+    // this.faceService.addPlayer().subscribe();
+    this.questionService.getScoreAvg().subscribe(average => {
+      this.averageScore = parseInt(average[0].avg);
+    });
     this.questionService.getHighScores().subscribe(scores => {
       this.highScores = scores;
       console.log(this.highScores);
