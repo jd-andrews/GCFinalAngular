@@ -8,7 +8,9 @@
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 h1 {
+  font-size: 20px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .player {
@@ -21,16 +23,26 @@ h1 {
   justify-content: space-between;
   height: 110%;
   width: 110%;
-  opacity: 0.9;
+  /* opacity: 0.9; */
+  z-index: 2;
   border-radius: 5px;
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   padding: 10px;
   background-color: lightgoldenrodyellow;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
+.confirmation p {
+  text-align: center;
+}
+.fa-arrow-up {
+  text-align: center;
+  font-weight: bold;
+}
+
 .start {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   padding: 6px;
