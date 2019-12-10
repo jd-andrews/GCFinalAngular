@@ -39,11 +39,6 @@ export class QuestionService {
     this.getRating(id, num).subscribe(data => {
       let addNum = Number(data);
       this.currentScoreArr.push(addNum);
-
-      // return (addNum = data);
-      console.log("data", data);
-      console.log("addNum", addNum);
-      console.log("current score", this.currentScoreArr);
     });
   }
 

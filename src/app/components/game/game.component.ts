@@ -13,7 +13,7 @@ export class GameComponent implements OnInit {
   questionCounter: number = 0;
   availableQuestions: any[] = [];
   doneQuestions: any[] = [];
-  qIndex: number = 0;
+  qIndex: number;
 
   constructor(
     private questionService: QuestionService,
@@ -33,6 +33,13 @@ export class GameComponent implements OnInit {
       for (let i = 0; i < questions.length; i++) {
         this.availableQuestions.push(questions[i].id);
       }
+      let newNum = this.availableQuestions.splice(
+        Math.floor(Math.random() * this.availableQuestions.length),
+        1
+      );
+      this.qIndex = newNum[0] - 1;
+      this.doneQuestions.push(newNum[0]);
+      console.log("qindex", this.qIndex);
     });
   }
 
@@ -48,7 +55,7 @@ export class GameComponent implements OnInit {
     /// the number of questions meets the max allowed, or change questions and
     /// log that to an array, or to populate the questions in an array if none
     /// exist
-    if (this.doneQuestions.length === 5) {
+    if (this.doneQuestions.length === 6) {
       this.router.navigate(["/scores"]);
       this.doneQuestions = [];
     } else if (this.availableQuestions.length) {
@@ -59,7 +66,6 @@ export class GameComponent implements OnInit {
       this.questionCounter++;
       this.qIndex = newNum[0] - 1;
       this.doneQuestions.push(newNum[0]);
-      console.log("qindex", this.qIndex);
     } else if (this.availableQuestions.length === 0) {
       this.getAllIDs();
     }

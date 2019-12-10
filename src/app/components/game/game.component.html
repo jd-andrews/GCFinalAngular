@@ -8,13 +8,13 @@
   <app-questions></app-questions>
   <section *ngIf="randQuestions.length">
     <div class="q" (click)="nextQuestion(1)">
-      {{ randQuestions[qIndex].scenario }}
+      {{ randQuestions[qIndex]?.scenario }}
     </div>
 
     <p>OR</p>
 
     <div class="q" (click)="nextQuestion(2)">
-      {{ randQuestions[qIndex].scenario2 }}
+      {{ randQuestions[qIndex]?.scenario2 }}
     </div>
   </section>
   <div class="progress">
