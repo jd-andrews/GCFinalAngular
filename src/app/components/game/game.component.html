@@ -5,7 +5,13 @@
 </div>
 
 <main>
-  <app-questions></app-questions>
+  <!-- <app-questions></app-questions> -->
+  <section>
+    <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
+    <span>
+      <p>- {{ yourPlayer?.playerName }}</p>
+    </span>
+  </section>
   <section *ngIf="randQuestions.length">
     <div class="q" (click)="nextQuestion(1)">
       {{ randQuestions[qIndex]?.scenario }}

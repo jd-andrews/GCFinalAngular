@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { QuestionService } from "src/app/services/question.service";
 import { Routes, RouterModule, Router } from "@angular/router";
+import { FacesService } from "src/app/services/faces.service";
+import { Player } from "src/app/interfaces/player";
 
 @Component({
   selector: "app-game",
@@ -14,12 +16,18 @@ export class GameComponent implements OnInit {
   availableQuestions: any[] = [];
   doneQuestions: any[] = [];
   qIndex: number;
+  yourPlayer: Player;
 
   constructor(
     private questionService: QuestionService,
+    private faceService: FacesService,
     private router: Router
   ) {}
 
+  setPlayer() {
+    this.yourPlayer = this.faceService.getNewPlayer();
+    console.log(this.yourPlayer);
+  }
   //// Method that sets the randQuestions on load
   getAllQuestions(): void {
     this.questionService.getAllQuestions().subscribe(questions => {
@@ -81,6 +89,7 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setPlayer();
     this.getAllQuestions();
     this.getAllIDs();
   }

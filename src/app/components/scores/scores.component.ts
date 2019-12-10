@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { QuestionService } from "src/app/services/question.service";
+import { FacesService } from "src/app/services/faces.service";
+import { Player } from "src/app/interfaces/player";
 
 @Component({
   selector: "app-scores",
@@ -8,9 +10,19 @@ import { QuestionService } from "src/app/services/question.service";
 })
 export class ScoresComponent implements OnInit {
   yourScore: number;
+  yourPlayer: Player;
 
-  constructor(private questionService: QuestionService) {}
+  constructor(
+    private questionService: QuestionService,
+    private faceService: FacesService
+  ) {}
 
+  setPlayer() {
+    this.yourPlayer = this.faceService.getNewPlayer();
+    console.log(this.yourPlayer);
+    this.yourPlayer.playerScore = this.yourScore;
+    console.log("players", this.yourPlayer.playerScore);
+  }
   getScore() {
     this.yourScore = this.toSum(this.questionService.getCurrentScore());
     console.log(this.yourScore);
@@ -29,5 +41,6 @@ export class ScoresComponent implements OnInit {
   }
   ngOnInit() {
     this.getScore();
+    this.setPlayer();
   }
 }

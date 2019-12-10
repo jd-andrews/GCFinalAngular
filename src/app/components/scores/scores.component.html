@@ -1,6 +1,11 @@
 <main>
   <h1>Your score: {{ yourScore }}</h1>
-
+  <section>
+    <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
+    <span>
+      <p>- {{ yourPlayer?.playerName }}</p>
+    </span>
+  </section>
   <div class="rankings">
     <h2>Player Rankings</h2>
     <table>

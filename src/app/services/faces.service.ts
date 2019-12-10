@@ -18,6 +18,12 @@ export class FacesService {
   setNewPlayer(playerName: string, playerImage: string) {
     this.newPlayer.playerName = playerName;
     this.newPlayer.playerImage = playerImage;
+    console.log(this.newPlayer);
+  }
+
+  //// Gets new player with data for game/scores
+  getNewPlayer() {
+    return this.newPlayer;
   }
   constructor(private http: HttpClient) {}
   getUser(): Observable<any> {

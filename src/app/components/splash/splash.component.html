@@ -16,7 +16,13 @@
           ><i class="fas fa-arrow-up"></i>
           <p>Do you want to be in that person's head?{{ index }}</p></span
         >
-        <button class="startConfirm" routerLink="/game">Yes</button>
+        <button
+          class="startConfirm"
+          routerLink="/game"
+          (click)="choosePlayer(person[0].name.first, person[0].picture.large)"
+        >
+          Yes
+        </button>
         <button class="startConfirm" (click)="deselectPlayer()">
           Hmm, maybe not...
         </button>
@@ -26,7 +32,13 @@
           ><i class="fas fa-arrow-down"></i>
           <p>Do you want to be in that person's head?{{ index }}</p></span
         >
-        <button class="startConfirm" routerLink="/game">Yes</button>
+        <button
+          class="startConfirm"
+          routerLink="/game"
+          (click)="choosePlayer(person[0].name.first, person[0].picture.large)"
+        >
+          Yes
+        </button>
         <button class="startConfirm" (click)="deselectPlayer(i)">
           Hmm, maybe not...
         </button>

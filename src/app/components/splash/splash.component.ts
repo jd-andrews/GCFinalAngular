@@ -43,6 +43,7 @@ export class SplashComponent implements OnInit {
 
   choosePlayer(playerName: string, playerImage: string) {
     this.faceService.setNewPlayer(playerName, playerImage);
+    console.log(playerName, playerImage);
   }
   showPlayers() {
     this.show = true;
