@@ -5,6 +5,7 @@
   justify-content: center;
   width: 80%;
   margin: 0 auto;
+  padding-top: 16px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 h1 {
@@ -32,6 +33,10 @@ h1 {
   padding: 10px;
   background-color: lightgoldenrodyellow;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.last {
+  top: -120%;
 }
 
 span {

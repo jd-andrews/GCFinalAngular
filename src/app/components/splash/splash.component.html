@@ -3,9 +3,19 @@
 
   <section *ngFor="let num of divNums; index as i" class="player">
     <app-questions (click)="confirmPlayer(i)"></app-questions>
-    <div class="confirmation" *ngIf="index === i">
+    <div class="confirmation" *ngIf="index === i && index < 2">
       <span
         ><i class="fas fa-arrow-up"></i>
+        <p>Do you want to be in that person's head?</p></span
+      >
+      <button class="startConfirm" routerLink="/game">Yes</button>
+      <button class="startConfirm" (click)="deselectPlayer(i)">
+        Hmm, maybe not...
+      </button>
+    </div>
+    <div class="confirmation last" *ngIf="index === i && 1 < index">
+      <span
+        ><i class="fas fa-arrow-down"></i>
         <p>Do you want to be in that person's head?</p></span
       >
       <button class="startConfirm" routerLink="/game">Yes</button>
