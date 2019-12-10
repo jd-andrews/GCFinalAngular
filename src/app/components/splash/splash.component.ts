@@ -12,6 +12,7 @@ export class SplashComponent implements OnInit {
   divNums: number[] = [1, 2, 3];
   show: boolean = false;
   confirmChoice: boolean = false;
+  index: number;
 
   constructor() {}
 
@@ -19,13 +20,14 @@ export class SplashComponent implements OnInit {
     this.show = true;
   }
 
-  selectPlayer(indexNum) {
-    console.log(indexNum);
-    this.confirmChoice = true;
+  confirmPlayer(indexNum: number) {
+    // this.confirmChoice = true;
+    this.index = indexNum;
   }
 
-  deselectPlayer() {
-    this.confirmChoice = false;
+  deselectPlayer(indexNum: number) {
+    // this.confirmChoice = false;
+    this.index = null;
   }
 
   ngOnInit() {
