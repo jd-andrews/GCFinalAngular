@@ -8,26 +8,33 @@ import { Observable } from "rxjs";
 export class QuestionService {
   constructor(private http: HttpClient) {}
   currentScoreArr: any[] = [];
+
+  //// gets all questions from Database for the array
   getAllQuestions(): Observable<any> {
     return this.http.get(`http://localhost:3003/questions/`);
   }
+
+  //// adds one to whatever scenario was chosen
   ratingPlusOne(id, scenario): Observable<void> {
     return this.http.put<void>(
       `http://localhost:3003/rating${scenario}/${id}`,
       ""
     );
-    // if (scenario === 1) {
-    //   return this.http.put(`http://localhost:3002/rating1/${id}`);
-    // } else {
-    //   return this.http.put(`http://localhost:3002/rating2/${id}`);
-    // }
   }
+
+  //// resets score when navigating away from page
+  resetScoreArr(): void {
+    this.currentScoreArr = [];
+  }
+
+  //// get's rating to use in totalling score
   getRating(id, num): Observable<any> {
     console.log("sevice ID", id);
     console.log("service num", num);
     return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
   }
 
+  //// gets score in an array in order to calculate on the score page
   setCurrentScore(id, num): void {
     this.getRating(id, num).subscribe(data => {
       let addNum = Number(data);
@@ -39,6 +46,8 @@ export class QuestionService {
       console.log("current score", this.currentScoreArr);
     });
   }
+
+  //// sends the currentScoreArr from the service for score total
   getCurrentScore(): any[] {
     return this.currentScoreArr;
   }

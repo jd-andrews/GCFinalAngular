@@ -16,6 +16,10 @@ export class ScoresComponent implements OnInit {
     console.log(this.yourScore);
   }
 
+  resetScore() {
+    this.questionService.resetScoreArr();
+  }
+
   toSum(numArr: any[]): number {
     let sum = 0;
     for (let i = 0; i < numArr.length; i++) {

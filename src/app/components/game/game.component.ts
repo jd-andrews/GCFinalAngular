@@ -9,6 +9,7 @@ import { Routes, RouterModule, Router } from "@angular/router";
 })
 export class GameComponent implements OnInit {
   randQuestions: any[] = [];
+  // questionCounter: number = Math.floor(Math.random() * 7);
   questionCounter: number = 0;
   availableQuestions: any[] = [];
   doneQuestions: any[] = [];
@@ -19,11 +20,14 @@ export class GameComponent implements OnInit {
     private router: Router
   ) {}
 
+  //// Method that sets the randQuestions on load
   getAllQuestions(): void {
     this.questionService.getAllQuestions().subscribe(questions => {
       this.randQuestions = questions;
     });
   }
+
+  //// method taht pushes
   getAllIDs(): void {
     this.questionService.getAllQuestions().subscribe(questions => {
       for (let i = 0; i < questions.length; i++) {
@@ -68,12 +72,6 @@ export class GameComponent implements OnInit {
     // }
     // console.log(this.countCheck);
     // this.questionCounter++;
-  }
-
-  endQuestions(): void {
-    if ((this.questionCounter = 4)) {
-      this.router.navigate(["/scores"]);
-    }
   }
 
   ngOnInit() {
