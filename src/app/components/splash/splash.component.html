@@ -1,68 +1,42 @@
 <main class="choosePlayer" *ngIf="show">
+  <div class="logo">
+    <img src="" alt="" />
+  </div>
   <h1>Choose a Player</h1>
 
-  <!-- <section *ngFor="let num of divNums; index as i" class="player"> -->
-  <!-- <app-questions (click)="confirmPlayer(i)"></app-questions> -->
   <section class="player" *ngFor="let person of faces; index as i">
-    <div class="headshot">
+    <div class="player">
       <img src="{{ person[0].picture.large }}" (click)="confirmPlayer(i)" />
-      <span>
-        <p>"{{ advices[i]?.slip?.advice }}"</p>
-        <p>- {{ person[0].name.first }}</p>
-      </span>
-      <button type="button" (click)="confirmPlayer(i)">Choose Player</button>
+      <div class="profile">
+        <span class="headshot">
+          <p class="advice">"{{ advices[i]?.slip?.advice }}"</p>
+        </span>
+        <button class="choose" type="button" (click)="confirmPlayer(i)">
+          Choose Player
+        </button>
+      </div>
+
       <form
         #nameForm2="ngForm"
         id="nameform2"
         (ngSubmit)="choosePlayer(nameForm2, person[0].picture.large)"
         class="confirmation"
-        *ngIf="index === i && i < 2"
+        *ngIf="index === i"
       >
-        <span
-          ><i class="fas fa-arrow-up"></i>
-          <p>Do you want to be in that person's head?</p></span
-        >
-
-        <label
-          >What's Their Name?
-          <input type="text" id="name" name="name" required ngModel
-        /></label>
+        <label for="name">Enter name:</label>
+        <input type="text" id="name" name="name" required ngModel />
 
         <button class="startConfirm" type="submit">
-          Yes
+          Start
         </button>
-        <button type="button" class="startConfirm" (click)="deselectPlayer()">
-          Hmm, maybe not...
-        </button>
-      </form>
-      <form
-        #nameForm="ngForm"
-        id="nameform"
-        (ngSubmit)="choosePlayer(nameForm, person[0].picture.large)"
-        class="confirmation last"
-        *ngIf="index === i && 1 < index"
-      >
-        <span
-          ><i class="fas fa-arrow-down"></i>
-          <p>Do you want to be in that person's head?</p></span
+        <button
+          type="button"
+          class="startConfirm cancel"
+          (click)="deselectPlayer()"
         >
-
-        <label
-          >What's Their Name?
-          <input type="text" id="name" name="name" required ngModel
-        /></label>
-
-        <button class="startConfirm" type="submit">
-          Yes
-        </button>
-        <button type="button" class="startConfirm" (click)="deselectPlayer(i)">
-          Hmm, maybe not...
+          X
         </button>
       </form>
     </div>
   </section>
-
-  <!-- </section> -->
 </main>
-<button type="button" routerLink="/game">Start Game</button>
-<a routerLink="/scores">Rankings</a>
