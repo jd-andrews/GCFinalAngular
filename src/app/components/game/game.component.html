@@ -13,19 +13,8 @@
     </span>
   </section>
   <section *ngIf="randQuestions.length">
-<<<<<<< HEAD
-    <div class="container">
-      <div
-        [ngClass]="{ 'animate-left': clickedOn }"
-        class="q"
-        (click)="nextQuestion(1)"
-      >
-        {{ randQuestions[qIndex]?.scenario }}
-      </div>
-=======
     <div class="q" (click)="nextQuestion(1)" [@changeFavPos]="currentState">
       {{ randQuestions[qIndex]?.scenario }}
->>>>>>> 1439ac81806a1934e4242f9d6b5a310bdd4b5a9b
     </div>
     <p>OR</p>
 

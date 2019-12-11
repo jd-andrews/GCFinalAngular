@@ -1,22 +1,32 @@
 <main>
-  <h1>Your score: {{ yourScore }}</h1>
-  <p>
+  <h1 class="score">Your score: {{ yourScore }}</h1>
+  <p class="scoreContent">
     Your score was calculated by the questions you chose, and is used to
     determine whether or not you answered like everyone else.
   </p>
   <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
   <ng-template #thenBlock
-    ><p>you answered in the majority. you belong with the sheeple!</p>
-    <img src="../images/sheep.png" alt="cartoon sheep"
+    ><p class="result">
+      You answered in the <span class="underlined">majority</span>. you belong
+      with the <span class="underlined">sheeple!</span>
+    </p>
+    <img src="/assets/sheep.png" alt="cartoon sheep"
   /></ng-template>
   <ng-template #elseBlock
-    ><p>you answered in the minority. you are unique among the people!</p>
-    <img src="../images/sheep.png" alt="cartoon sheep" />
+    ><p class="result">
+      You answered in the <span class="underlined">minority</span>. you are
+      unique among the <span class="underlined">people!</span>
+    </p>
+    <img src="/assets/greySheep.png" alt="cartoon sheep" />
   </ng-template>
   <section>
-    <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
+    <img
+      src="{{ yourPlayer?.playerImage }}"
+      (click)="confirmPlayer(i)"
+      class="face"
+    />
     <span>
-      <p>- {{ yourPlayer?.playerName }}</p>
+      <p class="charName">- {{ yourPlayer?.playerName }}</p>
     </span>
   </section>
   <section class="tens">
