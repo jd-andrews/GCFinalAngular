@@ -8,6 +8,8 @@ import { GameComponent } from "./components/game/game.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { LoadingComponent } from "./components/loading/loading.component";
 import { FormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AddComponent } from "./components/add/add.component";
 
 @NgModule({
   declarations: [
@@ -15,9 +17,16 @@ import { FormsModule } from "@angular/forms";
     ScoresComponent,
     GameComponent,
     SplashComponent,
-    LoadingComponent
+    LoadingComponent,
+    AddComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

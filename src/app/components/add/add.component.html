@@ -1,0 +1,36 @@
+<section>
+  <h1>Create-A-Question</h1>
+  <div>
+    <form #newScenario="ngForm" (submit)="addScenario(newScenario)">
+      <div id="formhold">
+        <div class="scenario-holder">
+          <label
+            ><textarea
+              name="scenario1"
+              id="scenario1"
+              placeholder="Type your scenario here"
+              required
+              ngModel
+            ></textarea
+          ></label>
+        </div>
+        <div>
+          <p>OR</p>
+        </div>
+        <div class="scenario-holder">
+          <label
+            ><textarea
+              name="scenario2"
+              id="scenario2"
+              placeholder="Type it's opposition"
+              required
+              ngModel
+            ></textarea
+          ></label>
+        </div>
+      </div>
+      <button type="submit">ADD</button>
+    </form>
+  </div>
+</section>
+<a routerLink="/home">Splashpage</a>

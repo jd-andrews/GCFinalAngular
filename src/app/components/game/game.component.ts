@@ -3,12 +3,45 @@ import { QuestionService } from "src/app/services/question.service";
 import { Routes, RouterModule, Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
 import { Player } from "src/app/interfaces/player";
+<<<<<<< HEAD
 import { resetFakeAsyncZone } from "@angular/core/testing";
+=======
+import {
+  transition,
+  trigger,
+  state,
+  style,
+  animate
+} from "@angular/animations";
+>>>>>>> 1439ac81806a1934e4242f9d6b5a310bdd4b5a9b
 
 @Component({
   selector: "app-game",
   templateUrl: "./game.component.html",
-  styleUrls: ["./game.component.css"]
+  styleUrls: ["./game.component.css"],
+  animations: [
+    trigger("changeFavPos", [
+      state(
+        "initial",
+        style({
+          opacity: "1",
+          marginRight: "50px",
+          zIndex: "0"
+        })
+      ),
+      state(
+        "final",
+        style({
+          opacity: "0",
+          marginRight: "200px",
+          zIndex: "0"
+        })
+      ),
+
+      transition("initial=>final", animate("150ms")),
+      transition("final=>initial", animate("150ms"))
+    ])
+  ]
 })
 export class GameComponent implements OnInit {
   randQuestions: any[] = [];
@@ -18,7 +51,11 @@ export class GameComponent implements OnInit {
   doneQuestions: any[] = [];
   qIndex: number;
   yourPlayer: Player;
+<<<<<<< HEAD
   clickedOn: boolean = false;
+=======
+  currentState = "initial";
+>>>>>>> 1439ac81806a1934e4242f9d6b5a310bdd4b5a9b
 
   constructor(
     private questionService: QuestionService,
@@ -56,6 +93,7 @@ export class GameComponent implements OnInit {
     // this.clickedOn = !this.;
   }
   nextQuestion(scenarioNumber: number): void {
+<<<<<<< HEAD
     if ((this.clickedOn = false)) {
       this.clickedOn = !this.clickedOn;
     }
@@ -63,6 +101,15 @@ export class GameComponent implements OnInit {
     // this.clickedOn = !this.clickedOn;
 
     console.log(this.clickedOn);
+=======
+    // this.changeState();
+    this.currentState = "final";
+    console.log(this.currentState);
+    setTimeout(() => {
+      console.log(this.currentState);
+      this.currentState = "initial";
+    }, 500);
+>>>>>>> 1439ac81806a1934e4242f9d6b5a310bdd4b5a9b
     let questionID: number = this.randQuestions[this.qIndex].id;
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
@@ -88,6 +135,7 @@ export class GameComponent implements OnInit {
     } else if (this.availableQuestions.length === 0) {
       this.getAllIDs();
     }
+<<<<<<< HEAD
     // this.clickedOn = !this.clickedOn;
     console.log(this.clickedOn);
     /////First iteration of randomization with countCheck Array
@@ -98,6 +146,8 @@ export class GameComponent implements OnInit {
     // }
     // console.log(this.countCheck);
     // this.questionCounter++;
+=======
+>>>>>>> 1439ac81806a1934e4242f9d6b5a310bdd4b5a9b
   }
 
   ngOnInit() {
