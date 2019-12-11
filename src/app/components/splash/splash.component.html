@@ -4,9 +4,13 @@
   </div>
   <h1>Choose a Player</h1>
 
-  <section class="player" *ngFor="let person of faces; index as i">
-    <div class="player">
-      <img src="{{ person[0].picture.large }}" (click)="confirmPlayer(i)" />
+  <section class="player-container">
+    <div class="player" *ngFor="let person of faces; index as i">
+      <img
+        class="face"
+        src="{{ person[0].picture.large }}"
+        (click)="confirmPlayer(i)"
+      />
       <div class="profile">
         <span class="headshot">
           <p class="advice">"{{ advices[i]?.slip?.advice }}"</p>

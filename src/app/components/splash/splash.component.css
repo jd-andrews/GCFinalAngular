@@ -71,12 +71,17 @@ button {
   width: 232px;
 }
 
-img {
+.face {
+  border: 2px solid #98473c;
   border-radius: 50%;
   width: 128px;
   height: 128px;
+  margin-top: 16px;
+  margin-bottom: 8px;
   position: absolute;
-  top: -10px;
+  top: -18px;
+  left: 50%;
+  transform: translate(-50%);
   z-index: 2;
 }
 
@@ -139,4 +144,38 @@ input {
   width: fit-content;
   height: fit-content;
   padding: 6px;
+}
+
+@media screen and (min-width: 992px) {
+  .choosePlayer {
+    height: 100vh;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 200px;
+    width: 200px;
+  }
+  .player-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .profile {
+    height: 100%;
+  }
+
+  img {
+    top: -25px;
+    border: 3px solid #98473c;
+  }
+  .advice {
+    margin-top: 120px;
+  }
 }
