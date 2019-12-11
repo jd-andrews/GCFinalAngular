@@ -3,11 +3,41 @@ import { QuestionService } from "src/app/services/question.service";
 import { Routes, RouterModule, Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
 import { Player } from "src/app/interfaces/player";
+import {
+  transition,
+  trigger,
+  state,
+  style,
+  animate
+} from "@angular/animations";
 
 @Component({
   selector: "app-game",
   templateUrl: "./game.component.html",
-  styleUrls: ["./game.component.css"]
+  styleUrls: ["./game.component.css"],
+  animations: [
+    trigger("changeFavPos", [
+      state(
+        "initial",
+        style({
+          opacity: "1",
+          marginRight: "50px",
+          zIndex: "0"
+        })
+      ),
+      state(
+        "final",
+        style({
+          opacity: "0",
+          marginRight: "200px",
+          zIndex: "0"
+        })
+      ),
+
+      transition("initial=>final", animate("150ms")),
+      transition("final=>initial", animate("150ms"))
+    ])
+  ]
 })
 export class GameComponent implements OnInit {
   randQuestions: any[] = [];
@@ -17,6 +47,7 @@ export class GameComponent implements OnInit {
   doneQuestions: any[] = [];
   qIndex: number;
   yourPlayer: Player;
+  currentState = "initial";
 
   constructor(
     private questionService: QuestionService,
@@ -52,6 +83,13 @@ export class GameComponent implements OnInit {
   }
 
   nextQuestion(scenarioNumber: number): void {
+    // this.changeState();
+    this.currentState = "final";
+    console.log(this.currentState);
+    setTimeout(() => {
+      console.log(this.currentState);
+      this.currentState = "initial";
+    }, 500);
     let questionID: number = this.randQuestions[this.qIndex].id;
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
@@ -77,15 +115,6 @@ export class GameComponent implements OnInit {
     } else if (this.availableQuestions.length === 0) {
       this.getAllIDs();
     }
-
-    /////First iteration of randomization with countCheck Array
-    // let newNum = Math.floor(Math.random() * 5);
-    // if (this.countCheck.find(number => number === newNum) === undefined) {
-    //   this.questionCounter = newNum;
-    //   this.countCheck = [...this.countCheck, newNum];
-    // }
-    // console.log(this.countCheck);
-    // this.questionCounter++;
   }
 
   ngOnInit() {

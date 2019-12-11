@@ -13,7 +13,7 @@
     </span>
   </section>
   <section *ngIf="randQuestions.length">
-    <div class="q" (click)="nextQuestion(1)">
+    <div class="q" (click)="nextQuestion(1)" [@changeFavPos]="currentState">
       {{ randQuestions[qIndex]?.scenario }}
     </div>
 
