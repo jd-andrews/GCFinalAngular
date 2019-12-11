@@ -50,9 +50,13 @@ export class QuestionService {
 
   //// Gets high scores
   getHighScores(): Observable<any> {
-    return this.http.get("http://localhost:3003/players");
+    return this.http.get("http://localhost:3003/top-ten");
   }
 
+  //// Gets low scores
+  getLowScores(): Observable<any> {
+    return this.http.get("http://localhost:3003/bottom-ten");
+  }
   //// Gets average of scores
   getScoreAvg(): Observable<any> {
     return this.http.get("http://localhost:3003/avg-score");

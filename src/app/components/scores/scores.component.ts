@@ -12,6 +12,7 @@ export class ScoresComponent implements OnInit {
   yourScore: number;
   yourPlayer: Player;
   highScores: any[] = [];
+  lowScores: any[] = [];
   averageScore: number;
 
   constructor(
@@ -42,7 +43,7 @@ export class ScoresComponent implements OnInit {
     return sum;
   }
 
-  getHighScores() {
+  getScoreLists() {
     // this.faceService.addPlayer().subscribe();
     this.questionService.getScoreAvg().subscribe(average => {
       this.averageScore = parseInt(average[0].avg);
@@ -51,11 +52,14 @@ export class ScoresComponent implements OnInit {
       this.highScores = scores;
       console.log(this.highScores);
     });
+    this.questionService.getLowScores().subscribe(scores => {
+      this.lowScores = scores;
+    });
   }
   ngOnInit() {
     this.getScore();
     this.setPlayer();
     this.faceService.addPlayer().subscribe();
-    this.getHighScores();
+    this.getScoreLists();
   }
 }
