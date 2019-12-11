@@ -1,30 +1,26 @@
 <div class="warning">
-  <p>TURN</p>
-  <p>YOUR</p>
-  <p>PHONE!</p>
+  <main>
+    <!-- <app-questions></app-questions> -->
+    <section class="player">
+      <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
+      <span>
+        <p>- {{ yourPlayer?.playerName }}</p>
+      </span>
+    </section>
+    <section *ngIf="randQuestions.length" class="questionhold">
+      <div class="q" (click)="nextQuestion(1)" [@changeFavPos]="currentState">
+        {{ randQuestions[qIndex]?.scenario }}
+      </div>
+      <p>OR</p>
+
+      <div class="q" (click)="nextQuestion(2)">
+        {{ randQuestions[qIndex]?.scenario2 }}
+      </div>
+    </section>
+    <div class="progress">
+      <p>Round {{ questionCounter + 1 }} of 6</p>
+    </div>
+
+    <a class="home" routerLink="/home">I want to quit this game...</a>
+  </main>
 </div>
-
-<main>
-  <!-- <app-questions></app-questions> -->
-  <section>
-    <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
-    <span>
-      <p>- {{ yourPlayer?.playerName }}</p>
-    </span>
-  </section>
-  <section *ngIf="randQuestions.length">
-    <div class="q" (click)="nextQuestion(1)" [@changeFavPos]="currentState">
-      {{ randQuestions[qIndex]?.scenario }}
-    </div>
-    <p>OR</p>
-
-    <div class="q" (click)="nextQuestion(2)">
-      {{ randQuestions[qIndex]?.scenario2 }}
-    </div>
-  </section>
-  <div class="progress">
-    <p>Round {{ questionCounter + 1 }} of 6</p>
-  </div>
-
-  <a class="home" routerLink="/home">I want to quit this game...</a>
-</main>

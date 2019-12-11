@@ -21,7 +21,8 @@ import {
         "initial",
         style({
           opacity: "1",
-          marginRight: "50px",
+
+          marginTop: "0px",
           zIndex: "0"
         })
       ),
@@ -29,7 +30,8 @@ import {
         "final",
         style({
           opacity: "0",
-          marginRight: "200px",
+
+          marginTop: "200px",
           zIndex: "0"
         })
       ),
@@ -91,7 +93,7 @@ export class GameComponent implements OnInit {
     setTimeout(() => {
       console.log(this.currentState);
       this.currentState = "initial";
-    }, 500);
+    }, 200);
     let questionID: number = this.randQuestions[this.qIndex].id;
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other

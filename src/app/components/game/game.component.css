@@ -1,125 +1,125 @@
-main {
+/* main {
   visibility: hidden;
-}
+} */
 
-.warning {
+main {
+  visibility: visible;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+section {
+  width: 75%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  font-size: 4vh;
-}
 
-p {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.q {
+  height: 90%;
+  width: 90%;
+  padding: 20px;
+  cursor: pointer;
+  border: 1px black outset;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+.questionhold {
+  height: 55%;
+}
+.container {
+  height: 150px;
+  overflow: hidden;
 }
 
+.home {
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  text-decoration: none;
+  padding: 3px;
+}
+
+.progress {
+  position: fixed;
+  bottom: 20px;
+}
+.warning {
+  transform: rotate(90deg);
+  height: 100vh;
+  width: 100vw;
+}
+.player {
+  height: 20%;
+}
+img {
+  height: 40%;
+}
 @media screen and (min-width: 478px) {
   .warning {
-    display: none;
-  }
-
-  main {
-    visibility: visible;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 100vh;
-    position: relative;
-  }
-
-  section {
-    width: 75%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    letter-spacing: 1px;
-    text-align: center;
-  }
-
-  .q {
-    height: 140px;
-    width: 140px;
-    padding: 20px;
-    cursor: pointer;
-    border: 1px black outset;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .animate-left {
-    position: relative;
-    animation: animateleft 0.4s;
-  }
-  .container {
-    height: 150px;
-    overflow: hidden;
-  }
-  @keyframes animateleft {
-    0% {
-      top: -15px;
-    }
-    95% {
-      top: 150px;
-    }
-    100% {
-      top: 365px;
-    }
-  }
-  .home {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    text-decoration: none;
-    padding: 3px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
+    transform: rotate(0deg);
   }
 }
 
 @media screen and (min-width: 768px) {
-  main {
-    justify-content: center;
-  }
-
   section {
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
-    margin-bottom: 40px;
   }
-
-  .q {
-    margin-right: 16px;
-    margin-left: 16px;
-    height: 180px;
-    width: 180px;
+  .questionhold {
+    height: 60%;
   }
-
+  .progress {
+    bottom: 9%;
+  }
   .home {
-    bottom: 40px;
-    left: 40px;
+    top: 90%;
+    bottom: 10px;
+    left: 20px;
+  }
+  img {
+    height: 50%;
   }
 }
 @media screen and (min-width: 992px) {
-  section {
+  img section {
     justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+  .player {
+    display: flex;
+    height: 20%;
   }
   .q {
     margin-right: 40px;
     margin-left: 40px;
-    height: 220px;
-    width: 220px;
+    height: 80%;
+    width: 80%;
+  }
+  .questionhold {
+    height: 80%;
   }
   .q:hover {
     height: 260px;
     width: 260px;
     border: 2px black outset;
     background-color: lightgoldenrodyellow;
+  }
+  .progress {
+    bottom: 17%;
   }
 }
