@@ -5,8 +5,14 @@
     determine whether or not you answered like everyone else.
   </p>
   <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
-  <ng-template #thenBlock><p>you answered in the majority</p></ng-template>
-  <ng-template #elseBlock><p>you answered in the minority</p></ng-template>
+  <ng-template #thenBlock
+    ><p>you answered in the majority. you belong with the sheeple!</p>
+    <img src="../images/sheep.png" alt="cartoon sheep"
+  /></ng-template>
+  <ng-template #elseBlock
+    ><p>you answered in the minority. you are unique among the people!</p>
+    <img src="../images/sheep.png" alt="cartoon sheep" />
+  </ng-template>
   <section>
     <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
     <span>

@@ -178,4 +178,9 @@ input {
   .advice {
     margin-top: 120px;
   }
+
+  .confirmation {
+    height: 146px;
+    width: 240px;
+  }
 }
