@@ -1,5 +1,9 @@
 <main>
   <h1>Your score: {{ yourScore }}</h1>
+  <p>
+    Your score was calculated by the questions you chose, and is used to
+    determine whether or not you answered like everyone else or not.
+  </p>
   <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
   <ng-template #thenBlock><p>you answered in the majority</p></ng-template>
   <ng-template #elseBlock><p>you answered in the minority</p></ng-template>
