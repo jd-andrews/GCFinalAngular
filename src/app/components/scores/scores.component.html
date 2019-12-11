@@ -1,10 +1,8 @@
 <main>
   <h1>Your score: {{ yourScore }}</h1>
   <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
-  <ng-template #thenBlock><p>you answered like everyone else</p></ng-template>
-  <ng-template #elseBlock
-    ><p>you answered opposite everyone else</p></ng-template
-  >
+  <ng-template #thenBlock><p>you answered in the majority</p></ng-template>
+  <ng-template #elseBlock><p>you answered in the minority</p></ng-template>
   <section>
     <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
     <span>

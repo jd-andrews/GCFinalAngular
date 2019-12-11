@@ -44,7 +44,6 @@ export class ScoresComponent implements OnInit {
   }
 
   getScoreLists() {
-    // this.faceService.addPlayer().subscribe();
     this.questionService.getScoreAvg().subscribe(average => {
       this.averageScore = parseInt(average[0].avg);
     });
@@ -55,11 +54,18 @@ export class ScoresComponent implements OnInit {
     this.questionService.getLowScores().subscribe(scores => {
       this.lowScores = scores;
     });
+    if (this.yourPlayer.playerName === "") {
+      console.log("doesnt");
+      return;
+    } else {
+      console.log("works");
+      this.faceService.addPlayer().subscribe();
+    }
   }
   ngOnInit() {
     this.getScore();
     this.setPlayer();
-    this.faceService.addPlayer().subscribe();
+    // this.faceService.addPlayer().subscribe();
     this.getScoreLists();
   }
 }
