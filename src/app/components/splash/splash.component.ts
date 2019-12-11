@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
 import { AdviceService } from "src/app/services/advice.service";
 import { Player } from "src/app/interfaces/player";
+import { NgForm } from "@angular/forms";
 // import { QuestionsService } from "..services/questions.service";
 
 @Component({
@@ -21,7 +22,8 @@ export class SplashComponent implements OnInit {
 
   constructor(
     private faceService: FacesService,
-    private adviceService: AdviceService
+    private adviceService: AdviceService,
+    private router: Router
   ) {}
 
   getOneAdvice(): void {
@@ -41,10 +43,13 @@ export class SplashComponent implements OnInit {
     console.log(this.faces);
   }
 
-  choosePlayer(playerName: string, playerImage: string) {
-    this.faceService.setNewPlayer(playerName, playerImage);
-    console.log(playerName, playerImage);
+  choosePlayer(playerNameForm: NgForm, playerImage: string) {
+    console.log(playerNameForm);
+    this.faceService.setNewPlayer(playerNameForm.value.name, playerImage);
+    console.log(playerNameForm.value.name, playerImage);
+    this.router.navigate(["/game"]);
   }
+
   showPlayers() {
     this.show = true;
   }

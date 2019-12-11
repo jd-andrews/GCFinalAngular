@@ -10,43 +10,59 @@
         <p>"{{ advices[i]?.slip?.advice }}"</p>
         <p>- {{ person[0].name.first }}</p>
       </span>
-      <button (click)="confirmPlayer(i)">Choose Player</button>
-      <div class="confirmation" *ngIf="index === i && i < 2">
+      <button type="button" (click)="confirmPlayer(i)">Choose Player</button>
+      <form
+        #nameForm2="ngForm"
+        id="nameform2"
+        (ngSubmit)="choosePlayer(nameForm2, person[0].picture.large)"
+        class="confirmation"
+        *ngIf="index === i && i < 2"
+      >
         <span
           ><i class="fas fa-arrow-up"></i>
-          <p>Do you want to be in that person's head?{{ index }}</p></span
+          <p>Do you want to be in that person's head?</p></span
         >
-        <button
-          class="startConfirm"
-          routerLink="/game"
-          (click)="choosePlayer(person[0].name.first, person[0].picture.large)"
-        >
+
+        <label
+          >What's Their Name?
+          <input type="text" id="name" name="name" required ngModel
+        /></label>
+
+        <button class="startConfirm" type="submit">
           Yes
         </button>
-        <button class="startConfirm" (click)="deselectPlayer()">
+        <button type="button" class="startConfirm" (click)="deselectPlayer()">
           Hmm, maybe not...
         </button>
-      </div>
-      <div class="confirmation last" *ngIf="index === i && 1 < index">
+      </form>
+      <form
+        #nameForm="ngForm"
+        id="nameform"
+        (ngSubmit)="choosePlayer(nameForm, person[0].picture.large)"
+        class="confirmation last"
+        *ngIf="index === i && 1 < index"
+      >
         <span
           ><i class="fas fa-arrow-down"></i>
           <p>Do you want to be in that person's head?</p></span
         >
-        <button
-          class="startConfirm"
-          routerLink="/game"
-          (click)="choosePlayer(person[0].name.first, person[0].picture.large)"
-        >
+
+        <label
+          >What's Their Name?
+          <input type="text" id="name" name="name" required ngModel
+        /></label>
+
+        <button class="startConfirm" type="submit">
           Yes
         </button>
-        <button class="startConfirm" (click)="deselectPlayer(i)">
+        <button type="button" class="startConfirm" (click)="deselectPlayer(i)">
           Hmm, maybe not...
         </button>
-      </div>
+      </form>
     </div>
   </section>
 
   <!-- </section> -->
 </main>
-<button routerLink="/game">Start Game</button>
+<button type="button" routerLink="/game">Start Game</button>
 <a routerLink="/scores">Rankings</a>

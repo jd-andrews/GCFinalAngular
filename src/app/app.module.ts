@@ -7,6 +7,7 @@ import { ScoresComponent } from "./components/scores/scores.component";
 import { GameComponent } from "./components/game/game.component";
 import { SplashComponent } from "./components/splash/splash.component";
 import { LoadingComponent } from "./components/loading/loading.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { LoadingComponent } from "./components/loading/loading.component";
     SplashComponent,
     LoadingComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
