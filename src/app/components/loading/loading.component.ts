@@ -6,6 +6,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./loading.component.css"]
 })
 export class LoadingComponent implements OnInit {
+  clicked: boolean = false;
   constructor() {}
 
   ngOnInit() {}

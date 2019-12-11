@@ -7,6 +7,8 @@
   <div class="text">
     <p>Would You</p>
     <p class="rather">Rather?</p>
-    <button routerLink="/players">Choose Player</button>
+    <button (click)="clicked = !clicked" class="step" routerLink="/players">
+      Choose Player
+    </button>
   </div>
 </div>

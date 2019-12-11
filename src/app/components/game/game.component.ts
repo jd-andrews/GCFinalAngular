@@ -3,6 +3,7 @@ import { QuestionService } from "src/app/services/question.service";
 import { Routes, RouterModule, Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
 import { Player } from "src/app/interfaces/player";
+import { resetFakeAsyncZone } from "@angular/core/testing";
 
 @Component({
   selector: "app-game",
@@ -17,6 +18,7 @@ export class GameComponent implements OnInit {
   doneQuestions: any[] = [];
   qIndex: number;
   yourPlayer: Player;
+  clickedOn: boolean = false;
 
   constructor(
     private questionService: QuestionService,
@@ -50,8 +52,17 @@ export class GameComponent implements OnInit {
       console.log("qindex", this.qIndex);
     });
   }
-
+  Clicked() {
+    // this.clickedOn = !this.;
+  }
   nextQuestion(scenarioNumber: number): void {
+    if ((this.clickedOn = false)) {
+      this.clickedOn = !this.clickedOn;
+    }
+
+    // this.clickedOn = !this.clickedOn;
+
+    console.log(this.clickedOn);
     let questionID: number = this.randQuestions[this.qIndex].id;
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
@@ -77,7 +88,8 @@ export class GameComponent implements OnInit {
     } else if (this.availableQuestions.length === 0) {
       this.getAllIDs();
     }
-
+    // this.clickedOn = !this.clickedOn;
+    console.log(this.clickedOn);
     /////First iteration of randomization with countCheck Array
     // let newNum = Math.floor(Math.random() * 5);
     // if (this.countCheck.find(number => number === newNum) === undefined) {

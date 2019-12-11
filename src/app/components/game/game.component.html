@@ -13,10 +13,15 @@
     </span>
   </section>
   <section *ngIf="randQuestions.length">
-    <div class="q" (click)="nextQuestion(1)">
-      {{ randQuestions[qIndex]?.scenario }}
+    <div class="container">
+      <div
+        [ngClass]="{ 'animate-left': clickedOn }"
+        class="q"
+        (click)="nextQuestion(1)"
+      >
+        {{ randQuestions[qIndex]?.scenario }}
+      </div>
     </div>
-
     <p>OR</p>
 
     <div class="q" (click)="nextQuestion(2)">

@@ -19,6 +19,7 @@ p {
   .warning {
     display: none;
   }
+
   main {
     visibility: visible;
     display: flex;
@@ -51,6 +52,25 @@ p {
     justify-content: center;
   }
 
+  .animate-left {
+    position: relative;
+    animation: animateleft 0.4s;
+  }
+  .container {
+    height: 150px;
+    overflow: hidden;
+  }
+  @keyframes animateleft {
+    0% {
+      top: -15px;
+    }
+    95% {
+      top: 150px;
+    }
+    100% {
+      top: 365px;
+    }
+  }
   .home {
     position: absolute;
     bottom: 0px;
