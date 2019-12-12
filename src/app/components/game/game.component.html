@@ -9,16 +9,16 @@
     </section>
     <section *ngIf="randQuestions.length" class="questionhold">
       <div class="q" (click)="nextQuestion(1)" [@changeFavPos]="currentState">
-        {{ randQuestions[qIndex]?.scenario }}
+        <p class="qtext">{{ randQuestions[qIndex]?.scenario }}</p>
       </div>
-      <p>OR</p>
+      <p id="OR">OR</p>
 
-      <div class="q" (click)="nextQuestion(2)">
-        {{ randQuestions[qIndex]?.scenario2 }}
+      <div class="q" (click)="nextQuestion(2)" [@changeFavPos]="currentState">
+        <p class="qtext">{{ randQuestions[qIndex]?.scenario2 }}</p>
       </div>
     </section>
     <div class="progress">
-      <p>Round {{ questionCounter + 1 }} of 6</p>
+      <p id="counter">Round {{ questionCounter + 1 }} of 6</p>
     </div>
 
     <a class="home" routerLink="/home">I want to quit this game...</a>

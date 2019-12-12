@@ -49,9 +49,13 @@ h1 {
   position: relative;
 }
 
+.player-container {
+  margin-bottom: 50px;
+}
+
 button {
   background-color: #1c3232;
-  color: white;
+  color: rgb(218, 238, 248);
   border: 1px solid #1c3232;
   border-radius: 3px;
   width: fit-content;
@@ -146,6 +150,24 @@ input {
   padding: 6px;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  background-color: #9b7962;
+  border-top: 2px solid rgb(218, 238, 248);
+  opacity: 0.97;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 5;
+  padding: 10px;
+}
+
+#start {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 @media screen and (min-width: 992px) {
   .choosePlayer {
     height: 100vh;

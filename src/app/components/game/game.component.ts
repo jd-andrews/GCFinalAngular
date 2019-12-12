@@ -90,10 +90,7 @@ export class GameComponent implements OnInit {
     // this.changeState();
     this.currentState = "final";
     console.log(this.currentState);
-    setTimeout(() => {
-      console.log(this.currentState);
-      this.currentState = "initial";
-    }, 200);
+
     let questionID: number = this.randQuestions[this.qIndex].id;
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
@@ -114,7 +111,11 @@ export class GameComponent implements OnInit {
         1
       );
       this.questionCounter++;
-      this.qIndex = newNum[0] - 1;
+      setTimeout(() => {
+        this.qIndex = newNum[0] - 1;
+        console.log(this.currentState);
+        this.currentState = "initial";
+      }, 200);
       this.doneQuestions.push(newNum[0]);
     } else if (this.availableQuestions.length === 0) {
       this.getAllIDs();
