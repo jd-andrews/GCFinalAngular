@@ -16,19 +16,19 @@
   left: 50%;
   font-size: 48px;
   font-weight: 700;
-  -webkit-animation: on 0.6s ease-in-out 3.7s forwards;
-  -moz-animation: on 0.6s ease-in-out 3.7s forwards;
-  -o-animation: on 0.6s ease-in-out 3.7s forwards;
-  animation: on 0.6s ease-in-out 3.7s forwards;
+  -webkit-animation: on 0.6s ease-in-out 1.7s forwards;
+  -moz-animation: on 0.6s ease-in-out 1.7s forwards;
+  -o-animation: on 0.6s ease-in-out 1.7s forwards;
+  animation: on 0.6s ease-in-out 1.7s forwards;
 }
 .text p {
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
-  -webkit-animation: type 0.3s steps(60, end) 3.7s;
-  -moz-animation: type 0.3s steps(60, end) 3.7s;
-  -o-animation: type 0.3s steps(60, end) 3.7s;
-  animation: type 0.3s steps(60, end) 3.7s;
+  -webkit-animation: type 0.3s steps(60, end) 1.7s;
+  -moz-animation: type 0.3s steps(60, end) 1.7s;
+  -o-animation: type 0.3s steps(60, end) 1.7s;
+  animation: type 0.3s steps(60, end) 1.7s;
 }
 .text p:nth-child(2) {
   -webkit-animation: type2 0.5s steps(60, end) 3.7s;
@@ -54,10 +54,10 @@
   -ms-transition: color 0.5s, background-color 0.5s;
   -o-transition: color 0.5s, background-color 0.5s;
   transition: color 0.5s, background-color 0.5s;
-  -webkit-animation: on 0.6s ease-in-out 4s forwards;
-  -moz-animation: on 0.6s ease-in-out 4s forwards;
-  -o-animation: on 0.6s ease-in-out 4s forwards;
-  animation: on 0.6s ease-in-out 4s forwards;
+  -webkit-animation: on 0.6s ease-in-out 2s forwards;
+  -moz-animation: on 0.6s ease-in-out 2s forwards;
+  -o-animation: on 0.6s ease-in-out 2s forwards;
+  animation: on 0.6s ease-in-out 2s forwards;
 }
 .text button:hover {
   background: #a4ddf4;
@@ -95,8 +95,8 @@
   -moz-animation: logo 0.3s ease-in 1.5s forwards,
     off 0.6s ease-in-out 3.2s forwards;
   -o-animation: logo 0.3s ease-in 1.5s forwards,
-    off 0.6s ease-in-out 3.2s forwards;
-  animation: logo 0.3s ease-in 1.5s forwards, off 0.6s ease-in-out 3.2s forwards;
+    off 0.6s ease-in-out 1.5s forwards;
+  animation: logo 0.3s ease-in 1.5s forwards, off 0.6s ease-in-out 1.2s forwards;
 }
 .step {
   opacity: 0;
