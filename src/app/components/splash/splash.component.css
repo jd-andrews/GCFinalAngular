@@ -11,14 +11,24 @@ h1 {
   font-size: 20px;
   text-align: center;
   margin-bottom: 14px;
-  color: white;
+  color: rgb(218, 238, 248);
 }
 
 .logo {
   height: 50px;
   width: 100px;
-  border: 1px solid black;
+
   margin-bottom: 20px;
+}
+
+#logo {
+  height: 50px;
+  width: 50px;
+  left: 50%;
+  top: 2.5%;
+  position: absolute;
+  transform: translate(-50%);
+  border: none;
 }
 .player {
   margin: 6px;
@@ -101,6 +111,7 @@ span {
 .advice {
   width: 70%;
   margin-top: 100px;
+  font-family: "lato", sans-serif;
 }
 .confirmation {
   background-color: #9b7962;
@@ -181,6 +192,10 @@ footer {
     left: 20px;
     height: 200px;
     width: 200px;
+  }
+  #logo {
+    height: 100px;
+    width: 100px;
   }
   .player-container {
     display: flex;
