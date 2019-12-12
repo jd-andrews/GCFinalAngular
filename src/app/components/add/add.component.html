@@ -1,4 +1,5 @@
 <section>
+  <img id="logo" src="./assets/SHEEPLE.png" />
   <h1>Create-A-Question</h1>
   <div>
     <form #newScenario="ngForm" (submit)="addScenario(newScenario)">
@@ -33,5 +34,7 @@
     </form>
   </div>
 
-  <button type="button" routerLink="/home">Back to the Game</button>
+  <button type="button" routerLink="/players">
+    Back to the Game
+  </button>
 </section>

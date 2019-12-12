@@ -1,3 +1,9 @@
+#logo {
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -8,6 +14,7 @@ section {
 }
 
 h1 {
+  color: #daeef8;
   padding: 20px;
 }
 
@@ -33,5 +40,15 @@ textarea {
 }
 
 button {
+  color: #daeef8;
   margin-top: 20px;
+  background-color: #1c3232;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #1c3232;
+}
+
+button:hover {
+  color: #1c3232;
+  background-color: #daeef8;
 }

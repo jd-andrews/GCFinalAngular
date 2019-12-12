@@ -4,7 +4,7 @@ import { SplashComponent } from "./components/splash/splash.component";
 import { GameComponent } from "./components/game/game.component";
 import { ScoresComponent } from "./components/scores/scores.component";
 import { LoadingComponent } from "./components/loading/loading.component";
-
+import { TutorialComponent } from "./components/tutorial/tutorial.component";
 import { AddComponent } from "./components/add/add.component";
 
 const routes: Routes = [
@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: "add", component: AddComponent },
   { path: "game", component: GameComponent },
   { path: "scores", component: ScoresComponent },
+  { path: "tutorial", component: TutorialComponent },
   { path: "", redirectTo: "home", pathMatch: "full" }
 ];
 

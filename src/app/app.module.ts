@@ -10,6 +10,7 @@ import { LoadingComponent } from "./components/loading/loading.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AddComponent } from "./components/add/add.component";
+import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddComponent } from "./components/add/add.component";
     GameComponent,
     SplashComponent,
     LoadingComponent,
-    AddComponent
+    AddComponent,
+    TutorialComponent
   ],
   imports: [
     BrowserModule,

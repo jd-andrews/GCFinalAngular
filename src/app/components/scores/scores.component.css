@@ -1,8 +1,7 @@
 main {
-  height: 100vh;
   padding: 40px;
   background-color: #afddf4;
-  background-size: 100vh auto;
+  background-size: 100%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -12,8 +11,10 @@ main {
   position: absolute;
   top: 10px;
   left: 10px;
-  height: 80px;
-  width: 80px;
+  height: auto;
+  width: auto;
+  max-height: 80px;
+  max-width: 80px;
 }
 .page {
   display: flex;
@@ -61,22 +62,20 @@ table td {
   color: #98473c;
   text-shadow: 1px 2px #1c3232;
 }
-.charName {
-  position: absolute;
-  top: 20px;
-  left: 110px;
+.profile {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
 }
 .face {
   border: 2px solid #98473c;
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
-  margin-top: 16px;
-  margin-bottom: 8px;
-  position: absolute;
-  top: -10px;
-  left: 50px;
-  transform: translate(-50%);
+  width: auto;
+  height: auto;
+  max-width: 90px;
+  max-height: 90px;
+
   z-index: 2;
 }
 .scoreContent {
@@ -100,15 +99,11 @@ table td {
     color: #98473c;
     text-shadow: 1px 2px #1c3232;
   }
-  .charName {
-    position: absolute;
-    top: 20px;
-    left: 110px;
-  }
+
   .face {
     border: 2px solid #98473c;
     border-radius: 50%;
-    width: 90px;
+    /* width: 90px;
     height: 90px;
     margin-top: 16px;
     margin-bottom: 8px;
@@ -116,7 +111,7 @@ table td {
     top: -10px;
     left: 50px;
     transform: translate(-50%);
-    z-index: 2;
+    z-index: 2; */
   }
   .scoreContent {
     position: relative;
@@ -136,27 +131,13 @@ table td {
 
 @media screen and (min-width: 768px) {
   main {
-    height: 100%;
     font-size: 35px;
-    background-size: 100vh auto;
   }
   .underlined {
     text-decoration: underline #1c3232;
     font-size: 50px;
   }
-  .face {
-    display: block;
-    position: relative;
 
-    left: -150px;
-    top: -60px;
-  }
-  .charName {
-    position: relative;
-    top: -140px;
-    left: -80px;
-    display: block;
-  }
   .sheep {
     display: block;
     position: relative;
@@ -177,18 +158,7 @@ table td {
     text-decoration: underline #1c3232;
     font-size: 50px;
   }
-  .face {
-    position: relative;
 
-    left: -150px;
-    top: -60px;
-  }
-  .charName {
-    position: relative;
-    top: -140px;
-    left: -80px;
-    display: block;
-  }
   .sheep {
     display: block;
     position: relative;
