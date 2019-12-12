@@ -123,14 +123,15 @@ span {
   font-family: "lato", sans-serif;
 }
 .confirmation {
-  background-color: #9b7962;
+  background-color: #afddf4;
+  font-weight: bold;
   opacity: 0.95;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 133px;
-  width: 316px;
+  height: 130px;
+  width: 240px;
   z-index: 3;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;

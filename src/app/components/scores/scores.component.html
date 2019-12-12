@@ -1,66 +1,71 @@
 <main>
-  <h1 class="score">Your score: {{ yourScore }}</h1>
-  <p class="scoreContent">
-    Your score was calculated by the questions you chose, and is used to
-    determine whether or not you answered like everyone else.
-  </p>
-  <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
-  <section class="imgContainer">
-    <ng-template #thenBlock>
-      <p class="result">
-        You answered in the <span class="underlined">majority</span>. you belong
-        with the <span class="underlined">sheeple!</span>
-      </p>
-      <img class="sheep" src="/assets/sheep.png" alt="cartoon sheep"
-    /></ng-template>
-    <ng-template #elseBlock
-      ><p class="result">
-        You answered in the <span class="underlined">minority</span>. you are
-        unique among the <span class="underlined">people!</span>
-      </p>
-      <img class="sheep" src="/assets/greySheep.png" alt="cartoon sheep" />
-    </ng-template>
+  <section class="page">
+    <h1 class="score">Your score: {{ yourScore }}</h1>
+    <p class="scoreContent">
+      Your score was calculated based on
+    </p>
+    <p class="scoreContent">whether or not you answered like everyone else.</p>
+    <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
+    <section class="imgContainer">
+      <ng-template #thenBlock>
+        <p class="result">
+          You answered in the <span class="underlined">majority</span>. you
+          belong with the <span class="underlined">sheeple!</span>
+        </p>
+        <img class="sheep" src="/assets/sheep.png" alt="cartoon sheep"
+      /></ng-template>
+      <ng-template #elseBlock
+        ><p class="result">
+          You answered in the <span class="underlined">minority</span>.
+        </p>
+        <p class="result">
+          you are unique among the <span class="underlined">people!</span>
+        </p>
 
-    <img
-      src="{{ yourPlayer?.playerImage }}"
-      (click)="confirmPlayer(i)"
-      class="face"
-    />
-    <span>
-      <p class="charName">- {{ yourPlayer?.playerName }}</p>
-    </span>
+        <img class="sheep" src="/assets/greySheep.png" alt="cartoon sheep" />
+      </ng-template>
+      <a class="playAgain" routerLink="/players">Play Again</a>
+      <img
+        src="{{ yourPlayer?.playerImage }}"
+        (click)="confirmPlayer(i)"
+        class="face"
+      />
+      <span>
+        <p class="charName">- {{ yourPlayer?.playerName }}</p>
+      </span>
+    </section>
+    <section class="tens">
+      <div class="rankings">
+        <h2>Most Alike</h2>
+        <table>
+          <tr>
+            <th>Player</th>
+            <th></th>
+            <th>Score</th>
+          </tr>
+          <tr *ngFor="let player of highScores; index as i">
+            <td *ngIf="i < 5"><img src="{{ player?.playerimage }}" /></td>
+            <td *ngIf="i < 5">{{ player?.playername }}</td>
+            <td *ngIf="i < 5">{{ player?.playerscore }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="rankings">
+        <h2>Most Different</h2>
+        <table>
+          <tr>
+            <th>Player</th>
+            <th></th>
+            <th>Score</th>
+          </tr>
+          <tr *ngFor="let player of lowScores; index as i">
+            <td *ngIf="i < 5"><img src="{{ player?.playerimage }}" /></td>
+            <td *ngIf="i < 5">{{ player?.playername }}</td>
+            <td *ngIf="i < 5">{{ player?.playerscore }}</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <a routerLink="/home" (click)="resetScore()">Home</a>
   </section>
-  <section class="tens">
-    <div class="rankings">
-      <h2>Most Alike</h2>
-      <table>
-        <tr>
-          <th>Player</th>
-          <th></th>
-          <th>Score</th>
-        </tr>
-        <tr *ngFor="let player of highScores; index as i">
-          <td *ngIf="i < 5"><img src="{{ player?.playerimage }}" /></td>
-          <td *ngIf="i < 5">{{ player?.playername }}</td>
-          <td *ngIf="i < 5">{{ player?.playerscore }}</td>
-        </tr>
-      </table>
-    </div>
-    <div class="rankings">
-      <h2>Most Different</h2>
-      <table>
-        <tr>
-          <th>Player</th>
-          <th></th>
-          <th>Score</th>
-        </tr>
-        <tr *ngFor="let player of lowScores; index as i">
-          <td *ngIf="i < 5"><img src="{{ player?.playerimage }}" /></td>
-          <td *ngIf="i < 5">{{ player?.playername }}</td>
-          <td *ngIf="i < 5">{{ player?.playerscore }}</td>
-        </tr>
-      </table>
-    </div>
-  </section>
-  <a routerLink="/home" (click)="resetScore()">Home</a>
 </main>
