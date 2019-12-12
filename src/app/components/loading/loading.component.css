@@ -270,23 +270,23 @@
 
 .tech-slideshow > div {
   height: 22vh;
-  width: 2526px;
+  width: 1100px;
   background-color: #1c3232;
-  background: url(../../../assets/AltSheep.png);
+  background: url(../../../assets/AltSheep2.png);
   position: absolute;
   top: 0;
   left: 0;
   transform: translate3d(0, 0, 0);
 }
 .tech-slideshow .mover-1 {
-  animation: moveSlideshow 12s linear infinite;
+  animation: moveSlideshow 4s linear infinite;
 }
 .tech-slideshow .mover-2 {
   background-color: rgba(255, 255, 255, 0.9);
   opacity: 0;
   transition: opacity 0.5s ease-out;
-  background-position: 0 -200px;
-  animation: moveSlideshow 15s linear infinite;
+  background-position: 0 200px;
+  animation: moveSlideshow 7s linear infinite;
 }
 .tech-slideshow:hover .mover-2 {
   background-color: rgba(255, 255, 255, 0.9);
@@ -295,7 +295,7 @@
 
 @keyframes moveSlideshow {
   100% {
-    transform: translateX(66.6666%);
+    transform: translateX(125%);
   }
 }
 main {
