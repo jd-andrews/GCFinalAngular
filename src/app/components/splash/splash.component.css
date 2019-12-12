@@ -14,11 +14,53 @@ h1 {
   color: #daeef8;
 }
 
+.sheepContainer {
+  display: flex;
+}
+
+@keyframes sheepflash {
+  from {
+    background-image: url("/assets/sheep.png");
+    background-size: cover;
+  }
+  to {
+    background-image: url("/assets/greySheep.png");
+    background-size: cover;
+  }
+}
+
+@keyframes sheepflash-alt {
+  from {
+    background-image: url("/assets/greySheep.png");
+    background-size: cover;
+  }
+  to {
+    background-image: url("/assets/sheep.png");
+    background-size: cover;
+  }
+}
 .sheep {
   height: 42px;
   width: 42px;
   border: none;
   margin-right: 8px;
+  animation-name: sheepflash;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+.sheep-alt {
+  height: 42px;
+  width: 42px;
+  border: none;
+  margin-right: 8px;
+  animation-name: sheepflash-alt;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
 }
 
 .logo {
