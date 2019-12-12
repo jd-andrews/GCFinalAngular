@@ -5,13 +5,20 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 h1 {
-  font-size: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 14px;
-  color: rgb(218, 238, 248);
+  color: #daeef8;
+}
+
+.sheep {
+  height: 42px;
+  width: 42px;
+  border: none;
+  margin-right: 8px;
 }
 
 .logo {
@@ -47,6 +54,7 @@ h1 {
     rgba(255, 255, 255, 1) 100%
   );
   color: #1c3232;
+  font-family: "Lato", sans-serif;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -72,6 +80,7 @@ button {
   height: fit-content;
   padding: 4px;
   border-radius: 3px;
+  font-family: "Lato", sans-serif;
 }
 .choose {
   margin-top: 10px;
@@ -123,7 +132,8 @@ span {
   height: 133px;
   width: 316px;
   z-index: 3;
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   position: absolute;
   bottom: 0%;
   left: 50%;
@@ -166,7 +176,7 @@ footer {
   bottom: 0;
   display: flex;
   background-color: #9b7962;
-  border-top: 2px solid rgb(218, 238, 248);
+  border-top: 1px solid rgb(218, 238, 248);
   opacity: 0.97;
   width: 100%;
   justify-content: space-between;
@@ -174,7 +184,7 @@ footer {
   padding: 10px;
 }
 
-#start {
+#tutorial {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -219,5 +229,14 @@ footer {
   .confirmation {
     height: 146px;
     width: 240px;
+  }
+
+  .footer-link:hover {
+    color: white;
+  }
+
+  #tutorial:hover {
+    background-color: white;
+    color: #1c3232;
   }
 }

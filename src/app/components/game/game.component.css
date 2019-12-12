@@ -39,7 +39,7 @@ section {
   );
 
   height: 90%;
-  width: 90%;
+  width: 45%;
   padding: 20px;
   cursor: pointer;
   border: 1px black outset;
@@ -62,8 +62,8 @@ section {
 }
 
 .home {
-  border: 2px solid #9b7962;
-  padding: 10px;
+  border: 1px solid #9b7962;
+  padding: ;
   border-radius: 100px;
   color: #1c3232;
   background-color: rgb(218, 238, 248);
@@ -87,6 +87,7 @@ section {
 }
 img {
   height: 40%;
+  border-radius: 50%;
 }
 
 @media screen and (min-width: 478px) {

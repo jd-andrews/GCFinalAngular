@@ -2,7 +2,15 @@
   <div class="logo">
     <img id="logo" src="/assets/SHEEPLE.png" alt="" />
   </div>
+
   <h1>Choose a Player</h1>
+  <div>
+    <img class="sheep" src="/assets/sheep.png" alt="cartoon sheep" />
+    <img class="sheep" src="/assets/greySheep.png" alt="cartoon sheep" />
+    <img class="sheep" src="/assets/sheep.png" alt="cartoon sheep" />
+    <img class="sheep" src="/assets/greySheep.png" alt="cartoon sheep" />
+    <img class="sheep" src="/assets/sheep.png" alt="cartoon sheep" />
+  </div>
 
   <section class="player-container">
     <div class="player" *ngFor="let person of faces; index as i">
@@ -44,10 +52,12 @@
     </div>
   </section>
   <footer>
-    <a routerLink="/scores">Rankings</a>
+    <a class="footer-link" routerLink="/scores">Rankings</a>
 
-    <button id="start" type="button" routerLink="/game">Start Game</button>
+    <button id="tutorial" type="button" routerLink="/tutorial">
+      How to Play
+    </button>
 
-    <a routerLink="/add">Add a Scenario</a>
+    <a class="footer-link" routerLink="/add">Add a Scenario</a>
   </footer>
 </main>
