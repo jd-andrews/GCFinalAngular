@@ -5,21 +5,22 @@
     determine whether or not you answered like everyone else.
   </p>
   <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
-  <ng-template #thenBlock
-    ><p class="result">
-      You answered in the <span class="underlined">majority</span>. you belong
-      with the <span class="underlined">sheeple!</span>
-    </p>
-    <img src="/assets/sheep.png" alt="cartoon sheep"
-  /></ng-template>
-  <ng-template #elseBlock
-    ><p class="result">
-      You answered in the <span class="underlined">minority</span>. you are
-      unique among the <span class="underlined">people!</span>
-    </p>
-    <img src="/assets/greySheep.png" alt="cartoon sheep" />
-  </ng-template>
-  <section>
+  <section class="imgContainer">
+    <ng-template #thenBlock>
+      <p class="result">
+        You answered in the <span class="underlined">majority</span>. you belong
+        with the <span class="underlined">sheeple!</span>
+      </p>
+      <img class="sheep" src="/assets/sheep.png" alt="cartoon sheep"
+    /></ng-template>
+    <ng-template #elseBlock
+      ><p class="result">
+        You answered in the <span class="underlined">minority</span>. you are
+        unique among the <span class="underlined">people!</span>
+      </p>
+      <img class="sheep" src="/assets/greySheep.png" alt="cartoon sheep" />
+    </ng-template>
+
     <img
       src="{{ yourPlayer?.playerImage }}"
       (click)="confirmPlayer(i)"

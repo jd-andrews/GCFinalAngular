@@ -1,5 +1,5 @@
 main {
-  height: 100%;
+  height: 100vh;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -7,6 +7,7 @@ main {
   justify-content: space-between;
 
   background-color: #afddf4;
+  background-size: 100vh auto;
 }
 
 .rankings {
@@ -35,6 +36,42 @@ table td {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
 }
+.score {
+  color: #98473c;
+  text-shadow: 1px 2px #1c3232;
+}
+.charName {
+  position: absolute;
+  top: 20px;
+  left: 110px;
+}
+.face {
+  border: 2px solid #98473c;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  position: absolute;
+  top: -10px;
+  left: 50px;
+  transform: translate(-50%);
+  z-index: 2;
+}
+.scoreContent {
+  position: relative;
+  top: 10px;
+}
+.result {
+  position: relative;
+  color: #98473c;
+  top: 20px;
+  font-weight: bolder;
+}
+.underlined {
+  text-decoration: underline #1c3232;
+  font-size: 30px;
+}
 @media screen and (min-width: 478px) {
   .score {
     color: #98473c;
@@ -42,7 +79,7 @@ table td {
   }
   .charName {
     position: absolute;
-    top: 40px;
+    top: 20px;
     left: 110px;
   }
   .face {
@@ -75,7 +112,60 @@ table td {
 }
 
 @media screen and (min-width: 768px) {
+  main {
+    height: 100%;
+    font-size: 35px;
+    background-size: 100vh auto;
+  }
+  .underlined {
+    text-decoration: underline #1c3232;
+    font-size: 50px;
+  }
+  .face {
+    display: block;
+    position: relative;
+
+    left: -150px;
+    top: -60px;
+  }
+  .charName {
+    position: relative;
+    top: -140px;
+    left: -80px;
+    display: block;
+  }
+  .sheep {
+    display: block;
+    position: relative;
+    top: 12px;
+    left: 100px;
+  }
 }
 
 @media screen and (min-width: 992px) {
+  main {
+    font-size: 35px;
+  }
+  .underlined {
+    text-decoration: underline #1c3232;
+    font-size: 50px;
+  }
+  .face {
+    position: relative;
+
+    left: -150px;
+    top: -60px;
+  }
+  .charName {
+    position: relative;
+    top: -140px;
+    left: -80px;
+    display: block;
+  }
+  .sheep {
+    display: block;
+    position: relative;
+    top: 12px;
+    left: 100px;
+  }
 }
