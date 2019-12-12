@@ -67,7 +67,7 @@
 
 .splash {
   width: 100vw;
-  height: 100vh;
+  height: 78vh;
   position: fixed;
   top: 0;
   display: -webkit-box;
@@ -258,8 +258,9 @@
 }
 
 .tech-slideshow {
-  height: 100px;
+  height: 90px;
   max-width: 100%;
+  bottom: 92px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -268,7 +269,7 @@
 }
 
 .tech-slideshow > div {
-  height: 100px;
+  height: 22vh;
   width: 2526px;
   background-color: #1c3232;
   background: url(../../../assets/AltSheep.png);
@@ -294,7 +295,7 @@
 
 @keyframes moveSlideshow {
   100% {
-    transform: translateX(-66.6666%);
+    transform: translateX(66.6666%);
   }
 }
 main {
