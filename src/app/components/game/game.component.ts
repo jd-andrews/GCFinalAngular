@@ -90,7 +90,6 @@ export class GameComponent implements OnInit {
     // this.changeState();
     this.currentState = "final";
     console.log(this.currentState);
-
     let questionID: number = this.randQuestions[this.qIndex].id;
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
