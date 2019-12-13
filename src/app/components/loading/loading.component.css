@@ -269,7 +269,7 @@
   background-repeat: repeat-x;
   height: 110px;
   width: 100vw;
-  animation: slide 500s linear infinite;
+  animation: slide 6s linear infinite;
 }
 
 @keyframes slide {
@@ -278,7 +278,7 @@
   }
   /*use negative width if you want it to flow right to left else and positive for left to right*/
   to {
-    background-position: 10000px 0;
+    background-position: 900px 0;
   }
 }
 main {
