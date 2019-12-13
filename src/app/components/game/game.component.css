@@ -100,19 +100,25 @@ section {
   height: fit-content;
   width: fit-content;
   padding: 10px;
-  border: 1px solid rgb(218, 238, 248);
-  border-radius: 10px;
-  background-color: rgb(218, 238, 248);
   position: fixed;
   top: 10px;
   left: 20px;
+  color: #daeef8;
+  font-family: "Lato", sans-serif;
 }
 
+p.quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Lato", sans-serif;
+}
 img {
   height: auto;
   width: auto;
   max-height: 50px;
   max-width: 50px;
+  margin-right: 6px;
   border-radius: 50%;
 }
 
