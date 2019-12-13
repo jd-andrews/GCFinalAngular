@@ -257,45 +257,28 @@
   }
 }
 
-.tech-slideshow {
-  height: 90px;
-  max-width: 100%;
-  bottom: 92px;
-  margin: 0 auto;
-  position: relative;
+.container {
   overflow: hidden;
-  transform: translate3d(0, 0, 0);
   background-color: #1c3232;
-}
-
-.tech-slideshow > div {
-  height: 22vh;
-  width: 1100px;
-  background-color: #1c3232;
-  background: url(../../../assets/AltSheep2.png);
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate3d(0, 0, 0);
-}
-.tech-slideshow .mover-1 {
-  animation: moveSlideshow 4s linear infinite;
-}
-.tech-slideshow .mover-2 {
-  background-color: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
-  background-position: 0 200px;
-  animation: moveSlideshow 7s linear infinite;
-}
-.tech-slideshow:hover .mover-2 {
-  background-color: rgba(255, 255, 255, 0.9);
-  opacity: 1;
+  bottom: 0.5px;
 }
 
-@keyframes moveSlideshow {
-  100% {
-    transform: translateX(125%);
+.sliding-background {
+  background: url("../../../assets/AltSheep2.png");
+  background-repeat: repeat-x;
+  height: 110px;
+  width: 100vw;
+  animation: slide 500s linear infinite;
+}
+
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  /*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: 10000px 0;
   }
 }
 main {
