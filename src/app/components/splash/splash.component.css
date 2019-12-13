@@ -240,6 +240,22 @@ footer {
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media screen and (min-width: 478px) {
+  .player-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .player {
+    width: 30%;
+  }
+  .profile {
+    height: 100%;
+    width: 210px;
+  }
+}
 @media screen and (min-width: 992px) {
   .choosePlayer {
     height: 100vh;
