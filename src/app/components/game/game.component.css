@@ -162,8 +162,21 @@ img {
   }
   .q:hover {
     /* border: 20px black outset; */
-    background: #98473c;
+    background: #afddf4;
   }
+
+  .home {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    height: fit-content;
+  }
+  .home:hover {
+    background: #9b7962;
+    color: #daeef8;
+    border-color: #9b7962;
+  }
+
   .progress {
     bottom: 17%;
   }
