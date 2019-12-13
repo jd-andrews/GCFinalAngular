@@ -2,9 +2,10 @@
   <main>
     <section class="player">
       <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
-
-      <p>{{ advice?.slip?.advice }}</p>
-      <p>- {{ yourPlayer?.playerName }}</p>
+      <span class="quote">
+        <p>{{ advice?.slip?.advice }}</p>
+        <p>- {{ yourPlayer?.playerName }}</p></span
+      >
     </section>
     <section *ngIf="randQuestions.length" class="questionhold">
       <div class="q" (click)="nextQuestion(1)" [@changeFavPos]="currentState">
