@@ -1,5 +1,15 @@
-/* main {
-  visibility: hidden;
+/* #cover {
+  background-color: #1c3232;
+  height: 100%
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+#cover div {
+  color: white;
 } */
 #OR,
 #counter {
@@ -13,6 +23,7 @@ main {
   background-color: #1c3232;
   justify-content: center;
   position: relative;
+
   height: 100%;
   width: 100%;
 }
@@ -107,6 +118,9 @@ img {
 @media screen and (min-width: 478px) {
   .warning {
     transform: rotate(0deg);
+  }
+  #cover {
+    display: none;
   }
 }
 

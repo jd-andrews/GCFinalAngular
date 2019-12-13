@@ -288,10 +288,10 @@
   background-position: 0 200px;
   animation: moveSlideshow 7s linear infinite;
 }
-.tech-slideshow:hover .mover-2 {
+/* .tech-slideshow:hover .mover-2 {
   background-color: rgba(255, 255, 255, 0.9);
   opacity: 1;
-}
+} */
 
 @keyframes moveSlideshow {
   100% {
