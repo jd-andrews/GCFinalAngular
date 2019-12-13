@@ -18,10 +18,14 @@ const routes: Routes = [
     component: SplashComponent,
     data: { animation: "players" }
   },
-  { path: "add", component: AddComponent },
-  { path: "game", component: GameComponent },
-  { path: "scores", component: ScoresComponent },
-  { path: "tutorial", component: TutorialComponent },
+  { path: "add", component: AddComponent, data: { animation: "add" } },
+  { path: "game", component: GameComponent, data: { animation: "game" } },
+  { path: "scores", component: ScoresComponent, data: { animation: "scores" } },
+  {
+    path: "tutorial",
+    component: TutorialComponent,
+    data: { animation: "tutorial" }
+  },
   { path: "", redirectTo: "home", pathMatch: "full" }
 ];
 
