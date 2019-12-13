@@ -1,9 +1,9 @@
 <div class="warning">
   <main>
-    <!-- <app-questions></app-questions> -->
     <section class="player">
       <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
 
+      <p>{{ advice?.slip?.advice }}</p>
       <p>- {{ yourPlayer?.playerName }}</p>
     </section>
     <section *ngIf="randQuestions.length" class="questionhold">

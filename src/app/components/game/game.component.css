@@ -96,6 +96,7 @@ section {
   top: 10px;
   left: 20px;
 }
+
 img {
   height: auto;
   width: auto;
@@ -126,9 +127,6 @@ img {
     bottom: 10px;
     left: 20px;
     right: 70%;
-  }
-  img {
-    height: 50%;
   }
 }
 @media screen and (min-width: 992px) {
