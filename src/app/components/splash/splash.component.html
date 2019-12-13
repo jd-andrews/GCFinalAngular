@@ -39,9 +39,25 @@
         *ngIf="index === i"
       >
         <label for="name">Enter name:</label>
-        <input type="text" id="name" name="name" required ngModel />
 
-        <button class="startConfirm" type="submit">
+        <input type="text" id="name" name="name" required ngModel />
+        <div *ngIf="nameForm2.invalid; then thenBlock; else elseBlock"></div>
+        <ng-template #thenBlock
+          ><p id="nameinvalid">
+            please enter valid name
+          </p></ng-template
+        >
+        <ng-template #elseBlock
+          ><p id="namevalid">
+            <!-- teasting -->
+          </p></ng-template
+        >
+
+        <button
+          class="startConfirm"
+          [disabled]="nameForm2.invalid"
+          type="submit"
+        >
           Start
         </button>
         <button

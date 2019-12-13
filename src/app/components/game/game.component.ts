@@ -97,6 +97,7 @@ export class GameComponent implements OnInit {
   }
   nextQuestion(scenarioNumber: number): void {
     // this.changeState();
+    console.log(this.availableQuestions);
     this.currentState = "final";
     console.log(this.currentState);
     let questionID: number = this.randQuestions[this.qIndex].id;

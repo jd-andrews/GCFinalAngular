@@ -53,9 +53,9 @@
   <section class="tens">
     <div class="rankings">
       <table>
-        <tr>
-          <th>Sheeple High Scores</th>
-        </tr>
+        <caption>
+          Sheeple High Scores
+        </caption>
 
         <tr *ngFor="let player of highScores; index as i">
           <td *ngIf="i < 5">
@@ -68,9 +68,9 @@
     </div>
     <div class="rankings">
       <table>
-        <tr>
-          <th>Peeple High Scores</th>
-        </tr>
+        <caption>
+          Peeple High Scores
+        </caption>
         <tr *ngFor="let player of lowScores; index as i">
           <td *ngIf="i < 5">
             <img class="face" src="{{ player?.playerimage }}" />
