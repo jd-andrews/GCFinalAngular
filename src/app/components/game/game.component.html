@@ -3,9 +3,9 @@
   <main>
     <section class="player">
       <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
-      <span class="quote">
-        <p>{{ advice?.slip?.advice }}</p>
-        <p>- {{ yourPlayer?.playerName }}</p></span
+      <span id="quote">
+        <p>"{{ advice?.slip?.advice }}"</p>
+        <p class="quote">- {{ yourPlayer?.playerName }}</p></span
       >
     </section>
     <section *ngIf="randQuestions.length" class="questionhold">
@@ -18,10 +18,11 @@
         <p class="qtext">{{ randQuestions[qIndex]?.scenario2 }}</p>
       </div>
     </section>
-    <div class="progress">
-      <p id="counter">Round {{ questionCounter + 1 }} of 6</p>
-    </div>
 
-    <a class="home " routerLink="/home"><p>I want to quit this game...</p></a>
+    <button class="home " routerLink="/home">
+      I want to quit this game...
+    </button>
+
+    <p id="counter">Round {{ questionCounter + 1 }} of 6</p>
   </main>
 </div>
