@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { QuestionService } from "src/app/services/question.service";
 import { Routes, RouterModule, Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
+import { AdviceService } from "src/app/services/advice.service";
 import { Player } from "src/app/interfaces/player";
 import {
   transition,
@@ -50,9 +51,11 @@ export class GameComponent implements OnInit {
   qIndex: number;
   yourPlayer: Player;
   currentState = "initial";
+  advice: string = "";
 
   constructor(
     private questionService: QuestionService,
+    private adviceService: AdviceService,
     private faceService: FacesService,
     private router: Router
   ) {}
@@ -60,6 +63,12 @@ export class GameComponent implements OnInit {
   setPlayer() {
     this.yourPlayer = this.faceService.getNewPlayer();
     console.log(this.yourPlayer);
+  }
+
+  getOneAdvice(): void {
+    this.adviceService.getAdvice().subscribe(advice => {
+      this.advice = advice;
+    });
   }
   //// Method that sets the randQuestions on load
   getAllQuestions(): void {
@@ -126,5 +135,6 @@ export class GameComponent implements OnInit {
     this.setPlayer();
     this.getAllQuestions();
     this.getAllIDs();
+    this.getOneAdvice();
   }
 }

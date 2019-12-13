@@ -19,6 +19,7 @@ export class SplashComponent implements OnInit {
   index: number;
   faces: any[] = [];
   advices: any[] = [];
+  advice: string = "";
 
   constructor(
     private faceService: FacesService,
@@ -26,7 +27,7 @@ export class SplashComponent implements OnInit {
     private router: Router
   ) {}
 
-  getOneAdvice(): void {
+  getThreeAdvice(): void {
     for (let i = 0; i < 3; i++) {
       this.adviceService.getAdvice().subscribe(advice => {
         this.advices.push(advice);
@@ -34,6 +35,7 @@ export class SplashComponent implements OnInit {
     }
     console.log(this.advices);
   }
+
   getAllFaces(): void {
     for (let i = 0; i < 3; i++) {
       this.faceService
@@ -67,6 +69,6 @@ export class SplashComponent implements OnInit {
     console.log("index", this.index);
     this.showPlayers();
     this.getAllFaces();
-    this.getOneAdvice();
+    this.getThreeAdvice();
   }
 }
