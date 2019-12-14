@@ -47,7 +47,7 @@ export class ScoresComponent implements OnInit {
 
   getScoreLists() {
     this.questionService.getScoreAvg().subscribe(average => {
-      this.averageScore = parseInt(average[0].avg);
+      this.averageScore = parseInt(average.avg);
     });
     this.questionService.getHighScores().subscribe(scores => {
       this.highScores = scores;

@@ -19,10 +19,10 @@
     <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
 
     <ng-template #thenBlock>
-      <p class="result">
-        You answered in the <span class="underlined">majority</span>. You belong
-        with the <span class="underlined">sheeple!</span>
-      </p>
+      <span class="result">
+        <p>You answered in the <span class="underlined">majority</span>.</p>
+        <p>You belong with the <span class="underlined">sheeple!</span></p>
+      </span>
       <div class="profile">
         <img
           src="{{ yourPlayer?.playerImage }}"
