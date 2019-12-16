@@ -238,12 +238,11 @@ footer {
   display: flex;
   background-color: #9b7962;
   border-top: 1px solid rgb(218, 238, 248);
-
   opacity: 0.97;
   width: 100%;
   justify-content: space-between;
   z-index: 5;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .footer-link {
@@ -252,8 +251,8 @@ footer {
 #tutorial {
   font-size: 13pt;
   position: absolute;
-  bottom: 10%;
   left: 50%;
+  bottom: 10%;
   transform: translateX(-50%);
 }
 
@@ -280,6 +279,10 @@ footer {
     height: 60px;
     width: 60px;
   }
+
+  footer {
+    padding: 10px 30px;
+  }
 }
 @media screen and (min-width: 768px) {
   .choosePlayer {
@@ -293,6 +296,14 @@ footer {
   .sheep {
     height: 80px;
     width: 80px;
+  }
+
+  .profile {
+    height: 70%;
+  }
+
+  footer {
+    padding: 10px 40px;
   }
 }
 
@@ -317,6 +328,11 @@ footer {
     width: 200px;
     display: flex;
     justify-content: space-around;
+  }
+
+  #logo:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
   }
   #logo {
     margin-top: 10%;
@@ -355,6 +371,9 @@ footer {
     width: 240px;
   }
 
+  footer {
+    padding: 10px 40px;
+  }
   .footer-link {
     font-size: 3vh;
   }
@@ -365,8 +384,9 @@ footer {
     color: white;
   }
 
-  #tutorial:hover {
-    background-color: white;
+  button:hover {
+    background-color: #daeef8;
+    border-color: #1c3232;
     color: #1c3232;
   }
 }

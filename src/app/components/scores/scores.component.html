@@ -14,7 +14,7 @@
   <section class="top">
     <h1 class="score">Your score: {{ yourScore }}</h1>
     <p class="scoreContent">
-      Your score was calculated based on
+      * Your score was calculated based on
     </p>
     <p class="scoreContent">whether or not you answered like everyone else.</p>
     <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
@@ -42,6 +42,17 @@
         <img class="sheep" src="/assets/greySheep.png" alt="cartoon sheep" />
       </div>
     </ng-template>
+  </section>
+  <button class="recap" (click)="showRecap()">Review My Answers</button>
+  <section class="recap-container" *ngIf="clicked">
+    <!-- <div *ngFor="let answer of answers"></div> -->
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p class="exit" (click)="showRecap()">X Exit</p>
   </section>
   <h2>HIGH SCORES :</h2>
   <section class="tens">

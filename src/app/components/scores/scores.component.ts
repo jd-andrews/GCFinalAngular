@@ -15,6 +15,7 @@ export class ScoresComponent implements OnInit {
   highScores: any[] = [];
   lowScores: any[] = [];
   averageScore: number;
+  clicked: boolean = false;
 
   constructor(
     private questionService: QuestionService,
@@ -22,6 +23,9 @@ export class ScoresComponent implements OnInit {
     private router: Router
   ) {}
 
+  showRecap() {
+    this.clicked = !this.clicked;
+  }
   setPlayer() {
     this.yourPlayer = this.faceService.getNewPlayer();
     console.log(this.yourPlayer);

@@ -23,7 +23,7 @@ main {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin-left: 10px;
+  padding-right: 30px;
 }
 h1 {
   text-align: center;
@@ -38,7 +38,7 @@ h1 {
 }
 
 .more {
-  border: 1px solid #98473c;
+  border: 1px solid black;
   color: black;
   border-radius: 5px;
   background-color: #d8e9f1;
@@ -118,6 +118,8 @@ table img {
   position: relative;
   top: 10px;
   text-align: center;
+  font-family: "Lato", sans-serif;
+  font-size: 0.5em;
 }
 .result {
   position: relative;
@@ -131,6 +133,36 @@ table img {
   font-size: 20px;
 }
 
+.recap {
+  border: 1px solid #98473c;
+  color: #98473c;
+  border-radius: 5px;
+  background-color: #d8e9f1;
+  padding: 6px;
+  margin: 16px 4px;
+}
+
+.recap-container {
+  background: #d8e9f1;
+  color: #1c3232;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+  z-index: 2;
+  width: 80%;
+  height: 50%;
+  border: 1px solid;
+  border-color: #1c3232;
+  border-radius: 5px;
+}
+
+.exit {
+  color: red;
+}
 h2 {
   font-size: 20px;
   color: #98473c;
@@ -140,20 +172,19 @@ h2 {
 @media screen and (min-width: 478px) {
   .buttons {
     position: absolute;
-    top: 3px;
-    left: 3px;
+    top: 3%;
+    left: 3%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 50%;
+    height: 70%;
     width: 15%;
     font-size: 0.5em;
   }
 
   .more {
     width: 80%;
-    border: 1px solid black;
   }
 
   .score {
@@ -206,17 +237,17 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
-  /* main {
-    font-size: 35px;
-  } */
+  main {
+    height: auto;
+  }
   .underlined {
     text-decoration: underline #1c3232;
     font-size: 50px;
   }
 
   .buttons {
-    height: 20%;
-    justify-content: space-around;
+    height: 75%;
+    justify-content: space-between;
   }
 
   .profile {
@@ -225,6 +256,9 @@ h2 {
     align-items: center;
   }
 
+  .recap-container {
+    top: 15%;
+  }
   table {
     padding: 30px 5px 5px 5px;
   }
@@ -233,13 +267,14 @@ h2 {
 @media screen and (min-width: 992px) {
   main {
     font-size: 35px;
+    height: auto;
   }
   .page {
     width: 80%;
   }
 
   .buttons {
-    height: 30%;
+    height: 40%;
   }
 
   .more {
@@ -250,6 +285,10 @@ h2 {
     font-size: 50px;
   }
 
+  .recap-container {
+    top: 29%;
+    width: 70%;
+  }
   h2 {
     font-size: 50px;
   }
