@@ -18,6 +18,10 @@ main {
   border-radius: 30px;
 }
 
+.choosen {
+  color: red;
+}
+
 .buttons {
   display: flex;
   justify-content: space-around;

@@ -16,6 +16,8 @@ export class ScoresComponent implements OnInit {
   lowScores: any[] = [];
   averageScore: number;
   clicked: boolean = false;
+  yourAnswers: any[] = [];
+  // otherAnswers: any[] = [];
 
   constructor(
     private questionService: QuestionService,
@@ -23,6 +25,11 @@ export class ScoresComponent implements OnInit {
     private router: Router
   ) {}
 
+  getAnswers() {
+    this.yourAnswers = this.questionService.getYourAnswers();
+    // this.otherAnswers = this.questionService.getOtherAnswers();
+    this.questionService.resetAnswerArr();
+  }
   showRecap() {
     this.clicked = !this.clicked;
   }
@@ -73,6 +80,7 @@ export class ScoresComponent implements OnInit {
     this.router.navigate(["/players"]);
   }
   ngOnInit() {
+    this.getAnswers();
     this.getScore();
     this.setPlayer();
     // this.faceService.addPlayer().subscribe();
