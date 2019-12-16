@@ -9,6 +9,17 @@ main {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.wholedoc {
+  z-index: 4;
+  height: 100vh;
+
+  width: 100vw;
+  background-color: black;
+  opacity: 20%;
+  position: fixed;
+}
+
 .logo {
   cursor: pointer;
   height: auto;
@@ -156,8 +167,10 @@ table img {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 5;
   width: 85%;
   height: auto;
@@ -165,14 +178,6 @@ table img {
   border: 1px solid;
   border-color: #d8e9f1;
   border-radius: 5px;
-}
-
-.wholedoc {
-  z-index: 4;
-  height: 100vh;
-  width: 100vw;
-  opacity: 0%;
-  position: absolute;
 }
 
 .answers {
@@ -288,8 +293,9 @@ h2 {
 
 @media screen and (min-width: 768px) {
   main {
-    height: auto;
+    height: 100%;
   }
+
   .underlined {
     text-decoration: underline #1c3232;
     font-size: 50px;
@@ -339,6 +345,7 @@ h2 {
     font-size: 35px;
     height: auto;
   }
+
   .page {
     width: 80%;
   }
