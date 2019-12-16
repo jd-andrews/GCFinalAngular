@@ -18,10 +18,6 @@ main {
   border-radius: 30px;
 }
 
-.choosen {
-  color: red;
-}
-
 .buttons {
   display: flex;
   justify-content: space-around;
@@ -147,7 +143,7 @@ table img {
 }
 
 .recap-container {
-  background: #d8e9f1;
+  background: white;
   color: #1c3232;
   padding: 12px;
   display: flex;
@@ -157,16 +153,58 @@ table img {
   position: absolute;
   top: 25%;
   z-index: 2;
-  width: 80%;
-  height: 50%;
+  width: 85%;
+  height: auto;
+  min-height: 50%;
   border: 1px solid;
-  border-color: #1c3232;
+  border-color: #d8e9f1;
   border-radius: 5px;
 }
 
-.exit {
-  color: red;
+.answers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1c3232;
+  width: 100%;
+  padding: 16px;
 }
+
+.answer {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* .left {
+  text-align: start;
+  border-right: 1px solid #1c3232;
+}
+
+.right {
+  text-align: end;
+} */
+.choosen {
+  color: rgb(10, 19, 10);
+  background-color: #fff38e;
+  /* box-shadow: 5px 10px 8px 10px lightgoldenrodyellow; */
+  font-weight: bold;
+}
+.exit {
+  background-color: white;
+  color: coral;
+  border-color: coral;
+  font-size: 1em;
+  border-color: #d8e9f1;
+  padding: 10px;
+  border-radius: 3px;
+}
+
 h2 {
   font-size: 20px;
   color: #98473c;
@@ -305,7 +343,10 @@ h2 {
     background-color: white;
     color: #98473c;
   }
-
+  .recap:hover {
+    background-color: #98473c;
+    color: white;
+  }
   table {
     padding: 40px 10px 10px 10px;
   }

@@ -31,7 +31,7 @@
     ></ng-template>
     <ng-template #elseBlock>
       <span class="result"
-        ><p>You answered in the <span class="underlined">minority</span>.</p>
+        ><p>You answered in the <span class="underlined">minority</span></p>
         <p>
           You are unique among the <span class="underlined">people!</span>
         </p></span
@@ -45,14 +45,21 @@
   </section>
   <button class="recap" (click)="showRecap()">Review My Answers</button>
   <section class="recap-container" *ngIf="clicked">
-    <span *ngFor="let answer of yourAnswers"
-      ><p [ngClass]="{ choosen: answer[1] === 1 }">{{ answer[0].scenario }}</p>
-      <p [ngClass]="{ choosen: answer[1] === 2 }">
-        {{ answer[0].scenario2 }}
-      </p></span
-    >
+    <p class="message" [ngClass]="{ hidden: yourAnswers.length > 0 }">
+      You haven't answered any questions yet!
+    </p>
+    <div *ngFor="let answer of yourAnswers">
+      <span class="answers">
+        <p class="answer left" [ngClass]="{ choosen: answer[1] === 1 }">
+          {{ answer[0].scenario }}
+        </p>
 
-    <p class="exit" (click)="showRecap()">X Exit</p>
+        <p class="answer right" [ngClass]="{ choosen: answer[1] === 2 }">
+          {{ answer[0].scenario2 }}
+        </p>
+      </span>
+    </div>
+    <button class="exit" (click)="showRecap()">X Exit</button>
   </section>
   <h2>HIGH SCORES :</h2>
   <section class="tens">
