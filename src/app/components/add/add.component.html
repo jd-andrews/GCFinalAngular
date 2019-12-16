@@ -1,5 +1,10 @@
 <section>
-  <img id="logo" src="./assets/SHEEPLE.png" title="sheeple vs peeple" />
+  <img
+    id="logo"
+    src="./assets/PEEPLE.png"
+    title="sheeple vs peeple"
+    (click)="goHome()"
+  />
   <h1>Create-A-Question</h1>
 
   <form #newScenario="ngForm" (submit)="addScenario(newScenario)">

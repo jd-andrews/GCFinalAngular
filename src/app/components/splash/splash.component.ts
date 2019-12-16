@@ -60,6 +60,10 @@ export class SplashComponent implements OnInit {
     this.index = null;
   }
 
+  goHome() {
+    this.router.navigate(["/home"]);
+  }
+
   ngOnInit() {
     console.log("index", this.index);
     this.showPlayers();

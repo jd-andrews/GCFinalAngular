@@ -1,6 +1,12 @@
 <main class="choosePlayer" *ngIf="show">
   <div class="logo">
-    <img id="logo" src="/assets/SHEEPLE.png" alt="" title="Sheeple vs Peeple" />
+    <img
+      id="logo"
+      src="/assets/PEEPLE.png"
+      alt=""
+      title="Sheeple vs Peeple"
+      (click)="goHome()"
+    />
   </div>
 
   <h1>Choose a Player</h1>

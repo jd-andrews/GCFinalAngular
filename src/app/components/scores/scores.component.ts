@@ -66,7 +66,7 @@ export class ScoresComponent implements OnInit {
   }
 
   goHome() {
-    this.router.navigate([""]);
+    this.router.navigate(["/players"]);
   }
   ngOnInit() {
     this.getScore();
