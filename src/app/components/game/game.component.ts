@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 import { QuestionService } from "src/app/services/question.service";
 import { Routes, RouterModule, Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
@@ -57,6 +57,18 @@ export class GameComponent implements OnInit {
     private faceService: FacesService,
     private router: Router
   ) {}
+
+  @HostListener("window:keyup", ["$event"])
+  keyEvent(event: KeyboardEvent) {
+    ///// 39 = right arrow, 37 = left arrow
+    if (event.keyCode === 39) {
+      this.nextQuestion(2);
+    } else if (event.keyCode === 37) {
+      this.nextQuestion(1);
+    } else {
+      console.log("other", event);
+    }
+  }
 
   setPlayer() {
     this.yourPlayer = this.faceService.getNewPlayer();

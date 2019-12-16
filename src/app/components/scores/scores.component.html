@@ -1,3 +1,6 @@
+<div *ngIf="clicked">
+  <div class="wholedoc" (click)="showRecap()"></div>
+</div>
 <main>
   <img
     class="logo"
@@ -14,7 +17,9 @@
     <p class="scoreContent">
       * Your score was calculated based on
     </p>
-    <p class="scoreContent">whether or not you answered like everyone else.</p>
+    <p class="scoreContent">
+      whether or not you answered like everyone else.
+    </p>
     <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
 
     <ng-template #thenBlock>
@@ -42,23 +47,7 @@
     </ng-template>
   </section>
   <button class="recap" (click)="showRecap()">Review My Answers</button>
-  <section class="recap-container" *ngIf="clicked">
-    <p class="message" [ngClass]="{ hidden: yourAnswers.length > 0 }">
-      You haven't answered any questions yet!
-    </p>
-    <div *ngFor="let answer of yourAnswers">
-      <span class="answers">
-        <p class="answer left" [ngClass]="{ choosen: answer[1] === 1 }">
-          {{ answer[0].scenario }}
-        </p>
 
-        <p class="answer right" [ngClass]="{ choosen: answer[1] === 2 }">
-          {{ answer[0].scenario2 }}
-        </p>
-      </span>
-    </div>
-    <button class="exit" (click)="showRecap()">X Exit</button>
-  </section>
   <h2>HIGH SCORES :</h2>
   <section class="tens">
     <div class="rankings">
@@ -92,3 +81,20 @@
     </div>
   </section>
 </main>
+<section class="recap-container" *ngIf="clicked">
+  <p class="message" [ngClass]="{ hidden: yourAnswers.length > 0 }">
+    You haven't answered any questions yet!
+  </p>
+  <div *ngFor="let answer of yourAnswers">
+    <span class="answers">
+      <p class="answer left" [ngClass]="{ choosen: answer[1] === 1 }">
+        {{ answer[0].scenario }}
+      </p>
+
+      <p class="answer right" [ngClass]="{ choosen: answer[1] === 2 }">
+        {{ answer[0].scenario2 }}
+      </p>
+    </span>
+  </div>
+  <button class="exit" (click)="showRecap()">X Exit</button>
+</section>

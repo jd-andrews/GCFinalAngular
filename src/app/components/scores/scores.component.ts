@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 import { QuestionService } from "src/app/services/question.service";
 import { FacesService } from "src/app/services/faces.service";
 import { Player } from "src/app/interfaces/player";

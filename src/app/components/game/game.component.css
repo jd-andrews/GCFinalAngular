@@ -125,9 +125,9 @@ img {
 
 .progress {
   height: 5px;
-  width: 16vw;
+  width: 15.5vw;
   background-color: white;
-  margin: 4px;
+  margin-right: 8px;
 }
 
 @media screen and (min-width: 478px) {
