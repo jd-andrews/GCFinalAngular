@@ -319,7 +319,7 @@ footer {
   }
 
   .profile {
-    height: 70%;
+    height: 85%;
   }
 
   footer {
@@ -376,7 +376,7 @@ footer {
   }
 
   .profile {
-    height: 100%;
+    height: fit-content;
   }
 
   img {
