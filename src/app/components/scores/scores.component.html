@@ -43,11 +43,12 @@
       </div>
     </ng-template>
   </section>
+  <h2>HIGH SCORES :</h2>
   <section class="tens">
     <div class="rankings">
       <table>
         <caption>
-          Sheeple High Scores
+          Sheeple
         </caption>
 
         <tr *ngFor="let player of highScores; index as i">
@@ -62,7 +63,7 @@
     <div class="rankings">
       <table>
         <caption>
-          Peeple High Scores
+          Peeple
         </caption>
         <tr *ngFor="let player of lowScores; index as i">
           <td *ngIf="i < 5">
