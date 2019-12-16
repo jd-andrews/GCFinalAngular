@@ -52,6 +52,8 @@ export class GameComponent implements OnInit {
   yourPlayer: Player;
   currentState = "initial";
   advice: string = "";
+  peeple: number;
+  sheeple: number;
 
   constructor(
     private questionService: QuestionService,
@@ -101,10 +103,13 @@ export class GameComponent implements OnInit {
     this.currentState = "final";
     console.log(this.currentState);
     let questionID: number = this.randQuestions[this.qIndex].id;
+
     ////// Second iteration of randomization with availableQuestions and doneQuestions, takes
     ///////// one from one and adds to the other
     /// Uses scenario number to upvote either scenario based on choice
     this.questionService.ratingPlusOne(questionID, scenarioNumber).subscribe();
+    // Compares scenario ratings to increment sheeple or peeple
+    this.questionService.compare(questionID, scenarioNumber);
     //// setting current score
     this.questionService.setCurrentScore(questionID, scenarioNumber);
     /// if/else statement that decides whether to navigate away when

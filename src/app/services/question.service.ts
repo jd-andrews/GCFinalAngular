@@ -16,6 +16,8 @@ export class QuestionService {
   // };
   constructor(private http: HttpClient) {}
   currentScoreArr: any[] = [];
+  sheeple: number = 1;
+  peeple: number = 1;
 
   /// sets new questions for table
   // setNewPairing(scenario: string, scenario2: string) {
@@ -54,12 +56,46 @@ export class QuestionService {
     );
   }
 
+  // sees which is larger between rating and rating2,
+  // then increments the corresponding category variable
+  compare(id: number, scenarioNumber: number) {
+    let first: number = 0;
+    let second: number = 0;
+    this.getRating(id, 1).subscribe(data => {
+      first = data;
+      console.log("first", first);
+      this.getRating(id, 2).subscribe(data => {
+        second = data;
+        console.log("second", second);
+        if (scenarioNumber === 1 && first < second) {
+          this.peeple += 1;
+        } else if (scenarioNumber === 2 && second < first) {
+          this.peeple += 1;
+        } else {
+          this.sheeple += 1;
+        }
+      });
+    });
+    console.log("sheeple count", this.sheeple, "peeple count", this.peeple);
+  }
+
+  // resetCategory(): void {
+  //   this.sheeple = 0;
+  //   this.peeple = 0;
+  // }
+
   //// resets score when navigating away from page
   resetScoreArr(): void {
     this.currentScoreArr = [];
   }
 
   //// get's rating to use in totalling score
+  // getRating(id, num): Observable<any> {
+  //   console.log("sevice ID", id);
+  //   console.log("service num", num);
+  //   return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
+  // }
+
   getRating(id, num): Observable<any> {
     console.log("sevice ID", id);
     console.log("service num", num);
