@@ -16,6 +16,7 @@ export class ScoresComponent implements OnInit {
   lowScores: any[] = [];
   averageScore: number;
   clicked: boolean = false;
+  outsideClicked: boolean = false;
   yourAnswers: any[] = [];
   // otherAnswers: any[] = [];
 
@@ -33,6 +34,7 @@ export class ScoresComponent implements OnInit {
   showRecap() {
     this.clicked = !this.clicked;
   }
+
   setPlayer() {
     this.yourPlayer = this.faceService.getNewPlayer();
     console.log(this.yourPlayer);
