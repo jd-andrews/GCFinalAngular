@@ -26,6 +26,7 @@ const routes: Routes = [
     component: TutorialComponent,
     data: { animation: "tutorial" }
   },
+
   { path: "", redirectTo: "home", pathMatch: "full" }
 ];
 

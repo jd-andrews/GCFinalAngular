@@ -2,7 +2,7 @@
 <div class="warning">
   <main>
     <section class="player">
-      <img src="{{ yourPlayer?.playerImage }}" (click)="confirmPlayer(i)" />
+      <img src="{{ yourPlayer?.playerImage }}" />
       <span id="quote">
         <p>"{{ advice?.slip?.advice }}"</p>
         <p class="quote">- {{ yourPlayer?.playerName }}</p></span
@@ -22,7 +22,13 @@
     <button class="home " routerLink="/home">
       I want to quit this game...
     </button>
-
-    <p id="counter">Round {{ questionCounter + 1 }} of 6</p>
+    <section id="progress">
+      <p id="counter">Round {{ questionCounter + 1 }} of 6</p>
+      <div id="progress-bar">
+        <div *ngFor="let question of doneQuestions">
+          <div class="progress"></div>
+        </div>
+      </div>
+    </section>
   </main>
 </div>

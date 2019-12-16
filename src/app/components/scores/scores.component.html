@@ -5,6 +5,7 @@
       src="/assets/SHEEPLE.png"
       alt="game logo"
       (click)="goHome()"
+      title="sheeple vs peeple"
     />
     <a class="more" routerLink="/players">Play Again</a>
     <a class="more" routerLink="/add">Submit a Question</a>
@@ -24,11 +25,7 @@
         <p>You belong with the <span class="underlined">sheeple!</span></p>
       </span>
       <div class="profile">
-        <img
-          src="{{ yourPlayer?.playerImage }}"
-          (click)="confirmPlayer(i)"
-          class="face"
-        />
+        <img src="{{ yourPlayer?.playerImage }}" class="face" />
         <p class="charName">- {{ yourPlayer?.playerName }}</p>
         <img class="sheep" src="/assets/sheep.png" alt="cartoon sheep" /></div
     ></ng-template>
@@ -40,11 +37,7 @@
         </p></span
       >
       <div class="profile">
-        <img
-          src="{{ yourPlayer?.playerImage }}"
-          (click)="confirmPlayer(i)"
-          class="face"
-        />
+        <img src="{{ yourPlayer?.playerImage }}" class="face" />
         <p class="charName">- {{ yourPlayer?.playerName }}</p>
         <img class="sheep" src="/assets/greySheep.png" alt="cartoon sheep" />
       </div>

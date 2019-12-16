@@ -5,9 +5,10 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+  height: auto;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 8vh;
   font-weight: bold;
   text-align: center;
   margin-bottom: 14px;
@@ -25,6 +26,9 @@ h1 {
 
 .sheepContainer {
   display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 10%;
 }
 
 @keyframes sheepflash {
@@ -51,6 +55,7 @@ h1 {
 .sheep {
   height: 42px;
   width: 42px;
+
   border: none;
   margin-right: 8px;
   animation-name: sheepflash;
@@ -63,6 +68,7 @@ h1 {
 .sheep-alt {
   height: 42px;
   width: 42px;
+
   border: none;
   margin-right: 8px;
   animation-name: sheepflash-alt;
@@ -72,19 +78,22 @@ h1 {
 }
 
 .logo {
-  height: 50px;
-  width: 100px;
+  height: fit-content;
+  width: fit-content;
 
   margin-bottom: 20px;
 }
 
 #logo {
-  height: 50px;
-  width: 50px;
-  left: 50%;
-  top: 2.5%;
+  height: auto;
+  width: auto;
+  margin-top: 2.5%;
+  max-height: 100px;
+  max-width: 100px;
+  /* margin-bottom: 20px; */
+  /* left: 50%;
   position: absolute;
-  transform: translate(-50%);
+  transform: translate(-50%); */
   border: none;
 }
 .player {
@@ -228,6 +237,7 @@ footer {
   display: flex;
   background-color: #9b7962;
   border-top: 1px solid rgb(218, 238, 248);
+
   opacity: 0.97;
   width: 100%;
   justify-content: space-between;
@@ -235,14 +245,20 @@ footer {
   padding: 10px;
 }
 
+.footer-link {
+  font-size: 11pt;
+}
 #tutorial {
+  font-size: 13pt;
   position: absolute;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 @media screen and (min-width: 478px) {
   .player-container {
+    height: 40%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -255,7 +271,36 @@ footer {
     height: 100%;
     width: 210px;
   }
+  .sheep-alt {
+    height: 60px;
+    width: 60px;
+  }
+  .sheep {
+    height: 60px;
+    width: 60px;
+  }
 }
+@media screen and (min-width: 768px) {
+  .choosePlayer {
+    height: 100vh;
+  }
+  .sheep-alt {
+    height: 80px;
+    width: 80px;
+  }
+
+  .sheep {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media screen and (width: 812px) {
+  .choosePlayer {
+    height: auto;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .choosePlayer {
     height: 100vh;
@@ -269,8 +314,19 @@ footer {
     left: 20px;
     height: 200px;
     width: 200px;
+    display: flex;
+    justify-content: space-around;
   }
   #logo {
+    margin-top: 10%;
+  }
+
+  .sheep-alt {
+    height: 100px;
+    width: 100px;
+  }
+
+  .sheep {
     height: 100px;
     width: 100px;
   }
@@ -298,6 +354,12 @@ footer {
     width: 240px;
   }
 
+  .footer-link {
+    font-size: 3vh;
+  }
+  #tutorial {
+    font-size: 3vh;
+  }
   .footer-link:hover {
     color: white;
   }

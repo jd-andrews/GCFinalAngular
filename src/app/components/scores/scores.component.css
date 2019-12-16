@@ -9,6 +9,7 @@ main {
   padding-bottom: 10px;
 }
 .logo {
+  cursor: pointer;
   height: auto;
   width: auto;
   height: 80px;

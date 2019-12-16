@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { GameComponent } from "../game/game.component";
+
 import { Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
-import { AdviceService } from "src/app/services/advice.service";
-import { Player } from "src/app/interfaces/player";
+
 import { NgForm } from "@angular/forms";
 // import { QuestionsService } from "..services/questions.service";
 
@@ -21,15 +20,11 @@ export class SplashComponent implements OnInit {
   advices: any[] = [];
   advice: string = "";
 
-  constructor(
-    private faceService: FacesService,
-    private adviceService: AdviceService,
-    private router: Router
-  ) {}
+  constructor(private faceService: FacesService, private router: Router) {}
 
   getThreeAdvice(): void {
     for (let i = 0; i < 3; i++) {
-      this.adviceService.getAdvice().subscribe(advice => {
+      this.faceService.getAdvice().subscribe(advice => {
         this.advices.push(advice);
       });
     }

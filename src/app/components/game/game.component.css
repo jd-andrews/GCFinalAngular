@@ -60,7 +60,7 @@ section {
   margin-left: 16px; */
 }
 .qtext {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 .questionhold {
   height: 55%;
@@ -86,10 +86,6 @@ section {
   font-size: 12px;
 }
 
-.progress {
-  position: fixed;
-  bottom: 20px;
-}
 .warning {
   transform: rotate(90deg);
   height: 100vh;
@@ -116,6 +112,24 @@ img {
   border-radius: 50%;
 }
 
+#progress {
+  display: flex;
+  flex-direction: column;
+  /* width: fit-content; */
+}
+
+#progress-bar {
+  align-self: flex-start;
+  display: flex;
+}
+
+.progress {
+  height: 5px;
+  width: 16vw;
+  background-color: white;
+  margin: 4px;
+}
+
 @media screen and (min-width: 478px) {
   .warning {
     transform: rotate(0deg);
@@ -133,9 +147,7 @@ img {
   .questionhold {
     height: 60%;
   }
-  .progress {
-    bottom: 9%;
-  }
+
   .home {
     top: 90%;
     bottom: 10px;
@@ -175,9 +187,5 @@ img {
     background: #9b7962;
     color: #daeef8;
     border-color: #9b7962;
-  }
-
-  .progress {
-    bottom: 17%;
   }
 }

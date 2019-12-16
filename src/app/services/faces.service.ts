@@ -34,7 +34,11 @@ export class FacesService {
   addPlayer(): Observable<any> {
     return this.http.post("http://localhost:3003/add-player", this.newPlayer);
   }
-  // getAllFaces(): Observable<any> {
-  //   return this.http.get();
-  // }
+
+  //// Gets advice from advice api
+  getAdvice(): Observable<any> {
+    return this.http.get(
+      `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 218)}`
+    );
+  }
 }

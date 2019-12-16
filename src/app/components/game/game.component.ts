@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { QuestionService } from "src/app/services/question.service";
 import { Routes, RouterModule, Router } from "@angular/router";
 import { FacesService } from "src/app/services/faces.service";
-import { AdviceService } from "src/app/services/advice.service";
 import { Player } from "src/app/interfaces/player";
 import {
   transition,
@@ -51,13 +50,10 @@ export class GameComponent implements OnInit {
   qIndex: number;
   yourPlayer: Player;
   currentState = "initial";
-  advice: string = "";
-  peeple: number;
-  sheeple: number;
+  advice: any;
 
   constructor(
     private questionService: QuestionService,
-    private adviceService: AdviceService,
     private faceService: FacesService,
     private router: Router
   ) {}
@@ -68,7 +64,7 @@ export class GameComponent implements OnInit {
   }
 
   getOneAdvice(): void {
-    this.adviceService.getAdvice().subscribe(advice => {
+    this.faceService.getAdvice().subscribe(advice => {
       this.advice = advice;
     });
   }
@@ -125,6 +121,7 @@ export class GameComponent implements OnInit {
         1
       );
       this.questionCounter++;
+
       setTimeout(() => {
         this.qIndex = newNum[0] - 1;
         console.log(this.currentState);

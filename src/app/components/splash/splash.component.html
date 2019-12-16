@@ -1,6 +1,6 @@
 <main class="choosePlayer" *ngIf="show">
   <div class="logo">
-    <img id="logo" src="/assets/SHEEPLE.png" alt="" />
+    <img id="logo" src="/assets/SHEEPLE.png" alt="" title="Sheeple vs Peeple" />
   </div>
 
   <h1>Choose a Player</h1>
@@ -21,6 +21,7 @@
         class="face"
         src="{{ person[0].picture.large }}"
         (click)="confirmPlayer(i)"
+        title="Player Headshot"
       />
       <div class="profile">
         <span class="headshot">
