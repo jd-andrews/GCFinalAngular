@@ -8,7 +8,7 @@
   height: auto;
 }
 h1 {
-  font-size: 8vh;
+  font-size: 6vh;
   font-weight: bold;
   text-align: center;
   margin-bottom: 14px;
@@ -81,15 +81,15 @@ h1 {
   height: fit-content;
   width: fit-content;
 
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 #logo {
   height: auto;
   width: auto;
   margin-top: 2.5%;
-  max-height: 150px;
-  max-width: 150px;
+  max-height: 100px;
+  max-width: 100px;
   cursor: pointer;
   /* margin-bottom: 20px; */
   /* left: 50%;
@@ -193,8 +193,7 @@ span {
   height: 130px;
   width: 240px;
   z-index: 3;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   position: absolute;
   bottom: 0%;
   left: 50%;
@@ -283,8 +282,29 @@ footer {
   footer {
     padding: 10px 30px;
   }
+
+  .logo {
+    position: absolute;
+    left: 2%;
+    max-height: 150px;
+    max-width: 150px;
+  }
 }
 @media screen and (min-width: 768px) {
+  main {
+    padding-top: 250px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 1.5%;
+    left: 50%;
+    transform: translateX(-60%);
+  }
+  #logo {
+    max-width: 200px;
+    max-height: 200px;
+  }
   .choosePlayer {
     height: 100vh;
   }
@@ -314,6 +334,9 @@ footer {
 }
 
 @media screen and (min-width: 992px) {
+  main {
+    padding-top: 5%;
+  }
   .choosePlayer {
     height: 100vh;
     justify-content: space-around;
@@ -322,12 +345,10 @@ footer {
 
   .logo {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    height: 200px;
-    width: 200px;
-    display: flex;
-    justify-content: space-around;
+    left: 3%;
+    transform: none;
+    max-height: 250px;
+    max-width: 250px;
   }
 
   #logo:hover {

@@ -237,10 +237,6 @@ h2 {
     font-size: 0.5em;
   }
 
-  .more {
-    width: 80%;
-  }
-
   .score {
     color: #98473c;
     text-shadow: 1px 2px #1c3232;
@@ -327,6 +323,14 @@ h2 {
   }
   table {
     padding: 30px 5px 5px 5px;
+  }
+
+  .logo {
+    left: 15%;
+  }
+
+  #logo {
+    left: 15%;
   }
 }
 
