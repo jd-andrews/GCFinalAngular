@@ -13,8 +13,8 @@ export class QuestionService {
   private readonly BASE_URL = environment.pvsBaseUrl;
   constructor(private http: HttpClient) {}
   currentScoreArr: any[] = [];
-  sheeple: number = 1;
-  peeple: number = 1;
+  sheeple: number = 0;
+  peeple: number = 0;
   yourAnswers: any[] = [];
   otherAnswers: any[] = [];
 
@@ -56,7 +56,7 @@ export class QuestionService {
         return;
       } else {
         window.alert("You cancelled your submission");
-        event.preventDefault();
+
         // return false;
       }
     }
@@ -71,34 +71,6 @@ export class QuestionService {
   ratingPlusOne(id, scenario): Observable<void> {
     return this.http.put<void>(`${this.BASE_URL}/rating${scenario}/${id}`, "");
   }
-
-  // sees which is larger between rating and rating2,
-  // then increments the corresponding category variable
-  compare(id: number, scenarioNumber: number) {
-    let first: number = 0;
-    let second: number = 0;
-    this.getRating(id, 1).subscribe(data => {
-      first = data;
-      console.log("first", first);
-      this.getRating(id, 2).subscribe(data => {
-        second = data;
-        console.log("second", second);
-        if (scenarioNumber === 1 && first < second) {
-          this.peeple += 1;
-        } else if (scenarioNumber === 2 && second < first) {
-          this.peeple += 1;
-        } else {
-          this.sheeple += 1;
-        }
-      });
-    });
-    console.log("sheeple count", this.sheeple, "peeple count", this.peeple);
-  }
-
-  // resetCategory(): void {
-  //   this.sheeple = 0;
-  //   this.peeple = 0;
-  // }
 
   //// resets score when navigating away from page
   resetScoreArr(): void {
@@ -122,20 +94,38 @@ export class QuestionService {
 
   //// gets score in an array in order to calculate on the score page
   setCurrentScore(id, num): void {
-    this.getRating(id, num).subscribe(data => {
-      let addNum = Number(data);
-      this.currentScoreArr.push(addNum);
-    });
     this.getAnswer(id, num).subscribe(data => {
       let answerPair = data;
       answerPair.push(num);
       this.yourAnswers.push(answerPair);
-      console.log(this.yourAnswers);
+      // sees which is larger between rating and rating2,
+      // then increments the corresponding category variable
+      console.log("answer pair", answerPair);
+      if (
+        (num === 1 && answerPair[0].rating >= answerPair[0].rating2) ||
+        (num === 2 && answerPair[0].rating2 >= answerPair[0].rating)
+      ) {
+        this.sheeple++;
+      } else {
+        this.peeple++;
+      }
     });
+
+    this.getRating(id, num).subscribe(data => {
+      let addNum = Number(data);
+      this.currentScoreArr.push(addNum);
+    });
+    console.log("num", num);
+    console.log("sheeple count", this.sheeple, "peeple count", this.peeple);
+    console.log(this.yourAnswers);
+  }
+
+  getCategory() {
+    if (this.sheeple >= this.peeple) return this.sheeple;
+    else return this.peeple;
   }
 
   //// resets answer array
-
   resetAnswerArr(): void {
     this.yourAnswers = [];
   }

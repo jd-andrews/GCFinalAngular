@@ -117,7 +117,7 @@ export class GameComponent implements OnInit {
     /// Uses scenario number to upvote either scenario based on choice
     this.questionService.ratingPlusOne(questionID, scenarioNumber).subscribe();
     // Compares scenario ratings to increment sheeple or peeple
-    this.questionService.compare(questionID, scenarioNumber);
+    // this.questionService.compare(questionID, scenarioNumber);
     //// setting current score
     this.questionService.setCurrentScore(questionID, scenarioNumber);
     /// if/else statement that decides whether to navigate away when
