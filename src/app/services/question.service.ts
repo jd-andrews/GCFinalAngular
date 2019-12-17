@@ -3,11 +3,14 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Player } from "../interfaces/player";
 import { Pairing } from "../interfaces/pairing";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class QuestionService {
+  // Store the appropriate base URL. Angular automatically selects the right environment file.
+  private readonly BASE_URL = environment.pvsBaseUrl;
   constructor(private http: HttpClient) {}
   currentScoreArr: any[] = [];
   sheeple: number = 1;
@@ -26,7 +29,7 @@ export class QuestionService {
   //// gets all questions from Database for the array
 
   getAllQuestions(): Observable<any> {
-    return this.http.get(`http://localhost:3003/questions/`);
+    return this.http.get(`${this.BASE_URL}/questions/`);
   }
 
   addQuestions(scenario, scenario2): any {
@@ -61,15 +64,12 @@ export class QuestionService {
     newPairing.rating = 1;
     newPairing.rating2 = 1;
     console.log(newPairing);
-    return this.http.post("http://localhost:3003/add-question", newPairing);
+    return this.http.post(`${this.BASE_URL}/add-question`, newPairing);
   }
 
   //// adds one to whatever scenario was chosen
   ratingPlusOne(id, scenario): Observable<void> {
-    return this.http.put<void>(
-      `http://localhost:3003/rating${scenario}/${id}`,
-      ""
-    );
+    return this.http.put<void>(`${this.BASE_URL}/rating${scenario}/${id}`, "");
   }
 
   // sees which is larger between rating and rating2,
@@ -109,15 +109,15 @@ export class QuestionService {
   // getRating(id, num): Observable<any> {
   //   console.log("sevice ID", id);
   //   console.log("service num", num);
-  //   return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
+  //   return this.http.get(`${this.BASE_URL}/ratingnum${num}/${id}`);
   // }
 
   getAnswer(id, num): Observable<any> {
-    return this.http.get(`http://localhost:3003/questions/${id}`);
+    return this.http.get(`${this.BASE_URL}/questions/${id}`);
   }
 
   getRating(id, num): Observable<any> {
-    return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
+    return this.http.get(`${this.BASE_URL}/ratingnum${num}/${id}`);
   }
 
   //// gets score in an array in order to calculate on the score page
@@ -156,16 +156,16 @@ export class QuestionService {
 
   //// Gets high scores
   getHighScores(): Observable<any> {
-    return this.http.get("http://localhost:3003/top-sheeple");
+    return this.http.get(`${this.BASE_URL}/top-sheeple`);
   }
 
   //// Gets low scores
   getLowScores(): Observable<any> {
-    return this.http.get("http://localhost:3003/top-peeple");
+    return this.http.get(`${this.BASE_URL}/top-peeple`);
   }
   //// Gets average of scores
   getScoreAvg(): Observable<any> {
-    return this.http.get("http://localhost:3003/avg-score");
+    return this.http.get(`${this.BASE_URL}/avg-score`);
   }
 
   // getRandomQuestions(): Observable<any>[] {

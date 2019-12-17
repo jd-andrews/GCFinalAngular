@@ -20,7 +20,7 @@ main {
   flex-direction: column;
   align-items: center;
   background-color: #325555;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(45deg, #1c3232 0%, #325555 100%);
 }
 
@@ -111,9 +111,6 @@ button:hover {
 }
 
 @media screen and (min-width: 476px) {
-  main {
-    height: auto;
-  }
   #description {
     width: 75%;
   }
@@ -134,9 +131,7 @@ button:hover {
   .scenario-holder {
     height: 40%;
   }
-  main {
-    height: 100vh;
-  }
+
   .qtext {
     font-size: 2.2vh;
   }

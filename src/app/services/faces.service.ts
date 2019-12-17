@@ -2,11 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Player } from "../interfaces/player";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class FacesService {
+  private readonly BASE_URL = environment.pvsBaseUrl;
   //// Establishes instance of new player
   newPlayer: Player = {
     playerName: "",
@@ -35,7 +37,7 @@ export class FacesService {
   //// adds current Player to the database
   addPlayer(): Observable<any> {
     this.savePlayer();
-    return this.http.post("http://localhost:3003/add-player", this.newPlayer);
+    return this.http.post(`${this.BASE_URL}/add-player`, this.newPlayer);
   }
 
   //// Gets advice from advice api

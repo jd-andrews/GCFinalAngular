@@ -60,7 +60,8 @@ section {
   margin-left: 16px; */
 }
 .qtext {
-  font-size: 2em;
+  /* font-size: 20pt; */
+  font-size: 4vh;
 }
 .questionhold {
   height: 55%;
