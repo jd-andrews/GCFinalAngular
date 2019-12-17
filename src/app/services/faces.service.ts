@@ -18,6 +18,7 @@ export class FacesService {
   };
 
   blockedAdvice: number[] = [111, 203, 114, 75, 76, 46, 22, 24, 29, 34];
+  counter = 0;
 
   localPlayerNumber: number = 1;
 
@@ -33,8 +34,9 @@ export class FacesService {
     return this.newPlayer;
   }
   constructor(private http: HttpClient) {}
+
   getUser(): Observable<any> {
-    return this.http.get("https://randomuser.me/api/");
+    return this.http.get(`https://randomuser.me/api/?bust=${this.counter++}`);
   }
 
   //// adds current Player to the database
