@@ -17,7 +17,7 @@ export class FacesService {
     playerCategory: ""
   };
 
-  blockedAdvice: number[] = [111, 203, 114, 75, 76, 46, 22, 24, 29, 34];
+  blockedAdvice: number[] = [111, 203, 114, 75, 76, 46, 22, 24, 29, 34, 174];
   counter = 0;
 
   localPlayerNumber: number = 1;
@@ -47,17 +47,36 @@ export class FacesService {
 
   //// Gets advice from advice api
   getAdvice(): Observable<any> {
-    let num = Math.floor(Math.random() * 218);
-    while (num === 111 || 203 || 114 || 75 || 76 || 46 || 22 || 24 || 29) {
-      num = Math.floor(Math.random() * 218);
-      break;
-    }
     // for (let advice of this.blockedAdvice) {
     //   if (this.blockedAdvice[advice] === num) {
     //     num = Math.floor(Math.random() * 218);
     //   }
     // // }
+    let num = this.getSafeAdvice();
     return this.http.get(`https://api.adviceslip.com/advice/${num}`);
+
+    // if (!this.blockedAdvice.includes(num)) {
+    //   console.log("doesnt", num);
+    //   return this.http.get(`https://api.adviceslip.com/advice/${num}`);
+    // } else {
+    //   num = Math.floor(Math.random() * 218);
+    //   console.log(num);
+    //   return this.http.get(`https://api.adviceslip.com/advice/${num}`);
+    // }
+  }
+
+  getRandomAdviceId() {
+    return Math.floor(Math.random() * 218);
+  }
+
+  getSafeAdvice() {
+    let num;
+    do {
+      console.log(num, "before");
+      num = this.getRandomAdviceId();
+      console.log(num, "after");
+    } while (this.blockedAdvice.includes(num));
+    return num;
   }
 
   //// Saves Player to local storage

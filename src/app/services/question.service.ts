@@ -145,13 +145,13 @@ export class QuestionService {
     return this.otherAnswers;
   }
 
-  //// Gets high scores
-  getHighScores(): Observable<any> {
+  //// Gets high scores of sheeple
+  getSheepleScores(): Observable<any> {
     return this.http.get(`${this.BASE_URL}/top-sheeple`);
   }
 
-  //// Gets low scores
-  getLowScores(): Observable<any> {
+  //// Gets high scores of peeple
+  getPeepleScores(): Observable<any> {
     return this.http.get(`${this.BASE_URL}/top-peeple`);
   }
   //// Gets average of scores
