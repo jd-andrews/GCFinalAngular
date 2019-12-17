@@ -17,6 +17,8 @@ export class FacesService {
     playerCategory: ""
   };
 
+  blockedAdvice: number[] = [111, 203, 114, 75, 76, 46, 22, 24, 29, 34];
+
   localPlayerNumber: number = 1;
 
   //// Sets new player with data for use in game and table
@@ -43,9 +45,17 @@ export class FacesService {
 
   //// Gets advice from advice api
   getAdvice(): Observable<any> {
-    return this.http.get(
-      `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 218)}`
-    );
+    let num = Math.floor(Math.random() * 218);
+    while (num === 111 || 203 || 114 || 75 || 76 || 46 || 22 || 24 || 29) {
+      num = Math.floor(Math.random() * 218);
+      break;
+    }
+    // for (let advice of this.blockedAdvice) {
+    //   if (this.blockedAdvice[advice] === num) {
+    //     num = Math.floor(Math.random() * 218);
+    //   }
+    // // }
+    return this.http.get(`https://api.adviceslip.com/advice/${num}`);
   }
 
   //// Saves Player to local storage

@@ -126,15 +126,6 @@ export class QuestionService {
     else return "peeple";
   }
 
-  /////gets sheeple and peeple scores
-  getPS() {
-    return this.sheeple;
-  }
-
-  getSP() {
-    return this.peeple;
-  }
-
   //// resets answer array
   resetAnswerArr(): void {
     this.yourAnswers = [];
