@@ -29,7 +29,7 @@ export class QuestionService {
     return this.http.get(`http://localhost:3003/questions/`);
   }
 
-  addQuestions(scenario, scenario2, event): any {
+  addQuestions(scenario, scenario2): any {
     var Filter = require("bad-words"),
       filter = new Filter();
     let newPairing: Pairing = {
