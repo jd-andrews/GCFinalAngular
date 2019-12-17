@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./add.component.css"]
 })
 export class AddComponent implements OnInit {
+  questions: any[];
   constructor(
     private http: HttpClient,
     private questionService: QuestionService,
@@ -24,6 +25,14 @@ export class AddComponent implements OnInit {
 
   goHome() {
     this.router.navigate(["/players"]);
+  }
+  badWords(pairForm: NgForm) {
+    var Filter = require("bad-words"),
+      filter = new Filter();
+    filter.addWords("some", "bad", "word");
+    console.log(
+      filter.clean(pairForm.value.scenario1, pairForm.value.scenario2)
+    );
   }
   ngOnInit() {}
 }

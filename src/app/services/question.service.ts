@@ -33,7 +33,9 @@ export class QuestionService {
     return this.http.get(`http://localhost:3003/questions/`);
   }
 
-  addQuestions(scenario, scenario2): Observable<any> {
+  addQuestions(scenario, scenario2, event): any {
+    var Filter = require("bad-words"),
+      filter = new Filter();
     let newPairing: Pairing = {
       scenario: "",
       scenario2: "",
@@ -42,6 +44,24 @@ export class QuestionService {
     };
     newPairing.scenario = scenario;
     newPairing.scenario2 = scenario2;
+    var words = filter.list;
+
+    for (let word of words) {
+      let str = scenario.toLowerCase();
+      if (str.includes(word)) {
+        window.alert("Don't be a bad person");
+        console.log("Got Here");
+        return false;
+      } else if (confirm("Are you sure you want to submit this question?")) {
+        window.alert("Your question was submitted");
+        return;
+      } else {
+        window.alert("You cancelled your submission");
+        event.preventDefault();
+        // return false;
+      }
+    }
+
     newPairing.rating = 1;
     newPairing.rating2 = 1;
     console.log(newPairing);

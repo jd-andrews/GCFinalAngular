@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+    "bad-words": "^3.0.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "rxjs": "~6.4.0",
