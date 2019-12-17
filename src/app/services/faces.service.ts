@@ -13,7 +13,8 @@ export class FacesService {
   newPlayer: Player = {
     playerName: "",
     playerImage: "",
-    playerScore: 0
+    playerScore: 0,
+    playerCategory: ""
   };
 
   localPlayerNumber: number = 1;

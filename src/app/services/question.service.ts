@@ -109,20 +109,30 @@ export class QuestionService {
       } else {
         this.peeple++;
       }
+      console.log(1, "sheeple count", this.sheeple, "peep count", this.peeple);
     });
-
+    console.log(2, "sheeple count", this.sheeple, "peep count", this.peeple);
     this.getRating(id, num).subscribe(data => {
       let addNum = Number(data);
       this.currentScoreArr.push(addNum);
     });
     console.log("num", num);
-    console.log("sheeple count", this.sheeple, "peeple count", this.peeple);
+    console.log(3, "sheeple count", this.sheeple, "peep count", this.peeple);
     console.log(this.yourAnswers);
   }
 
   getCategory() {
-    if (this.sheeple >= this.peeple) return this.sheeple;
-    else return this.peeple;
+    if (this.sheeple >= this.peeple) return "sheeple";
+    else return "peeple";
+  }
+
+  /////gets sheeple and peeple scores
+  getPS() {
+    return this.sheeple;
+  }
+
+  getSP() {
+    return this.peeple;
   }
 
   //// resets answer array

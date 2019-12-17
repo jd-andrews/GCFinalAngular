@@ -18,6 +18,8 @@ export class ScoresComponent implements OnInit {
   clicked: boolean = false;
   outsideClicked: boolean = false;
   yourAnswers: any[] = [];
+  category: string = this.questionService.getCategory();
+
   // otherAnswers: any[] = [];
 
   constructor(
@@ -39,6 +41,7 @@ export class ScoresComponent implements OnInit {
     this.yourPlayer = this.faceService.getNewPlayer();
     console.log(this.yourPlayer);
     this.yourPlayer.playerScore = this.yourScore;
+    this.yourPlayer.playerCategory = this.questionService.getCategory();
     console.log("players", this.yourPlayer.playerScore);
   }
   getScore() {

@@ -20,7 +20,7 @@
     <p class="scoreContent">
       whether or not you answered like everyone else.
     </p>
-    <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
+    <div *ngIf="category === 'sheeple'; then thenBlock; else elseBlock"></div>
 
     <ng-template #thenBlock>
       <span class="result">
