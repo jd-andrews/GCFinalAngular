@@ -17,6 +17,8 @@ export class FacesService {
     playerCategory: ""
   };
 
+  counter = 0;
+
   localPlayerNumber: number = 1;
 
   //// Sets new player with data for use in game and table
@@ -31,8 +33,9 @@ export class FacesService {
     return this.newPlayer;
   }
   constructor(private http: HttpClient) {}
+
   getUser(): Observable<any> {
-    return this.http.get("https://randomuser.me/api/");
+    return this.http.get(`https://randomuser.me/api/?bust=${this.counter++}`);
   }
 
   //// adds current Player to the database

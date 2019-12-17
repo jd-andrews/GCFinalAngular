@@ -35,27 +35,24 @@ h1 {
 @keyframes sheepflash {
   from {
     background-image: url("/assets/sheep.png");
-    background-size: cover;
   }
   to {
     background-image: url("/assets/greySheep.png");
-    background-size: cover;
   }
 }
 
 @keyframes sheepflash-alt {
   from {
     background-image: url("/assets/greySheep.png");
-    background-size: cover;
   }
   to {
     background-image: url("/assets/sheep.png");
-    background-size: cover;
   }
 }
 .sheep {
   height: 42px;
   width: 42px;
+  background-size: cover;
 
   border: none;
   margin-right: 8px;
@@ -69,7 +66,7 @@ h1 {
 .sheep-alt {
   height: 42px;
   width: 42px;
-
+  background-size: cover;
   border: none;
   margin-right: 8px;
   animation-name: sheepflash-alt;
