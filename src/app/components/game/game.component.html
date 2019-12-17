@@ -1,4 +1,4 @@
-<!-- <div id="cover"><div>Please Turn Your Phone</div></div> -->
+<div id="cover"><div>Please Turn Your Phone</div></div>
 
 <div class="warning">
   <main>
@@ -9,6 +9,9 @@
         <p class="quote">- {{ yourPlayer?.playerName }}</p></span
       >
     </section>
+    <span id="arrowkey"
+      ><p>Use arrow keys to choose left or right options.</p></span
+    >
     <section *ngIf="randQuestions.length" class="questionhold">
       <div class="q" (click)="nextQuestion(1)" [@changeFavPos]="currentState">
         <p class="qtext">{{ randQuestions[qIndex]?.scenario }}</p>
