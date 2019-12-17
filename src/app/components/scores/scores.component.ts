@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 import { QuestionService } from "src/app/services/question.service";
 import { FacesService } from "src/app/services/faces.service";
 import { Player } from "src/app/interfaces/player";
@@ -15,12 +15,25 @@ export class ScoresComponent implements OnInit {
   highScores: any[] = [];
   lowScores: any[] = [];
   averageScore: number;
+  clicked: boolean = false;
+  outsideClicked: boolean = false;
+  yourAnswers: any[] = [];
+  // otherAnswers: any[] = [];
 
   constructor(
     private questionService: QuestionService,
     private faceService: FacesService,
     private router: Router
   ) {}
+
+  getAnswers() {
+    this.yourAnswers = this.questionService.getYourAnswers();
+    // this.otherAnswers = this.questionService.getOtherAnswers();
+    this.questionService.resetAnswerArr();
+  }
+  showRecap() {
+    this.clicked = !this.clicked;
+  }
 
   setPlayer() {
     this.yourPlayer = this.faceService.getNewPlayer();
@@ -69,6 +82,7 @@ export class ScoresComponent implements OnInit {
     this.router.navigate(["/players"]);
   }
   ngOnInit() {
+    this.getAnswers();
     this.getScore();
     this.setPlayer();
     // this.faceService.addPlayer().subscribe();

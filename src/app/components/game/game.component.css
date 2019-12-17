@@ -102,6 +102,9 @@ section {
 
 #quote {
   font-family: "Lato", sans-serif;
+  font-size: 3vh;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 img {
   height: auto;
@@ -125,9 +128,9 @@ img {
 
 .progress {
   height: 5px;
-  width: 16vw;
+  width: 15.5vw;
   background-color: white;
-  margin: 4px;
+  margin-right: 8px;
 }
 
 @media screen and (min-width: 478px) {
@@ -177,12 +180,6 @@ img {
     background: #afddf4;
   }
 
-  .home {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    height: fit-content;
-  }
   .home:hover {
     background: #9b7962;
     color: #daeef8;

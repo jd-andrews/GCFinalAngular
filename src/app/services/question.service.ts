@@ -8,16 +8,12 @@ import { Pairing } from "../interfaces/pairing";
   providedIn: "root"
 })
 export class QuestionService {
-  // newPairing: Pairing = {
-  //   scenario: "",
-  //   scenario2: "",
-  //   rating: 0,
-  //   rating2: 0
-  // };
   constructor(private http: HttpClient) {}
   currentScoreArr: any[] = [];
   sheeple: number = 1;
   peeple: number = 1;
+  yourAnswers: any[] = [];
+  otherAnswers: any[] = [];
 
   /// sets new questions for table
   // setNewPairing(scenario: string, scenario2: string) {
@@ -116,9 +112,11 @@ export class QuestionService {
   //   return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
   // }
 
+  getAnswer(id, num): Observable<any> {
+    return this.http.get(`http://localhost:3003/questions/${id}`);
+  }
+
   getRating(id, num): Observable<any> {
-    console.log("sevice ID", id);
-    console.log("service num", num);
     return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
   }
 
@@ -128,11 +126,32 @@ export class QuestionService {
       let addNum = Number(data);
       this.currentScoreArr.push(addNum);
     });
+    this.getAnswer(id, num).subscribe(data => {
+      let answerPair = data;
+      answerPair.push(num);
+      this.yourAnswers.push(answerPair);
+      console.log(this.yourAnswers);
+    });
+  }
+
+  //// resets answer array
+
+  resetAnswerArr(): void {
+    this.yourAnswers = [];
   }
 
   //// sends the currentScoreArr from the service for score total
   getCurrentScore(): any[] {
     return this.currentScoreArr;
+  }
+
+  //// sends the answer arrays to the scores page
+  getYourAnswers() {
+    return this.yourAnswers;
+  }
+
+  getOtherAnswers() {
+    return this.otherAnswers;
   }
 
   //// Gets high scores

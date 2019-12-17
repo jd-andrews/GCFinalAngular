@@ -8,7 +8,7 @@
   height: auto;
 }
 h1 {
-  font-size: 8vh;
+  font-size: 6vh;
   font-weight: bold;
   text-align: center;
   margin-bottom: 14px;
@@ -81,15 +81,15 @@ h1 {
   height: fit-content;
   width: fit-content;
 
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 #logo {
   height: auto;
   width: auto;
   margin-top: 2.5%;
-  max-height: 150px;
-  max-width: 150px;
+  max-height: 100px;
+  max-width: 100px;
   cursor: pointer;
   /* margin-bottom: 20px; */
   /* left: 50%;
@@ -193,8 +193,7 @@ span {
   height: 130px;
   width: 240px;
   z-index: 3;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   position: absolute;
   bottom: 0%;
   left: 50%;
@@ -238,12 +237,11 @@ footer {
   display: flex;
   background-color: #9b7962;
   border-top: 1px solid rgb(218, 238, 248);
-
   opacity: 0.97;
   width: 100%;
   justify-content: space-between;
   z-index: 5;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .footer-link {
@@ -252,8 +250,8 @@ footer {
 #tutorial {
   font-size: 13pt;
   position: absolute;
-  bottom: 10%;
   left: 50%;
+  bottom: 10%;
   transform: translateX(-50%);
 }
 
@@ -280,8 +278,33 @@ footer {
     height: 60px;
     width: 60px;
   }
+
+  footer {
+    padding: 10px 30px;
+  }
+
+  .logo {
+    position: absolute;
+    left: 2%;
+    max-height: 150px;
+    max-width: 150px;
+  }
 }
 @media screen and (min-width: 768px) {
+  main {
+    padding-top: 250px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 1.5%;
+    left: 50%;
+    transform: translateX(-60%);
+  }
+  #logo {
+    max-width: 200px;
+    max-height: 200px;
+  }
   .choosePlayer {
     height: 100vh;
   }
@@ -294,6 +317,14 @@ footer {
     height: 80px;
     width: 80px;
   }
+
+  .profile {
+    height: 85%;
+  }
+
+  footer {
+    padding: 10px 40px;
+  }
 }
 
 @media screen and (width: 812px) {
@@ -303,6 +334,9 @@ footer {
 }
 
 @media screen and (min-width: 992px) {
+  main {
+    padding-top: 5%;
+  }
   .choosePlayer {
     height: 100vh;
     justify-content: space-around;
@@ -311,12 +345,15 @@ footer {
 
   .logo {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    height: 200px;
-    width: 200px;
-    display: flex;
-    justify-content: space-around;
+    left: 3%;
+    transform: none;
+    max-height: 250px;
+    max-width: 250px;
+  }
+
+  #logo:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
   }
   #logo {
     margin-top: 10%;
@@ -339,7 +376,7 @@ footer {
   }
 
   .profile {
-    height: 100%;
+    height: fit-content;
   }
 
   img {
@@ -355,6 +392,9 @@ footer {
     width: 240px;
   }
 
+  footer {
+    padding: 10px 40px;
+  }
   .footer-link {
     font-size: 3vh;
   }
@@ -365,8 +405,9 @@ footer {
     color: white;
   }
 
-  #tutorial:hover {
-    background-color: white;
+  button:hover {
+    background-color: #daeef8;
+    border-color: #1c3232;
     color: #1c3232;
   }
 }

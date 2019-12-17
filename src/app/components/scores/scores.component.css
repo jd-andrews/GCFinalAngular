@@ -9,22 +9,26 @@ main {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.wholedoc {
+  z-index: 4;
+  height: 100vh;
+
+  width: 100vw;
+  background-color: black;
+  opacity: 20%;
+  position: fixed;
+}
+
 .logo {
   cursor: pointer;
   height: auto;
   width: auto;
   max-height: 150px;
   max-width: 150px;
-  border-radius: 30px;
+  border-radius: 40px;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  margin-left: 10px;
-}
 h1 {
   text-align: center;
 }
@@ -39,17 +43,30 @@ h1 {
 
 .more {
   border: 1px solid #98473c;
-  color: black;
-  border-radius: 5px;
-  background-color: #d8e9f1;
+  background-color: #98473c;
+  color: white;
   font-family: "Lato", sans-serif;
-  font-size: 0.5em;
+  font-size: 0.8em;
   padding: 6px;
   text-align: center;
   width: fit-content;
   height: fit-content;
+  margin-bottom: 10px;
 }
 
+.topl {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-bottom-right-radius: 3px;
+}
+
+.topr {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-bottom-left-radius: 3px;
+}
 .tens {
   display: flex;
   flex-direction: column;
@@ -118,6 +135,8 @@ table img {
   position: relative;
   top: 10px;
   text-align: center;
+  font-family: "Lato", sans-serif;
+  font-size: 0.5em;
 }
 .result {
   position: relative;
@@ -131,6 +150,78 @@ table img {
   font-size: 20px;
 }
 
+.recap {
+  border: 1px solid #98473c;
+  color: #98473c;
+  border-radius: 5px;
+  background-color: #d8e9f1;
+  padding: 6px;
+  margin: 16px 4px;
+}
+
+.recap-container {
+  background: white;
+  color: #1c3232;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: 85%;
+  height: auto;
+  min-height: 50%;
+  border: 1px solid;
+  border-color: #d8e9f1;
+  border-radius: 5px;
+}
+
+.answers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1c3232;
+  width: 100%;
+  padding: 16px;
+}
+
+.answer {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* .left {
+  text-align: start;
+  border-right: 1px solid #1c3232;
+}
+
+.right {
+  text-align: end;
+} */
+.choosen {
+  color: rgb(10, 19, 10);
+  background-color: #fff38e;
+  /* box-shadow: 5px 10px 8px 10px lightgoldenrodyellow; */
+  font-weight: bold;
+}
+.exit {
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #98473c;
+  color: white;
+}
+
 h2 {
   font-size: 20px;
   color: #98473c;
@@ -140,20 +231,15 @@ h2 {
 @media screen and (min-width: 478px) {
   .buttons {
     position: absolute;
-    top: 3px;
-    left: 3px;
+    top: 3%;
+    left: 3%;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 50%;
+    height: 70%;
     width: 15%;
     font-size: 0.5em;
-  }
-
-  .more {
-    width: 80%;
-    border: 1px solid black;
   }
 
   .score {
@@ -206,50 +292,77 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
-  /* main {
-    font-size: 35px;
-  } */
+  main {
+    height: 100%;
+  }
+
   .underlined {
     text-decoration: underline #1c3232;
     font-size: 50px;
   }
 
-  .buttons {
-    height: 20%;
-    justify-content: space-around;
+  .topl {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    border-radius: 3px;
+
+    width: fit-content;
   }
 
+  .topr {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    border-radius: 3px;
+
+    width: fit-content;
+  }
   .profile {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
+  .recap-container {
+    top: 15%;
+  }
   table {
     padding: 30px 5px 5px 5px;
+  }
+
+  .logo {
+    left: 15%;
+  }
+
+  #logo {
+    left: 15%;
   }
 }
 
 @media screen and (min-width: 992px) {
   main {
     font-size: 35px;
+    height: auto;
   }
+
   .page {
     width: 80%;
   }
 
   .buttons {
-    height: 30%;
+    height: 40%;
   }
 
-  .more {
-    width: 50%;
-  }
   .underlined {
     text-decoration: underline #1c3232;
     font-size: 50px;
   }
 
+  .recap-container {
+    top: 29%;
+    width: 70%;
+  }
   h2 {
     font-size: 50px;
   }
@@ -262,7 +375,16 @@ h2 {
     background-color: white;
     color: #98473c;
   }
+  .recap:hover {
+    background-color: #98473c;
+    color: white;
+  }
 
+  .exit:hover {
+    background-color: white;
+    color: #98473c;
+    border-color: #98473c;
+  }
   table {
     padding: 40px 10px 10px 10px;
   }
