@@ -51,7 +51,9 @@
         </p>
       </div>
       <div *ngIf="bad === false">
-        <button id="ADD" type="submit">Submit</button>
+        <button id="ADD" type="submit" [disabled]="newScenario.invalid">
+          Submit
+        </button>
       </div>
       <div class="recap-fin" *ngIf="submitted === true && bad === false">
         <p id="thanks">
