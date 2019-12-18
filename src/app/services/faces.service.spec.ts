@@ -21,7 +21,7 @@ describe("FacesService", () => {
 
     expect(service.getSafeAdvice()).toEqual(2);
   });
-
+  // [111, 203, 114, 75, 76, 46, 22, 24, 29, 34, 174];
   it("should continue to return valid ids", () => {
     const service: FacesService = TestBed.get(FacesService);
     let spy = spyOn(service, "getRandomAdviceId").and.returnValues(2, 7);

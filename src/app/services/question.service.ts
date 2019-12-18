@@ -151,11 +151,13 @@ export class QuestionService {
 
   //// Gets high scores of sheeple
   getSheepleScores(): Observable<any> {
+    console.log(`${this.BASE_URL}/top-sheeple`);
     return this.http.get(`${this.BASE_URL}/top-sheeple`);
   }
 
   //// Gets high scores of peeple
   getPeepleScores(): Observable<any> {
+    console.group(`${this.BASE_URL}/top-peeple`);
     return this.http.get(`${this.BASE_URL}/top-peeple`);
   }
   //// Gets average of scores
