@@ -57,13 +57,19 @@ h1 {
 #description p {
   font-family: "lato", sans-serif;
   font-size: 2.2vh;
+  text-align: center;
 }
 #description {
   width: 90%;
   background-color: #daeef8;
   padding: 10px;
-  border: 2px solid black;
+  border: 2px solid #daeef8;
   border-radius: 3px;
+}
+
+.italic {
+  font-style: italic;
+  font-weight: bold;
 }
 
 .scenario-holder {
@@ -78,7 +84,7 @@ h1 {
   width: 30%;
   padding: 20px;
   cursor: pointer;
-  border: 1px black outset;
+  border: 1px #daeef8;
   border-radius: 3px;
   display: flex;
   align-items: center;
@@ -93,6 +99,7 @@ h1 {
 
 .qtext {
   font-size: 80%;
+  text-align: center;
 }
 button {
   color: #daeef8;
@@ -128,6 +135,25 @@ button:hover {
 }
 
 @media screen and (min-width: 915px) {
+  #logo {
+    position: absolute;
+    top: 2%;
+    left: 3%;
+  }
+
+  main {
+    padding-top: 10%;
+  }
+
+  h1 {
+    font-size: 6vh;
+  }
+
+  #formhold {
+    margin-top: 3.5%;
+    justify-content: space-around;
+    width: 68%;
+  }
   .scenario-holder {
     height: 40%;
   }
@@ -138,5 +164,9 @@ button:hover {
 
   #description {
     width: 60%;
+  }
+
+  button {
+    margin-top: 3.5%;
   }
 }
