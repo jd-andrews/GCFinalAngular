@@ -118,8 +118,8 @@ table img {
 }
 
 #flash {
-  animation-name: blink;
   animation: blink 1.5s linear infinite;
+  -webkit-animation: blink 1.5s linear infinite;
   margin-left: 3%;
   text-shadow: none;
   color: orangered;
@@ -127,6 +127,22 @@ table img {
 }
 
 @keyframes blink {
+  0% {
+    opacity: 0;
+    font-size: 100%;
+  }
+  50% {
+    opacity: 0.5;
+    font-size: 150%;
+  }
+
+  100% {
+    opacity: 1;
+    font-size: 100%;
+  }
+}
+
+@-webkit-keyframes blink {
   0% {
     opacity: 0;
     font-size: 100%;
