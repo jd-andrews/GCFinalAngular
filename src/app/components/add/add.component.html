@@ -1,3 +1,6 @@
+<div *ngIf="clicked">
+  <div class="wholedoc" (click)="showRecap()"></div>
+</div>
 <section>
   <img
     id="logo"
@@ -5,9 +8,7 @@
     title="sheeple vs peeple"
     (click)="goHome()"
   />
-  <div *ngIf="clicked">
-    <div class="wholedoc" (click)="showRecap()"></div>
-  </div>
+
   <h1>Submit A Question</h1>
 
   <form #newScenario="ngForm" (submit)="addScenario(newScenario)">
@@ -38,7 +39,7 @@
       <!-- <button id="ADD" type="submit"> -->
       ADD
     </button>
-    <div class="recap-container" *ngIf="clicked && submitted === false">
+    <div class="recap-container" *ngIf="clicked">
       <div *ngIf="bad === false">
         <p class="message">
           Do you want to submit your questions?
@@ -53,15 +54,15 @@
       <div *ngIf="bad === false">
         <button id="ADD" type="submit">Submit</button>
       </div>
+      <div class="recap-fin" *ngIf="submitted === true && bad === false">
+        <p>
+          Thank you for your submission! Please refresh the page if you'd like
+          to submit another question.
+        </p>
+      </div>
       <button class="exit" (click)="showRecap()" (click)="refreshBad()">
         X Exit
       </button>
-    </div>
-    <div class="recap-fin" *ngIf="submitted === true">
-      <p>
-        Thank you for your submission! Please refresh the page if you'd like to
-        submit another question.
-      </p>
     </div>
   </form>
 

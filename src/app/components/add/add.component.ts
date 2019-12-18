@@ -20,13 +20,12 @@ export class AddComponent implements OnInit {
     private router: Router
   ) {}
   addScenario(pairForm: NgForm) {
-    this.questionService.addQuestions(
-      pairForm.value.scenario1,
-      pairForm.value.scenario2
-    );
+    this.questionService
+      .addQuestions(pairForm.value.scenario1, pairForm.value.scenario2)
+      .subscribe();
     this.bad = this.questionService.isBadWord();
     this.questionService.refreshBad();
-    this.submitted = true;
+    this.submitted = !this.questionService.isBadWord();
   }
   showRecap() {
     this.clicked = !this.clicked;

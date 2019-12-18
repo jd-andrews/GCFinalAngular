@@ -34,8 +34,7 @@ export class QuestionService {
     return this.http.get(`${this.BASE_URL}/questions/`);
   }
 
-  addQuestions(scenario, scenario2): any {
-    event.preventDefault();
+  addQuestions(scenario, scenario2): Observable<any> {
     var Filter = require("bad-words"),
       filter = new Filter();
     let newPairing: Pairing = {
