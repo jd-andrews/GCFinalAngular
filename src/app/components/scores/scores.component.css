@@ -123,7 +123,7 @@ table img {
   animation: blink 1.5s linear infinite;
   margin-left: 3%;
   text-shadow: none;
-  color: rgb(237, 104, 59);
+  color: orangered;
   font-family: "Mansalva", sans-serif;
 }
 
@@ -136,6 +136,7 @@ table img {
     opacity: 0.5;
     font-size: 150%;
   }
+
   100% {
     opacity: 1;
     font-size: 100%;

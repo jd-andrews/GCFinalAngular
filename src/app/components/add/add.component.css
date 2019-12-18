@@ -2,12 +2,13 @@
   visibility: hidden;
 }
 .recap {
-  border: 1px solid #98473c;
-  color: #98473c;
+  border: 1px solid #1c3232;
+  color: #1c3232;
   border-radius: 5px;
-  background-color: #d8e9f1;
+  background-color: white;
   padding: 6px;
   margin: 16px 4px;
+  width: 25%;
 }
 .recap-container {
   background: white;
@@ -70,12 +71,15 @@ h1 {
 }
 
 form {
+  background-color: #d8e9f1;
   height: fit-content;
   width: 80%;
-  border: 2px solid black;
+  border: 2px solid #d8e9f1;
+  border-radius: 10px;
   padding: 40px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 label {
@@ -91,6 +95,7 @@ textarea {
   border: 1px solid black;
   border-radius: 3px;
   padding: 10px;
+  text-align: center;
 }
 .scenario-holder {
   width: 100%;
@@ -104,7 +109,7 @@ textarea {
   justify-content: center;
   align-items: center;
   font-size: 9vh;
-  color: #daeef8;
+  color: #1c3232;
 }
 
 button {
@@ -138,15 +143,16 @@ button:hover {
     flex-direction: row;
     position: absolute;
   }
+
+  #formhold {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 
 @media screen and (min-width: 768px) {
   section {
     height: 100vh;
-  }
-
-  #formhold {
-    flex-direction: row;
   }
 
   form {

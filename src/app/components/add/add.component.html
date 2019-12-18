@@ -5,7 +5,7 @@
     title="sheeple vs peeple"
     (click)="goHome()"
   />
-  <h1>Create-A-Question</h1>
+  <h1>Submit A Question</h1>
 
   <form #newScenario="ngForm" (submit)="addScenario(newScenario)">
     <div id="formhold">
@@ -18,14 +18,14 @@
           ngModel
         ></textarea>
       </div>
-      <div id="OR">
-        <p>OR</p>
-      </div>
+
+      <p id="OR">OR</p>
+
       <div class="scenario-holder">
         <textarea
           name="scenario2"
           id="scenario2"
-          placeholder="Type it's opposition"
+          placeholder="Type its opposition"
           required
           ngModel
         ></textarea>

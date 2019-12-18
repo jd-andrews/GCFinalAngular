@@ -64,7 +64,7 @@ export class QuestionService {
       newPairing.rating = 1;
       newPairing.rating2 = 1;
       console.log(newPairing);
-      return this.http.post("http://localhost:3003/add-question", newPairing);
+      return this.http.post(`${this.BASE_URL}/questions`, newPairing);
     } else {
       window.alert("You cancelled your submission");
       return;
