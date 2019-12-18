@@ -13,7 +13,6 @@ main {
 .wholedoc {
   z-index: 4;
   height: 100vh;
-
   width: 100vw;
   background-color: black;
   opacity: 20%;
@@ -108,7 +107,7 @@ table tr {
 }
 
 table img {
-  border: none;
+  border: 2px solid black;
 }
 .score {
   display: flex;
@@ -243,6 +242,7 @@ table img {
   font-weight: bold;
 }
 .exit {
+  margin-top: 10px;
   font-size: 1em;
   padding: 10px;
   border-radius: 3px;
@@ -268,10 +268,6 @@ h2 {
     text-shadow: 1px 2px #1c3232;
   }
 
-  .face {
-    border: 2px solid #98473c;
-    border-radius: 50%;
-  }
   .scoreContent {
     font-size: 0.5em;
   }
@@ -282,7 +278,6 @@ h2 {
     font-size: 1em;
   }
   .underlined {
-    text-decoration: underline #1c3232;
     font-size: 30px;
   }
 
@@ -339,7 +334,6 @@ h2 {
     top: 8%;
   }
   .underlined {
-    text-decoration: underline #1c3232;
     font-size: 50px;
   }
 
@@ -407,7 +401,6 @@ h2 {
   }
 
   .underlined {
-    text-decoration: underline #1c3232;
     font-size: 50px;
   }
 
