@@ -35,8 +35,8 @@ export class QuestionService {
   }
 
   addQuestions(scenario, scenario2): Observable<any> {
-    var Filter = require("bad-words"),
-      filter = new Filter();
+    event.preventDefault();
+
     let newPairing: Pairing = {
       scenario: "",
       scenario2: "",
@@ -46,29 +46,29 @@ export class QuestionService {
     newPairing.scenario = scenario;
     newPairing.scenario2 = scenario2;
 
-    let words = filter.list;
-    console.log("badwords length", words.length);
-    let scenario1Str = scenario.toLowerCase();
-    let scenario2Str = scenario2.toLowerCase();
+    // let words = filter.list;
+    // console.log("badwords length", words.length);
+    // let scenario1Str = scenario.toLowerCase();
+    // let scenario2Str = scenario2.toLowerCase();
 
-    for (let word of words) {
-      if (scenario1Str.includes(word) === true) {
-        console.log("bad sentence 1");
-        this.bad = true;
-        return;
-      } else {
-        console.log("ok sentence 1");
-      }
-    }
-    for (let word of words) {
-      if (scenario2Str.includes(word) === true) {
-        console.log("bad sentence 2");
-        this.bad = true;
-        return;
-      } else {
-        console.log("ok sentence 2");
-      }
-    }
+    // for (let word of words) {
+    //   if (scenario1Str.includes(word) === true) {
+    //     console.log("bad sentence 1");
+    //     this.bad = true;
+    //     return;
+    //   } else {
+    //     console.log("ok sentence 1");
+    //   }
+    // }
+    // for (let word of words) {
+    //   if (scenario2Str.includes(word) === true) {
+    //     console.log("bad sentence 2");
+    //     this.bad = true;
+    //     return;
+    //   } else {
+    //     console.log("ok sentence 2");
+    //   }
+    // }
     newPairing.rating = 1;
     newPairing.rating2 = 1;
     console.log(newPairing, 818);
