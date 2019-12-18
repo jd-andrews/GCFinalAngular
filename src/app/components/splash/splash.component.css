@@ -58,18 +58,32 @@ h1 {
     background-image: url("/assets/sheep.png");
   }
 }
+
+@-webkit-keyframes sheepflash {
+  from {
+    background-image: url("/assets/sheep.png");
+  }
+  to {
+    background-image: url("/assets/greySheep.png");
+  }
+}
+
+@-webkit-keyframes sheepflash-alt {
+  from {
+    background-image: url("/assets/greySheep.png");
+  }
+  to {
+    background-image: url("/assets/sheep.png");
+  }
+}
 .sheep {
   height: 42px;
   width: 42px;
   background-size: cover;
-
   border: none;
   margin-right: 8px;
-  animation-name: sheepflash;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: linear;
+  animation: sheepflash 4s linear infinite alternate;
+  -webkit-animation: sheepflash 4s linear infinite alternate;
 }
 
 .sheep-alt {
@@ -78,10 +92,8 @@ h1 {
   background-size: cover;
   border: none;
   margin-right: 8px;
-  animation-name: sheepflash-alt;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: sheepflash-alt 4s infinite linear alternate;
+  -webkit-animation: sheepflash-alt 4s infinite linear alternate;
 }
 
 .logo {
