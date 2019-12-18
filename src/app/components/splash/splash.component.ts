@@ -19,6 +19,7 @@ export class SplashComponent implements OnInit {
   faces: any[] = [];
   advices: any[] = [];
   advice: string = "";
+  clicked: boolean = false;
 
   constructor(private faceService: FacesService, private router: Router) {}
 
@@ -53,11 +54,13 @@ export class SplashComponent implements OnInit {
 
   confirmPlayer(indexNum: number) {
     this.index = indexNum;
+    this.clicked = !this.clicked;
   }
 
   deselectPlayer() {
     // this.confirmChoice = false;
     this.index = null;
+    this.clicked = !this.clicked;
   }
 
   goHome() {
