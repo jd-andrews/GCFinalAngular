@@ -12,12 +12,14 @@ import { Router } from "@angular/router";
 export class ScoresComponent implements OnInit {
   yourScore: number;
   yourPlayer: Player;
-  highScores: any[] = [];
-  lowScores: any[] = [];
+  sheepleScores: any[] = [];
+  peepleScores: any[] = [];
   averageScore: number;
   clicked: boolean = false;
   outsideClicked: boolean = false;
   yourAnswers: any[] = [];
+  category: string = "peeple";
+
   // otherAnswers: any[] = [];
 
   constructor(
@@ -39,6 +41,8 @@ export class ScoresComponent implements OnInit {
     this.yourPlayer = this.faceService.getNewPlayer();
     console.log(this.yourPlayer);
     this.yourPlayer.playerScore = this.yourScore;
+    this.yourPlayer.playerCategory = this.questionService.getCategory();
+    this.category = this.yourPlayer.playerCategory;
     console.log("players", this.yourPlayer.playerScore);
   }
   getScore() {
@@ -62,12 +66,12 @@ export class ScoresComponent implements OnInit {
     this.questionService.getScoreAvg().subscribe(average => {
       this.averageScore = parseInt(average.avg);
     });
-    this.questionService.getHighScores().subscribe(scores => {
-      this.highScores = scores;
-      console.log(this.highScores);
+    this.questionService.getSheepleScores().subscribe(scores => {
+      this.sheepleScores = scores;
+      console.log(this.sheepleScores);
     });
-    this.questionService.getLowScores().subscribe(scores => {
-      this.lowScores = scores;
+    this.questionService.getPeepleScores().subscribe(scores => {
+      this.peepleScores = scores;
     });
     if (this.yourPlayer.playerName === "") {
       console.log("doesnt");

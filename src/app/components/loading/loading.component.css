@@ -1,3 +1,7 @@
+main {
+  height: 100vh;
+}
+
 .my-container {
   background-color: #1c3232;
 }
@@ -291,7 +295,4 @@
   to {
     background-position: 900px 0;
   }
-}
-main {
-  height: 100%;
 }

@@ -4,15 +4,18 @@ import { Observable } from "rxjs";
 import { Player } from "../interfaces/player";
 import { Pairing } from "../interfaces/pairing";
 import { disableDebugTools } from "@angular/platform-browser";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class QuestionService {
+  // Store the appropriate base URL. Angular automatically selects the right environment file.
+  private readonly BASE_URL = environment.pvsBaseUrl;
   constructor(private http: HttpClient) {}
   currentScoreArr: any[] = [];
-  sheeple: number = 1;
-  peeple: number = 1;
+  sheeple: number = 0;
+  peeple: number = 0;
   yourAnswers: any[] = [];
   otherAnswers: any[] = [];
 
@@ -27,7 +30,7 @@ export class QuestionService {
   //// gets all questions from Database for the array
 
   getAllQuestions(): Observable<any> {
-    return this.http.get(`http://localhost:3003/questions/`);
+    return this.http.get(`${this.BASE_URL}/questions/`);
   }
 
   addQuestions(scenario, scenario2): any {
@@ -70,39 +73,8 @@ export class QuestionService {
 
   //// adds one to whatever scenario was chosen
   ratingPlusOne(id, scenario): Observable<void> {
-    return this.http.put<void>(
-      `http://localhost:3003/rating${scenario}/${id}`,
-      ""
-    );
+    return this.http.put<void>(`${this.BASE_URL}/rating${scenario}/${id}`, "");
   }
-
-  // sees which is larger between rating and rating2,
-  // then increments the corresponding category variable
-  compare(id: number, scenarioNumber: number) {
-    let first: number = 0;
-    let second: number = 0;
-    this.getRating(id, 1).subscribe(data => {
-      first = data;
-      console.log("first", first);
-      this.getRating(id, 2).subscribe(data => {
-        second = data;
-        console.log("second", second);
-        if (scenarioNumber === 1 && first < second) {
-          this.peeple += 1;
-        } else if (scenarioNumber === 2 && second < first) {
-          this.peeple += 1;
-        } else {
-          this.sheeple += 1;
-        }
-      });
-    });
-    console.log("sheeple count", this.sheeple, "peeple count", this.peeple);
-  }
-
-  // resetCategory(): void {
-  //   this.sheeple = 0;
-  //   this.peeple = 0;
-  // }
 
   //// resets score when navigating away from page
   resetScoreArr(): void {
@@ -113,33 +85,52 @@ export class QuestionService {
   // getRating(id, num): Observable<any> {
   //   console.log("sevice ID", id);
   //   console.log("service num", num);
-  //   return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
+  //   return this.http.get(`${this.BASE_URL}/ratingnum${num}/${id}`);
   // }
 
   getAnswer(id, num): Observable<any> {
-    return this.http.get(`http://localhost:3003/questions/${id}`);
+    return this.http.get(`${this.BASE_URL}/questions/${id}`);
   }
 
   getRating(id, num): Observable<any> {
-    return this.http.get(`http://localhost:3003/ratingnum${num}/${id}`);
+    return this.http.get(`${this.BASE_URL}/ratingnum${num}/${id}`);
   }
 
   //// gets score in an array in order to calculate on the score page
   setCurrentScore(id, num): void {
-    this.getRating(id, num).subscribe(data => {
-      let addNum = Number(data);
-      this.currentScoreArr.push(addNum);
-    });
     this.getAnswer(id, num).subscribe(data => {
       let answerPair = data;
       answerPair.push(num);
       this.yourAnswers.push(answerPair);
-      console.log(this.yourAnswers);
+      // sees which is larger between rating and rating2,
+      // then increments the corresponding category variable
+      console.log("answer pair", answerPair);
+      if (
+        (num === 1 && answerPair[0].rating >= answerPair[0].rating2) ||
+        (num === 2 && answerPair[0].rating2 >= answerPair[0].rating)
+      ) {
+        this.sheeple++;
+      } else {
+        this.peeple++;
+      }
+      console.log(1, "sheeple count", this.sheeple, "peep count", this.peeple);
     });
+    console.log(2, "sheeple count", this.sheeple, "peep count", this.peeple);
+    this.getRating(id, num).subscribe(data => {
+      let addNum = Number(data);
+      this.currentScoreArr.push(addNum);
+    });
+    console.log("num", num);
+    console.log(3, "sheeple count", this.sheeple, "peep count", this.peeple);
+    console.log(this.yourAnswers);
+  }
+
+  getCategory() {
+    if (this.sheeple >= this.peeple) return "sheeple";
+    else return "peeple";
   }
 
   //// resets answer array
-
   resetAnswerArr(): void {
     this.yourAnswers = [];
   }
@@ -158,18 +149,18 @@ export class QuestionService {
     return this.otherAnswers;
   }
 
-  //// Gets high scores
-  getHighScores(): Observable<any> {
-    return this.http.get("http://localhost:3003/top-sheeple");
+  //// Gets high scores of sheeple
+  getSheepleScores(): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/top-sheeple`);
   }
 
-  //// Gets low scores
-  getLowScores(): Observable<any> {
-    return this.http.get("http://localhost:3003/top-peeple");
+  //// Gets high scores of peeple
+  getPeepleScores(): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/top-peeple`);
   }
   //// Gets average of scores
   getScoreAvg(): Observable<any> {
-    return this.http.get("http://localhost:3003/avg-score");
+    return this.http.get(`${this.BASE_URL}/avg-score`);
   }
 
   // getRandomQuestions(): Observable<any>[] {

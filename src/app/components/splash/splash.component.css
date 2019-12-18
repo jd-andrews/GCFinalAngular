@@ -3,15 +3,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 auto;
-  height: auto;
+  height: 100%;
 }
 h1 {
   font-size: 6vh;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 14px;
+
+  margin-top: 14px;
   color: #daeef8;
 }
 
@@ -28,33 +29,30 @@ h1 {
   display: flex;
   justify-content: center;
   width: 80%;
-  height: 10%;
+  height: 50px;
 }
 
 @keyframes sheepflash {
   from {
     background-image: url("/assets/sheep.png");
-    background-size: cover;
   }
   to {
     background-image: url("/assets/greySheep.png");
-    background-size: cover;
   }
 }
 
 @keyframes sheepflash-alt {
   from {
     background-image: url("/assets/greySheep.png");
-    background-size: cover;
   }
   to {
     background-image: url("/assets/sheep.png");
-    background-size: cover;
   }
 }
 .sheep {
   height: 42px;
   width: 42px;
+  background-size: cover;
 
   border: none;
   margin-right: 8px;
@@ -68,7 +66,7 @@ h1 {
 .sheep-alt {
   height: 42px;
   width: 42px;
-
+  background-size: cover;
   border: none;
   margin-right: 8px;
   animation-name: sheepflash-alt;
@@ -80,8 +78,6 @@ h1 {
 .logo {
   height: fit-content;
   width: fit-content;
-
-  margin-bottom: 16px;
 }
 
 #logo {
@@ -256,6 +252,9 @@ footer {
 }
 
 @media screen and (min-width: 478px) {
+  .choosePlayer {
+    min-height: 100vh;
+  }
   .player-container {
     height: 40%;
     display: flex;
@@ -267,8 +266,8 @@ footer {
     width: 30%;
   }
   .profile {
-    height: 100%;
     width: 210px;
+    height: 100%;
   }
   .sheep-alt {
     height: 60px;
@@ -277,6 +276,9 @@ footer {
   .sheep {
     height: 60px;
     width: 60px;
+  }
+  .sheepContainer {
+    height: 70px;
   }
 
   footer {
@@ -285,29 +287,22 @@ footer {
 
   .logo {
     position: absolute;
+    top: 3%;
     left: 2%;
     max-height: 150px;
     max-width: 150px;
   }
 }
 @media screen and (min-width: 768px) {
-  main {
-    padding-top: 250px;
-  }
-
   .logo {
     position: absolute;
     top: 1.5%;
-    left: 50%;
-    transform: translateX(-60%);
   }
   #logo {
     max-width: 200px;
     max-height: 200px;
   }
-  .choosePlayer {
-    height: 100vh;
-  }
+
   .sheep-alt {
     height: 80px;
     width: 80px;
@@ -318,8 +313,8 @@ footer {
     width: 80px;
   }
 
-  .profile {
-    height: 85%;
+  .sheepContainer {
+    height: 90px;
   }
 
   footer {
@@ -327,18 +322,8 @@ footer {
   }
 }
 
-@media screen and (width: 812px) {
-  .choosePlayer {
-    height: auto;
-  }
-}
-
 @media screen and (min-width: 992px) {
-  main {
-    padding-top: 5%;
-  }
   .choosePlayer {
-    height: 100vh;
     justify-content: space-around;
     position: relative;
   }
@@ -368,15 +353,15 @@ footer {
     height: 100px;
     width: 100px;
   }
+
+  .sheepContainer {
+    height: 110px;
+  }
   .player-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 80%;
-  }
-
-  .profile {
-    height: fit-content;
   }
 
   img {

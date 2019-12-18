@@ -20,7 +20,7 @@
     <p class="scoreContent">
       whether or not you answered like everyone else.
     </p>
-    <div *ngIf="yourScore > averageScore; then thenBlock; else elseBlock"></div>
+    <div *ngIf="category === 'sheeple'; then thenBlock; else elseBlock"></div>
 
     <ng-template #thenBlock>
       <span class="result">
@@ -56,7 +56,7 @@
           Sheeple
         </caption>
 
-        <tr *ngFor="let player of highScores; index as i">
+        <tr *ngFor="let player of sheepleScores; index as i">
           <td *ngIf="i < 5">
             <img class="face" src="{{ player?.playerimage }}" />
           </td>
@@ -70,7 +70,7 @@
         <caption>
           Peeple
         </caption>
-        <tr *ngFor="let player of lowScores; index as i">
+        <tr *ngFor="let player of peepleScores; index as i">
           <td *ngIf="i < 5">
             <img class="face" src="{{ player?.playerimage }}" />
           </td>
