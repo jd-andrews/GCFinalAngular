@@ -50,6 +50,7 @@ export class GameComponent implements OnInit {
   qIndex: number;
   yourPlayer: Player;
   currentState = "initial";
+
   advice: any;
 
   constructor(

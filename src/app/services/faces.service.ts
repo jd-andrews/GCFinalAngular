@@ -17,7 +17,23 @@ export class FacesService {
     playerCategory: ""
   };
 
-  blockedAdvice: number[] = [111, 203, 114, 75, 76, 46, 22, 24, 29, 34, 174];
+  blockedAdvice: number[] = [
+    111,
+    203,
+    114,
+    75,
+    76,
+    46,
+    22,
+    24,
+    29,
+    34,
+    174,
+    48,
+    181,
+    0,
+    67
+  ];
   counter = 0;
 
   localPlayerNumber: number = 1;

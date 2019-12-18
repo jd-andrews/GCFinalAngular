@@ -15,11 +15,10 @@
   <section class="top">
     <h1 class="score">Your score: {{ yourScore }}</h1>
     <p class="scoreContent">
-      * Your score was calculated based on
+      * Your score was calculated based on how other players selected. Your
+      Peeple/Sheeple placement is based on which choice was selected least.
     </p>
-    <p class="scoreContent">
-      whether or not you answered like everyone else.
-    </p>
+
     <div *ngIf="category === 'sheeple'; then thenBlock; else elseBlock"></div>
 
     <ng-template #thenBlock>
