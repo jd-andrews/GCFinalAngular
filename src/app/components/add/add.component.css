@@ -10,6 +10,10 @@
   opacity: 20%;
   position: fixed;
 }
+
+#thanks {
+  font-weight: bold;
+}
 .recap {
   border: 1px solid #1c3232;
   color: #1c3232;
@@ -35,12 +39,15 @@
   width: 85%;
   height: 30%;
   border: 1px solid;
-  border-color: #d8e9f1;
+  border-color: #a0a0a0;
   border-radius: 5px;
 }
 .recap-fin {
-  background: white;
+  font-weight: bold;
+  background-color: #d8e9f1;
   color: #1c3232;
+  border: 1px solid #d8e9f1;
+  border-radius: 5px;
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -53,8 +60,6 @@
   z-index: 5;
   width: fit-content;
   border: 1px solid;
-  border-color: #d8e9f1;
-  border-radius: 5px;
 }
 #logo {
   height: auto;
