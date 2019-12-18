@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Player } from "../interfaces/player";
 import { Pairing } from "../interfaces/pairing";
+import { disableDebugTools } from "@angular/platform-browser";
 
 @Injectable({
   providedIn: "root"
@@ -29,7 +30,7 @@ export class QuestionService {
     return this.http.get(`http://localhost:3003/questions/`);
   }
 
-  addQuestions(scenario, scenario2, event): any {
+  addQuestions(scenario, scenario2): any {
     var Filter = require("bad-words"),
       filter = new Filter();
     let newPairing: Pairing = {
@@ -40,28 +41,31 @@ export class QuestionService {
     };
     newPairing.scenario = scenario;
     newPairing.scenario2 = scenario2;
-    var words = filter.list;
+
+    let words = filter.list;
+    console.log(words);
 
     for (let word of words) {
       let str = scenario.toLowerCase();
-      if (str.includes(word)) {
+      console.log(word);
+      console.log("String", str);
+      if (str.includes(word) === true) {
         window.alert("Don't be a bad person");
-        console.log("Got Here");
-        return false;
-      } else if (confirm("Are you sure you want to submit this question?")) {
-        window.alert("Your question was submitted");
         return;
-      } else {
-        window.alert("You cancelled your submission");
-        event.preventDefault();
-        // return false;
+        console.log("Got Here");
       }
     }
 
-    newPairing.rating = 1;
-    newPairing.rating2 = 1;
-    console.log(newPairing);
-    return this.http.post("http://localhost:3003/add-question", newPairing);
+    if (confirm("Are you sure you want to submit this question?")) {
+      window.alert("Your question was submitted");
+      newPairing.rating = 1;
+      newPairing.rating2 = 1;
+      console.log(newPairing);
+      return this.http.post("http://localhost:3003/add-question", newPairing);
+    } else {
+      window.alert("You cancelled your submission");
+      return;
+    }
   }
 
   //// adds one to whatever scenario was chosen

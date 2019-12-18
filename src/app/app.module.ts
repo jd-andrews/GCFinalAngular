@@ -10,7 +10,7 @@ import { LoadingComponent } from "./components/loading/loading.component";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AddComponent } from "./components/add/add.component";
-import { TutorialComponent } from './components/tutorial/tutorial.component';
+import { TutorialComponent } from "./components/tutorial/tutorial.component";
 
 @NgModule({
   declarations: [

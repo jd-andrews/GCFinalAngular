@@ -31,7 +31,17 @@
         ></textarea>
       </div>
     </div>
-    <button id="ADD" type="submit">ADD</button>
+    <button class="recap" (click)="showRecap()" id="ADD" type="button">
+      <!-- <button id="ADD" type="submit"> -->
+      ADD
+    </button>
+    <div class="recap-container" *ngIf="clicked">
+      <p class="message">
+        Do you want to submit your questions?
+      </p>
+      <button id="ADD" type="submit">Submit</button>
+      <button class="exit" (click)="showRecap()">X Exit</button>
+    </div>
   </form>
 
   <button id="back" type="button" routerLink="/players">

@@ -1,3 +1,33 @@
+.hidden {
+  visibility: hidden;
+}
+.recap {
+  border: 1px solid #98473c;
+  color: #98473c;
+  border-radius: 5px;
+  background-color: #d8e9f1;
+  padding: 6px;
+  margin: 16px 4px;
+}
+.recap-container {
+  background: white;
+  color: #1c3232;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: 85%;
+  height: 30%;
+  border: 1px solid;
+  border-color: #d8e9f1;
+  border-radius: 5px;
+}
 #logo {
   height: auto;
   width: auto;
@@ -103,6 +133,10 @@ button:hover {
 @media screen and (min-width: 421px) {
   section {
     height: auto;
+  }
+  .recap-container {
+    flex-direction: row;
+    position: absolute;
   }
 }
 

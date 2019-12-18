@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 })
 export class AddComponent implements OnInit {
   questions: any[];
+  clicked: boolean = false;
   constructor(
     private http: HttpClient,
     private questionService: QuestionService,
@@ -20,9 +21,12 @@ export class AddComponent implements OnInit {
     this.questionService
       .addQuestions(pairForm.value.scenario1, pairForm.value.scenario2)
       .subscribe();
+
     console.log(pairForm.value.scenario1, pairForm.value.scenario2);
   }
-
+  showRecap() {
+    this.clicked = !this.clicked;
+  }
   goHome() {
     this.router.navigate(["/players"]);
   }
@@ -34,5 +38,6 @@ export class AddComponent implements OnInit {
       filter.clean(pairForm.value.scenario1, pairForm.value.scenario2)
     );
   }
+
   ngOnInit() {}
 }
