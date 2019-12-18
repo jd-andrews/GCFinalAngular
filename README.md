@@ -25,7 +25,7 @@ The Splash component is the hub of the game and includes the player selection. P
 
 #### ADD
 
-The Add component
+The Add component uses a form submission to allow users to add a new question pairing to the questions table of our database. With a little help from the bad-words node package, users are blocked from submitting a form containing any of the bad words. 
 
 #### LOADING
 
