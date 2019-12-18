@@ -1,33 +1,32 @@
 # WouldURather
 
-### Background
-
 Peeple Vs. Sheeple is a "would you rather" style game made using the angular 8. It utilizes a database for questions and players as well as two web-API's for faces and advice. It was created as a final project for a front-end bootcamp as part of Grand Circus.
 
-## Quick Pitch
+### Built By
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+- [Dewan Burson]("https://github.com/Dewanlb")
+- [Emily Biegas]("https://github.com/emilyBiegas")
+- [JD Andrews]("https://github.com/jd-andrews")
 
-##### Development server
+### Component Breakdown
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### GAME
 
-###### Code scaffolding
+The main component is the "game" where you play PvS. Each question pairing is pulled from a table in our database at random and ensures they aren't repeated while in the game. Each question also has a rating based on how many times it was chosen. This rating is used when
+calculating 'sheeple' or 'peeple' in the scores page. The game also includes angular animations, keyboard accessibility, and mobile-first design.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### SCORES
 
-###### Build
+The scores component displays your score (total of all the question rankings you chose), your category (sheeple or peeple depending on which way you selected), and the top 5 peeple and sheeple, based on rating and category. These players are populated from our database so an all time high score will persist.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### SPLASH
 
-###### Running unit tests
+The Splash component is the hub of the game and includes the player selection. Players are randomly generated from a random face api and a random quote api to add some levity to the game. The logo was created in photoshop and the footer has navigation links to all components in the app.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### ADD
 
-###### Running end-to-end tests
+The Add component
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### LOADING
 
-###### Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### TUTORIAL

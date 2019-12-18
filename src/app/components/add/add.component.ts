@@ -12,17 +12,21 @@ import { Router } from "@angular/router";
 export class AddComponent implements OnInit {
   questions: any[];
   clicked: boolean = false;
+  bad: boolean = false;
+  submitted: boolean = false;
   constructor(
     private http: HttpClient,
     private questionService: QuestionService,
     private router: Router
   ) {}
   addScenario(pairForm: NgForm) {
-    this.questionService
-      .addQuestions(pairForm.value.scenario1, pairForm.value.scenario2)
-      .subscribe();
-
-    console.log(pairForm.value.scenario1, pairForm.value.scenario2);
+    this.questionService.addQuestions(
+      pairForm.value.scenario1,
+      pairForm.value.scenario2
+    );
+    this.bad = this.questionService.isBadWord();
+    this.questionService.refreshBad();
+    this.submitted = true;
   }
   showRecap() {
     this.clicked = !this.clicked;
@@ -39,5 +43,8 @@ export class AddComponent implements OnInit {
     );
   }
 
+  refreshBad() {
+    this.bad = false;
+  }
   ngOnInit() {}
 }

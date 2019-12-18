@@ -18,6 +18,7 @@ export class QuestionService {
   peeple: number = 0;
   yourAnswers: any[] = [];
   otherAnswers: any[] = [];
+  bad: boolean = false;
 
   /// sets new questions for table
   // setNewPairing(scenario: string, scenario2: string) {
@@ -34,6 +35,7 @@ export class QuestionService {
   }
 
   addQuestions(scenario, scenario2): any {
+    event.preventDefault();
     var Filter = require("bad-words"),
       filter = new Filter();
     let newPairing: Pairing = {
@@ -46,29 +48,42 @@ export class QuestionService {
     newPairing.scenario2 = scenario2;
 
     let words = filter.list;
-    console.log(words);
+    console.log("badwords length", words.length);
+    let scenario1Str = scenario.toLowerCase();
+    let scenario2Str = scenario2.toLowerCase();
 
     for (let word of words) {
-      let str = scenario.toLowerCase();
-      console.log(word);
-      console.log("String", str);
-      if (str.includes(word) === true) {
-        window.alert("Don't be a bad person");
+      if (scenario1Str.includes(word) === true) {
+        console.log("bad sentence 1");
+        this.bad = true;
         return;
-        console.log("Got Here");
+      } else {
+        console.log("ok sentence 1");
       }
     }
-
-    if (confirm("Are you sure you want to submit this question?")) {
-      window.alert("Your question was submitted");
-      newPairing.rating = 1;
-      newPairing.rating2 = 1;
-      console.log(newPairing);
-      return this.http.post(`${this.BASE_URL}/questions`, newPairing);
-    } else {
-      window.alert("You cancelled your submission");
-      return;
+    for (let word of words) {
+      if (scenario2Str.includes(word) === true) {
+        console.log("bad sentence 2");
+        this.bad = true;
+        return;
+      } else {
+        console.log("ok sentence 2");
+      }
     }
+    newPairing.rating = 1;
+    newPairing.rating2 = 1;
+    console.log(newPairing, 818);
+    console.log("submitted");
+    return this.http.post(`${this.BASE_URL}/add-question`, newPairing);
+  }
+
+  isBadWord() {
+    console.log(this.bad, "service");
+    return this.bad;
+  }
+
+  refreshBad() {
+    this.bad = false;
   }
 
   //// adds one to whatever scenario was chosen

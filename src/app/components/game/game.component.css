@@ -4,11 +4,35 @@
   width: 100vw;
   z-index: 100;
   position: absolute;
-  top: 0%;
+}
+
+#logo {
+  height: auto;
+  width: auto;
+  max-height: 125px;
+  max-width: 125px;
+  margin-right: 6px;
+  border-radius: 0;
+  align-self: center;
 }
 
 #cover div {
   color: white;
+  top: 0%;
+  text-align: center;
+  color: black;
+  position: relative;
+  top: 50%;
+  font-size: 10vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(218, 238, 248);
+  width: fit-content;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
 }
 #OR,
 #counter {

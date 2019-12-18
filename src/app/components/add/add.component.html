@@ -5,6 +5,9 @@
     title="sheeple vs peeple"
     (click)="goHome()"
   />
+  <div *ngIf="clicked">
+    <div class="wholedoc" (click)="showRecap()"></div>
+  </div>
   <h1>Submit A Question</h1>
 
   <form #newScenario="ngForm" (submit)="addScenario(newScenario)">
@@ -35,12 +38,30 @@
       <!-- <button id="ADD" type="submit"> -->
       ADD
     </button>
-    <div class="recap-container" *ngIf="clicked">
-      <p class="message">
-        Do you want to submit your questions?
+    <div class="recap-container" *ngIf="clicked && submitted === false">
+      <div *ngIf="bad === false">
+        <p class="message">
+          Do you want to submit your questions?
+        </p>
+      </div>
+      <div *ngIf="bad === true">
+        <p>
+          Your question was not submitted because of improper langauge, please
+          close this and consider your word use.
+        </p>
+      </div>
+      <div *ngIf="bad === false">
+        <button id="ADD" type="submit">Submit</button>
+      </div>
+      <button class="exit" (click)="showRecap()" (click)="refreshBad()">
+        X Exit
+      </button>
+    </div>
+    <div class="recap-fin" *ngIf="submitted === true">
+      <p>
+        Thank you for your submission! Please refresh the page if you'd like to
+        submit another question.
       </p>
-      <button id="ADD" type="submit">Submit</button>
-      <button class="exit" (click)="showRecap()">X Exit</button>
     </div>
   </form>
 
