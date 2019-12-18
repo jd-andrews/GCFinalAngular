@@ -100,16 +100,20 @@ section {
   font-family: "Lato", sans-serif;
 }
 
-#quote {
+.quote {
   font-family: "Lato", sans-serif;
   font-size: 2.5vh;
-  font-style: italic;
   color: white;
   text-shadow: 2px 2px 4px #000000;
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+#quote {
+  font-style: italic;
+  text-shadow: none;
 }
 img {
   height: auto;
@@ -164,6 +168,9 @@ img {
   }
 }
 @media screen and (min-width: 992px) {
+  #quote {
+    margin-bottom: 10px;
+  }
   .player {
     position: fixed;
     top: 10px;
@@ -190,7 +197,7 @@ img {
   .q {
     margin-right: 40px;
     margin-left: 40px;
-    height: 70%;
+    height: 60%;
     width: 45%;
   }
 

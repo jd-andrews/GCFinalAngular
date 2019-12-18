@@ -241,7 +241,6 @@ footer {
   bottom: 0;
   display: flex;
   background-color: #9b7962;
-  border-top: 1px solid rgb(218, 238, 248);
   opacity: 0.97;
   width: 100%;
   justify-content: space-between;
