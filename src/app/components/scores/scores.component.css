@@ -229,17 +229,10 @@ h2 {
 }
 
 @media screen and (min-width: 478px) {
-  .buttons {
+  .logo {
     position: absolute;
-    top: 3%;
     left: 3%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 70%;
-    width: 15%;
-    font-size: 0.5em;
+    top: 14%;
   }
 
   .score {
@@ -296,6 +289,10 @@ h2 {
     height: 100%;
   }
 
+  .logo {
+    left: 4%;
+    top: 8%;
+  }
   .underlined {
     text-decoration: underline #1c3232;
     font-size: 50px;
@@ -303,19 +300,24 @@ h2 {
 
   .topl {
     position: absolute;
-    top: 40px;
+    top: 0px;
     left: 40px;
-    border-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 
     width: fit-content;
   }
 
   .topr {
     position: absolute;
-    top: 40px;
+    top: 0px;
     right: 40px;
-    border-radius: 3px;
-
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     width: fit-content;
   }
   .profile {
@@ -330,13 +332,11 @@ h2 {
   table {
     padding: 30px 5px 5px 5px;
   }
+}
 
+@media screen and (min-width: 812px) {
   .logo {
-    left: 15%;
-  }
-
-  #logo {
-    left: 15%;
+    top: 22%;
   }
 }
 
@@ -345,11 +345,18 @@ h2 {
     font-size: 35px;
     height: auto;
   }
-
+  .logo {
+    top: 10%;
+    max-height: 220px;
+    max-width: 220px;
+  }
   .page {
     width: 80%;
   }
 
+  .more {
+    position: fixed;
+  }
   .buttons {
     height: 40%;
   }

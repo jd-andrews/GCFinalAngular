@@ -102,9 +102,14 @@ section {
 
 #quote {
   font-family: "Lato", sans-serif;
-  font-size: 3vh;
+  font-size: 2.5vh;
+  font-style: italic;
   color: white;
   text-shadow: 2px 2px 4px #000000;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 img {
   height: auto;
@@ -164,6 +169,10 @@ img {
     top: 10px;
     left: 50%;
     transform: translate(-50%);
+  }
+  img {
+    max-height: 80px;
+    max-width: 80px;
   }
 
   #arrowkey {
