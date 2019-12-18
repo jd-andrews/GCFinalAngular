@@ -13,7 +13,10 @@
   <a class="more topl" routerLink="/players">Play Again</a>
   <a class="more topr" routerLink="/add">Submit a Question</a>
   <section class="top">
-    <h1 class="score">Your score: {{ yourScore }}</h1>
+    <span class="score"
+      ><h1>Your score:</h1>
+      <h1 id="flash">{{ yourScore }}</h1></span
+    >
     <p class="scoreContent">
       * Your score was calculated based on how other players selected. Your
       Peeple/Sheeple placement is based on which choice was selected least.

@@ -111,8 +111,35 @@ table img {
   border: none;
 }
 .score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #98473c;
   text-shadow: 1px 2px #1c3232;
+}
+
+#flash {
+  animation-name: blink;
+  animation: blink 1.5s linear infinite;
+  margin-left: 3%;
+  text-shadow: none;
+  color: rgb(237, 104, 59);
+  font-family: "Mansalva", sans-serif;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+    font-size: 100%;
+  }
+  50% {
+    opacity: 0.5;
+    font-size: 150%;
+  }
+  100% {
+    opacity: 1;
+    font-size: 100%;
+  }
 }
 .profile {
   display: flex;
