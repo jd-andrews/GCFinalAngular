@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  pvsBaseUrl: "http://localhost:3003"
+  pvsBaseUrl: "https://localhost:3003"
 };
 
 /*
